@@ -140,7 +140,7 @@ func remoteConsole(ctx *cli.Context) error {
 				path = filepath.Join(path, "yolo-v2")
 			}
 		}
-		endpoint = fmt.Sprintf("%s/gvirbicoin.ipc", path)
+		endpoint = fmt.Sprintf("%s/gvbc.ipc", path)
 	}
 	client, err := dialRPC(endpoint)
 	if err != nil {
