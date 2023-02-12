@@ -22,8 +22,8 @@ import "github.com/ethereum/go-ethereum/common"
 // the main Ethereum network.
 var MainnetBootnodes = []string{
 	// VirBiCoin Go Bootnodes
-	"enode://435d93ae7faac09f1c6346149aaefa17fa12929b98a539da9e1c817938d3516521880f41845564d322f9f7513c28e4f76d0683674d9cbc4bb7424850c6b081e4@35.72.202.199:28329", // bootnode-aws-ap-northeast-1c-001
-	"enode://67493e8f821d8626e460103bdb774ed1a8ad2d130badc8e1f9e6ce71a66d76dace83774d40353fb025bdf260d6fb5603ba2d004e1a5b5bb88e7e95bdb1522640@13.208.86.138:28329", // bootnode-aws-ap-northeast-3c-001
+	"enode://2e2473744e362ab62e0e584679057e27eb132c7d3c90955974a29407cf45f53042d336628727863b2bd6d8156f79f93aca3122c164473d74ed5519acfc8acf5d@35.72.202.199:28329", // bootnode-aws-ap-northeast-1c-001
+	"enode://4ce554dc72547052752bab2a8c75262bd7d5f4d5967cb4320ad6b0e09776af43fc74b6bec0766ab26b8db1d4c7a5e6ffa03749355fc59768c6926f4a7994bfbe@13.208.86.138:28329", // bootnode-aws-ap-northeast-3c-001
 }
 
 // RopstenBootnodes are the enode URLs of the P2P bootstrap nodes running on the
