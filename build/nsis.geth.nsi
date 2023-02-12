@@ -29,9 +29,9 @@
 # - sign installer
 CRCCheck on
 
-!define GROUPNAME "Ethereum"
-!define APPNAME "Geth"
-!define DESCRIPTION "Official Go implementation of the Ethereum protocol"
+!define GROUPNAME "VirBiCoin"
+!define APPNAME "Gvbc"
+!define DESCRIPTION "VirBiCoin Go implementation of the Ethereum protocol"
 !addplugindir .\
 
 # Require admin rights on NT6+ (When UAC is turned on)
@@ -55,7 +55,7 @@ ${EndIf}
 !macroend
 
 function .onInit
-  # make vars are global for all users since geth is installed global
+  # make vars are global for all users since gvbc is installed global
   setShellVarContext all
   !insertmacro VerifyUserIsAdmin
 

@@ -27,7 +27,7 @@ import (
 
 // Genesis hashes to enforce below configs on.
 var (
-	MainnetGenesisHash = common.HexToHash("0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3")
+	MainnetGenesisHash = common.HexToHash("0x1a505395bfe4b2a8eef2f80033d68228db70e82bb695dd4ffb20e6d0cf71cb73")
 	RopstenGenesisHash = common.HexToHash("0x41941023680923e0fe4d74a34bdac8141f2540e3ae90623718e47d66d1ca4a2d")
 	RinkebyGenesisHash = common.HexToHash("0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177")
 	GoerliGenesisHash  = common.HexToHash("0xbf7e331f7f7c1dd2e05159666b3bf8bc7a8a3a9eb1d518969eab529dd9b88c1a")
@@ -38,37 +38,45 @@ var (
 // TrustedCheckpoints associates each known checkpoint with the genesis hash of
 // the chain it belongs to.
 var TrustedCheckpoints = map[common.Hash]*TrustedCheckpoint{
-	MainnetGenesisHash: MainnetTrustedCheckpoint,
-	RopstenGenesisHash: RopstenTrustedCheckpoint,
-	RinkebyGenesisHash: RinkebyTrustedCheckpoint,
-	GoerliGenesisHash:  GoerliTrustedCheckpoint,
+	// MainnetGenesisHash: MainnetTrustedCheckpoint,
+	// RopstenGenesisHash: RopstenTrustedCheckpoint,
+	// RinkebyGenesisHash: RinkebyTrustedCheckpoint,
+	// GoerliGenesisHash:  GoerliTrustedCheckpoint,
 }
 
 // CheckpointOracles associates each known checkpoint oracles with the genesis hash of
 // the chain it belongs to.
 var CheckpointOracles = map[common.Hash]*CheckpointOracleConfig{
-	MainnetGenesisHash: MainnetCheckpointOracle,
-	RopstenGenesisHash: RopstenCheckpointOracle,
-	RinkebyGenesisHash: RinkebyCheckpointOracle,
-	GoerliGenesisHash:  GoerliCheckpointOracle,
+	// MainnetGenesisHash: MainnetCheckpointOracle,
+	// RopstenGenesisHash: RopstenCheckpointOracle,
+	// RinkebyGenesisHash: RinkebyCheckpointOracle,
+	// GoerliGenesisHash:  GoerliCheckpointOracle,
 }
 
 var (
 	// MainnetChainConfig is the chain parameters to run a node on the main network.
 	MainnetChainConfig = &ChainConfig{
-		ChainID:             big.NewInt(1),
-		HomesteadBlock:      big.NewInt(1150000),
-		DAOForkBlock:        big.NewInt(1920000),
-		DAOForkSupport:      true,
-		EIP150Block:         big.NewInt(2463000),
-		EIP150Hash:          common.HexToHash("0x2086799aeebeae135c246c65021c82b4e15a2c451340993aacfd2751886514f0"),
-		EIP155Block:         big.NewInt(2675000),
-		EIP158Block:         big.NewInt(2675000),
-		ByzantiumBlock:      big.NewInt(4370000),
-		ConstantinopleBlock: big.NewInt(7280000),
-		PetersburgBlock:     big.NewInt(7280000),
-		IstanbulBlock:       big.NewInt(9069000),
-		MuirGlacierBlock:    big.NewInt(9200000),
+		ChainID: big.NewInt(329),
+		// VirBiCoin: Homestead is the default version for VirBiCoin, starting from block #0.
+		HomesteadBlock: big.NewInt(0),
+		// VirBiCoin: DAO Fork have nothing to do with VirBiCoin as this fork just only changes balances of some account
+		// which does not exists in VirBiCoin network from the beggining.
+		// To disable the fork, enter nil.
+		DAOForkBlock:   nil,
+		DAOForkSupport: true,
+		EIP150Block:    big.NewInt(0),
+		EIP150Hash:     common.HexToHash("0x2086799aeebeae135c246c65021c82b4e15a2c451340993aacfd2751886514f0"),
+		// VirBiCoin: EIP155 and EIP158 are Sprious Dragon fork specifications.
+		// This parameter states the block from which Sprious Dragon fork will be applied.
+		// In VirBiCoin network, this value is set to 100.
+		EIP155Block: big.NewInt(100),
+		EIP158Block: big.NewInt(100),
+		// VirBiCoin: Just disable future forks for now
+		ByzantiumBlock:      nil,
+		ConstantinopleBlock: nil,
+		PetersburgBlock:     nil,
+		IstanbulBlock:       nil,
+		MuirGlacierBlock:    nil,
 		Ethash:              new(EthashConfig),
 	}
 
