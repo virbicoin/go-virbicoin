@@ -1,4 +1,4 @@
-Name "gvirbicoin ${MAJORVERSION}.${MINORVERSION}.${BUILDVERSION}" # VERSION variables set through command line arguments
+Name "gvbc ${MAJORVERSION}.${MINORVERSION}.${BUILDVERSION}" # VERSION variables set through command line arguments
 InstallDir "$InstDir"
 OutFile "${OUTPUTFILE}" # set through command line arguments
 
@@ -12,15 +12,15 @@ PageEx license
   LicenseData {{.License}}
 PageExEnd
 
-# Install gvirbicoin binary
+# Install gvbc binary
 Section "Gvbc" GETH_IDX
   SetOutPath $INSTDIR
   file {{.Gvbc}}
 
   # Create start menu launcher
   createDirectory "$SMPROGRAMS\${APPNAME}"
-  createShortCut "$SMPROGRAMS\${APPNAME}\${APPNAME}.lnk" "$INSTDIR\gvirbicoin.exe"
-  createShortCut "$SMPROGRAMS\${APPNAME}\Attach.lnk" "$INSTDIR\gvirbicoin.exe" "attach"
+  createShortCut "$SMPROGRAMS\${APPNAME}\${APPNAME}.lnk" "$INSTDIR\gvbc.exe"
+  createShortCut "$SMPROGRAMS\${APPNAME}\Attach.lnk" "$INSTDIR\gvbc.exe" "attach"
   createShortCut "$SMPROGRAMS\${APPNAME}\Uninstall.lnk" "$INSTDIR\uninstall.exe"
 
   # Firewall - remove rules (if exists)
@@ -29,13 +29,13 @@ Section "Gvbc" GETH_IDX
   SimpleFC::AdvRemoveRule "Gvbc UDP discovery (UDP:28329)"
 
   # Firewall - add rules
-  SimpleFC::AdvAddRule "Gvbc incoming peers (TCP:28329)" ""  6 1 1 2147483647 1 "$INSTDIR\gvirbicoin.exe" "" "" "VirBiCoin" 28329 "" "" ""
-  SimpleFC::AdvAddRule "Gvbc outgoing peers (TCP:28329)" ""  6 2 1 2147483647 1 "$INSTDIR\gvirbicoin.exe" "" "" "VirBiCoin" "" 28329 "" ""
-  SimpleFC::AdvAddRule "Gvbc UDP discovery (UDP:28329)" "" 17 2 1 2147483647 1 "$INSTDIR\gvirbicoin.exe" "" "" "VirBiCoin" "" 28329 "" ""
+  SimpleFC::AdvAddRule "Gvbc incoming peers (TCP:28329)" ""  6 1 1 2147483647 1 "$INSTDIR\gvbc.exe" "" "" "VirBiCoin" 28329 "" "" ""
+  SimpleFC::AdvAddRule "Gvbc outgoing peers (TCP:28329)" ""  6 2 1 2147483647 1 "$INSTDIR\gvbc.exe" "" "" "VirBiCoin" "" 28329 "" ""
+  SimpleFC::AdvAddRule "Gvbc UDP discovery (UDP:28329)" "" 17 2 1 2147483647 1 "$INSTDIR\gvbc.exe" "" "" "VirBiCoin" "" 28329 "" ""
 
   # Set default IPC endpoint (https://github.com/ethereum/EIPs/issues/147)
-  ${EnvVarUpdate} $0 "ETHEREUM_SOCKET" "R" "HKLM" "\\.\pipe\gvirbicoin.ipc"
-  ${EnvVarUpdate} $0 "ETHEREUM_SOCKET" "A" "HKLM" "\\.\pipe\gvirbicoin.ipc"
+  ${EnvVarUpdate} $0 "ETHEREUM_SOCKET" "R" "HKLM" "\\.\pipe\gvbc.ipc"
+  ${EnvVarUpdate} $0 "ETHEREUM_SOCKET" "A" "HKLM" "\\.\pipe\gvbc.ipc"
 
   # Add instdir to PATH
   Push "$INSTDIR"

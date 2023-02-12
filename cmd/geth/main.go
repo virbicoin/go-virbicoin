@@ -46,7 +46,7 @@ import (
 )
 
 const (
-	clientIdentifier = "gvirbicoin" // Client identifier to advertise over the network
+	clientIdentifier = "gvbc" // Client identifier to advertise over the network
 )
 
 var (
