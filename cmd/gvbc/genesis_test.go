@@ -36,14 +36,14 @@ var customGenesisTests = []struct {
 			"difficulty" : "0x20000",
 			"extraData"  : "",
 			"gasLimit"   : "0x2fefd8",
-			"nonce"      : "0x000000000133c777",
+			"nonce"      : "0x000000000133c888",
 			"mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
 			"parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
 			"timestamp"  : "0x00",
 			"config"     : {}
 		}`,
 		query:  "eth.getBlock(0).nonce",
-		result: "0x000000000133c777",
+		result: "0x000000000133c888",
 	},
 	// Genesis file with specific chain configurations
 	{
@@ -53,7 +53,7 @@ var customGenesisTests = []struct {
 			"difficulty" : "0x20000",
 			"extraData"  : "",
 			"gasLimit"   : "0x2fefd8",
-			"nonce"      : "0x000000000133c777",
+			"nonce"      : "0x000000000133c888",
 			"mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
 			"parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
 			"timestamp"  : "0x00",
@@ -64,7 +64,7 @@ var customGenesisTests = []struct {
 			}
 		}`,
 		query:  "eth.getBlock(0).nonce",
-		result: "0x000000000133c777",
+		result: "0x000000000133c888",
 	},
 }
 
