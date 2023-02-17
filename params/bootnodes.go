@@ -22,7 +22,7 @@ import "github.com/ethereum/go-ethereum/common"
 // the main Ethereum network.
 var MainnetBootnodes = []string{
 	// VirBiCoin Go Bootnodes
-	"enode://2e2473744e362ab62e0e584679057e27eb132c7d3c90955974a29407cf45f53042d336628727863b2bd6d8156f79f93aca3122c164473d74ed5519acfc8acf5d@35.72.202.199:28329", // bootnode-aws-ap-northeast-1c-001
+	"enode://2296d4b3afc205c216158ffb022c1efbfa9976686f9af6d7b2e4b80106d7b3a8323be97fa68f00c6c90351db5eef68ed7d01ac47e7cb2945a5354d40dbc5024e@35.72.202.199:28329", // bootnode-aws-ap-northeast-1c-001
 	"enode://4ce554dc72547052752bab2a8c75262bd7d5f4d5967cb4320ad6b0e09776af43fc74b6bec0766ab26b8db1d4c7a5e6ffa03749355fc59768c6926f4a7994bfbe@13.208.86.138:28329", // bootnode-aws-ap-northeast-3c-001
 }
 
