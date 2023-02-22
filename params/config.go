@@ -27,7 +27,7 @@ import (
 
 // Genesis hashes to enforce below configs on.
 var (
-	MainnetGenesisHash = common.HexToHash("0xce1cf28cb0cb95d13195839b259bd20ed49b00d3c3cf5834e03de7276176b59b")
+	MainnetGenesisHash = common.HexToHash("0x4f4d9a8273af77a37d8b1fd6aacc38cabd81e14d2ff6acec67c10d75d8da1352")
 	RopstenGenesisHash = common.HexToHash("0x41941023680923e0fe4d74a34bdac8141f2540e3ae90623718e47d66d1ca4a2d")
 	RinkebyGenesisHash = common.HexToHash("0x6341fd3daf94b748c72ced5a5b26028f2474f5f00d824504e4fa37a75767e177")
 	GoerliGenesisHash  = common.HexToHash("0xbf7e331f7f7c1dd2e05159666b3bf8bc7a8a3a9eb1d518969eab529dd9b88c1a")
@@ -65,7 +65,7 @@ var (
 		DAOForkBlock:   nil,
 		DAOForkSupport: true,
 		EIP150Block:    big.NewInt(0),
-		EIP150Hash:     common.HexToHash("0x2086799aeebeae135c246c65021c82b4e15a2c451340993aacfd2751886514f0"),
+		EIP150Hash:     common.HexToHash("0x4f4d9a8273af77a37d8b1fd6aacc38cabd81e14d2ff6acec67c10d75d8da1352"),
 		// VirBiCoin: EIP155 and EIP158 are Sprious Dragon fork specifications.
 		// This parameter states the block from which Sprious Dragon fork will be applied.
 		// In VirBiCoin network, this value is set to 100.
