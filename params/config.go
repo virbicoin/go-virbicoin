@@ -62,22 +62,19 @@ var (
 		// VirBiCoin: DAO Fork have nothing to do with VirBiCoin as this fork just only changes balances of some account
 		// which does not exists in VirBiCoin network from the beggining.
 		// To disable the fork, enter nil.
-		DAOForkBlock:   nil,
-		DAOForkSupport: true,
-		EIP150Block:    big.NewInt(0),
-		EIP150Hash:     common.HexToHash("0x2086799aeebeae135c246c65021c82b4e15a2c451340993aacfd2751886514f0"),
-		// VirBiCoin: EIP155 and EIP158 are Sprious Dragon fork specifications.
-		// This parameter states the block from which Sprious Dragon fork will be applied.
-		// In VirBiCoin network, this value is set to 100.
-		EIP155Block: big.NewInt(100),
-		EIP158Block: big.NewInt(100),
+		DAOForkBlock:        nil,
+		DAOForkSupport:      true,
+		EIP150Block:         big.NewInt(0),
+		EIP150Hash:          common.HexToHash("0x2086799aeebeae135c246c65021c82b4e15a2c451340993aacfd2751886514f0"),
+		EIP155Block:         big.NewInt(0),
+		EIP158Block:         big.NewInt(0),
+		ByzantiumBlock:      big.NewInt(0),
+		ConstantinopleBlock: big.NewInt(0),
 		// VirBiCoin: Just disable future forks for now
-		ByzantiumBlock:      nil,
-		ConstantinopleBlock: nil,
-		PetersburgBlock:     nil,
-		IstanbulBlock:       nil,
-		MuirGlacierBlock:    nil,
-		Ethash:              new(EthashConfig),
+		PetersburgBlock:  nil,
+		IstanbulBlock:    nil,
+		MuirGlacierBlock: nil,
+		Ethash:           new(EthashConfig),
 	}
 
 	// MainnetTrustedCheckpoint contains the light client trusted checkpoint for the main network.
