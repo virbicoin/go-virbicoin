@@ -1,6 +1,6 @@
-module github.com/ethereum/go-ethereum
+module github.com/emerauda/go-virbicoin
 
-go 1.13
+go 1.19
 
 require (
 	github.com/Azure/azure-pipeline-go v0.2.2 // indirect
