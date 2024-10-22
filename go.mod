@@ -1,4 +1,4 @@
-module github.com/emerauda/go-virbicoin
+module github.com/ethereum/go-ethereum v1.10.26
 
 go 1.19
 
