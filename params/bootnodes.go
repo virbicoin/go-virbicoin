@@ -23,7 +23,7 @@ import "github.com/ethereum/go-ethereum/common"
 var MainnetBootnodes = []string{
 	// VirBiCoin Go Bootnodes
 	"enode://a96b1e0d1e93987a81a08dcef602890d25e449ba2823b03bfb521cf4e72020e6af86ae87c6aae89b62d57a7ec380bced83108fb8810205db508bddf32f98f6e7@35.72.202.199:28329", // bootNode-AWS-ap-northeast-1c-001
-	"enode://3814abe3c89363a2437606afe5dcd0e7dc9c2e03569ff35efef38c4f044e32c7dfe376eaaeffa03089735330b3377a72659839f8764ff5bee5139f819df75650@52.69.140.99:28329", // bootNode-AWS-ap-northeast-1d-001
+	"enode://156c3707f0a68d1a38e398b32ba11529201d37be49f5990ca3294cadac2870f6c08b3db604dbdf306f93d1128589631356095c59121acab37e8be7c56ba75931@52.69.140.99:28329", // bootNode-AWS-ap-northeast-1d-001
 }
 
 // RopstenBootnodes are the enode URLs of the P2P bootstrap nodes running on the
