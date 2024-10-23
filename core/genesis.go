@@ -334,6 +334,10 @@ func GenesisBlockForTesting(db ethdb.Database, addr common.Address, balance *big
 
 // DefaultGenesisBlock returns the Ethereum main net genesis block.
 func DefaultGenesisBlock() *Genesis {
+    balance, success := new(big.Int).SetString("1000000000000000000000000", 10)
+    if !success {
+        log.Fatal("Failed to parse balance")
+    }
     return &Genesis{
         Config: &params.ChainConfig{
             ChainID:             big.NewInt(329),
@@ -357,7 +361,7 @@ func DefaultGenesisBlock() *Genesis {
         Difficulty: big.NewInt(1024),
         Alloc: map[common.Address]GenesisAccount{
             common.HexToAddress("0x950302976387b43E042aeA242AE8DAB8e5C204D1"): {
-                Balance: big.NewInt(1000000000000000000000000),
+                Balance: balance,
             },
         },
     }
