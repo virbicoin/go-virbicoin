@@ -342,7 +342,7 @@ func DefaultGenesisBlock() *Genesis {
             EIP155Block:         big.NewInt(0),
             EIP158Block:         big.NewInt(0),
             ByzantiumBlock:      big.NewInt(0),
-            ConstantinopleBlock: big.NewInt(0)
+            ConstantinopleBlock: big.NewInt(0),
         },
         Nonce:      0x0000000000008329,
         ExtraData:  hexutil.MustDecode("0x"),
