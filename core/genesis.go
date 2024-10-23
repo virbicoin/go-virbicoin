@@ -338,18 +338,27 @@ func DefaultGenesisBlock() *Genesis {
         Config: &params.ChainConfig{
             ChainID:             big.NewInt(329),
             HomesteadBlock:      big.NewInt(0),
+            DAOForkBlock:        nil,
+            DAOForkSupport:      true,
             EIP150Block:         big.NewInt(0),
+            EIP150Hash:          common.HexToHash("0x2086799aeebeae135c246c65021c82b4e15a2c451340993aacfd2751886514f0"),
             EIP155Block:         big.NewInt(0),
             EIP158Block:         big.NewInt(0),
             ByzantiumBlock:      big.NewInt(0),
             ConstantinopleBlock: big.NewInt(0),
+            PetersburgBlock:     nil,
+            IstanbulBlock:       nil,
+            MuirGlacierBlock:    nil,
+            Ethash:              new(params.EthashConfig),
         },
         Nonce:      0x0000000000008329,
         ExtraData:  hexutil.MustDecode("0x"),
         GasLimit:   134217728,
         Difficulty: big.NewInt(1024),
         Alloc: map[common.Address]GenesisAccount{
-            common.HexToAddress("0x950302976387b43E042aeA242AE8DAB8e5C204D1"): {Balance: big.NewInt(1000000000000000000000000)},
+            common.HexToAddress("0x950302976387b43E042aeA242AE8DAB8e5C204D1"): {
+                Balance: big.NewInt(10000000000000000000000000),
+            },
         },
     }
 }
