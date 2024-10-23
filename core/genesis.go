@@ -335,12 +335,12 @@ func GenesisBlockForTesting(db ethdb.Database, addr common.Address, balance *big
 func DefaultGenesisBlock() *Genesis {
 	return &Genesis{
 		Config: &params.ChainConfig{
-			ChainId:             big.NewInt(329),
-			HomesteadBlock:      big.NewInt(0),
-			EIP150Block:         big.NewInt(0),
-			EIP155Block:         big.NewInt(0),
-			EIP158Block:         big.NewInt(0),
-			ByzantiumBlock:      big.NewInt(0),
+			ChainID: big.NewInt(329),
+			HomesteadBlock: big.NewInt(0),
+			EIP150Block: big.NewInt(0),
+			EIP155Block: big.NewInt(0),
+			EIP158Block: big.NewInt(0),
+			ByzantiumBlock: big.NewInt(0),
 			ConstantinopleBlock: big.NewInt(0),
 		},
 		Nonce:      0x000000000133c888,
@@ -348,7 +348,7 @@ func DefaultGenesisBlock() *Genesis {
 		GasLimit:   134217728,
 		Difficulty: big.NewInt(1024),
 		Alloc: map[common.Address]GenesisAccount{
-			common.HexToAddress("0x950302976387b43E042aeA242AE8DAB8e5C204D1"): {Balance: big.NewInt(10000000000000000000000000)},
+			common.HexToAddress("0x950302976387b43E042aeA242AE8DAB8e5C204D1"): {Balance: new(big.Int).SetString("10000000000000000000000000", 10)},
 		},
 	}
 }
