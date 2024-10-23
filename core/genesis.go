@@ -334,14 +334,24 @@ func GenesisBlockForTesting(db ethdb.Database, addr common.Address, balance *big
 
 // DefaultGenesisBlock returns the Ethereum main net genesis block.
 func DefaultGenesisBlock() *Genesis {
-	return &Genesis{
-		Config:     params.MainnetChainConfig,
-		Nonce:      0x0000000000008329,
-		ExtraData:  hexutil.MustDecode("0x"),
-		GasLimit:   134217728,
-		Difficulty: big.NewInt(1024),
-		Alloc:      decodePrealloc(mainnetAllocData),
-	}
+    return &Genesis{
+        Config: &params.ChainConfig{
+            ChainID:             big.NewInt(329),
+            HomesteadBlock:      big.NewInt(0),
+            EIP150Block:         big.NewInt(0),
+            EIP155Block:         big.NewInt(0),
+            EIP158Block:         big.NewInt(0),
+            ByzantiumBlock:      big.NewInt(0),
+            ConstantinopleBlock: big.NewInt(0)
+        },
+        Nonce:      0x0000000000008329,
+        ExtraData:  hexutil.MustDecode("0x"),
+        GasLimit:   134217728,
+        Difficulty: big.NewInt(1024),
+        Alloc: map[common.Address]GenesisAccount{
+            common.HexToAddress("0x950302976387b43E042aeA242AE8DAB8e5C204D1"): {Balance: big.NewInt(1000000000000000000000000)},
+        },
+    }
 }
 
 // DefaultRopstenGenesisBlock returns the Ropsten network genesis block.
