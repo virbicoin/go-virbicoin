@@ -129,7 +129,7 @@ func testDAOForkBlockNewChain(t *testing.T, test int, genesis string, expectBloc
 	}
 	defer db.Close()
 
-	genesisHash := common.HexToHash("0x8f6ab016954ac0a18773f1632c9df77db9e205177feea3bccbef74bd771b145a")
+	genesisHash := common.HexToHash("0x332e9454ce6d6fe18d9766d31341c6259d8ef34ad514201238c82118e67b9458")
 	if genesis != "" {
 		genesisHash = daoGenesisHash
 	}
