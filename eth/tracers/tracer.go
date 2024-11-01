@@ -25,11 +25,11 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/emerauda/go-virbicoin/common"
+	"github.com/emerauda/go-virbicoin/common/hexutil"
+	"github.com/emerauda/go-virbicoin/core/vm"
+	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/emerauda/go-virbicoin/log"
 	"gopkg.in/olebedev/go-duktape.v3"
 )
 

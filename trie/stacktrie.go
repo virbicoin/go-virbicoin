@@ -21,10 +21,10 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/emerauda/go-virbicoin/common"
+	"github.com/emerauda/go-virbicoin/ethdb"
+	"github.com/emerauda/go-virbicoin/log"
+	"github.com/emerauda/go-virbicoin/rlp"
 )
 
 var ErrCommitDisabled = errors.New("no database for committing")

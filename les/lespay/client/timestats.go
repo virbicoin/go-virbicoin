@@ -21,8 +21,8 @@ import (
 	"math"
 	"time"
 
-	"github.com/ethereum/go-ethereum/les/utils"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/emerauda/go-virbicoin/les/utils"
+	"github.com/emerauda/go-virbicoin/rlp"
 )
 
 const (

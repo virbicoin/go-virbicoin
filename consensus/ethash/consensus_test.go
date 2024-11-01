@@ -23,9 +23,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/emerauda/go-virbicoin/common/math"
+	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/emerauda/go-virbicoin/params"
 )
 
 type diffTest struct {

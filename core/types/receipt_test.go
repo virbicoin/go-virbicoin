@@ -23,10 +23,10 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/emerauda/go-virbicoin/common"
+	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/emerauda/go-virbicoin/params"
+	"github.com/emerauda/go-virbicoin/rlp"
 )
 
 func TestLegacyReceiptDecoding(t *testing.T) {

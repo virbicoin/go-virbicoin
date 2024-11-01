@@ -21,12 +21,12 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/vm"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/emerauda/go-virbicoin/common"
+	"github.com/emerauda/go-virbicoin/core/rawdb"
+	"github.com/emerauda/go-virbicoin/core/state"
+	"github.com/emerauda/go-virbicoin/core/vm"
+	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/emerauda/go-virbicoin/params"
 )
 
 // Config is a basic type specifying certain configuration flags for running

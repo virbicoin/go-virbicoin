@@ -24,14 +24,14 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/forkid"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/internal/utesting"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/rlpx"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/emerauda/go-virbicoin/common"
+	"github.com/emerauda/go-virbicoin/core/forkid"
+	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/emerauda/go-virbicoin/internal/utesting"
+	"github.com/emerauda/go-virbicoin/p2p"
+	"github.com/emerauda/go-virbicoin/p2p/rlpx"
+	"github.com/emerauda/go-virbicoin/rlp"
 )
 
 type Message interface {

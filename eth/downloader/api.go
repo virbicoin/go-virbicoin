@@ -20,9 +20,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/emerauda/go-virbicoin"
+	"github.com/emerauda/go-virbicoin/event"
+	"github.com/emerauda/go-virbicoin/rpc"
 )
 
 // PublicDownloaderAPI provides an API which gives information about the current synchronisation status.

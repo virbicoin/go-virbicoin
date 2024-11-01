@@ -24,10 +24,10 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/console/prompt"
-	"github.com/ethereum/go-ethereum/internal/ethapi"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/emerauda/go-virbicoin/common/hexutil"
+	"github.com/emerauda/go-virbicoin/console/prompt"
+	"github.com/emerauda/go-virbicoin/internal/ethapi"
+	"github.com/emerauda/go-virbicoin/log"
 )
 
 type CommandlineUI struct {

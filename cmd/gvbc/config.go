@@ -26,12 +26,12 @@ import (
 
 	"gopkg.in/urfave/cli.v1"
 
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	"github.com/ethereum/go-ethereum/eth"
-	"github.com/ethereum/go-ethereum/internal/ethapi"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/emerauda/go-virbicoin/cmd/utils"
+	"github.com/emerauda/go-virbicoin/eth"
+	"github.com/emerauda/go-virbicoin/internal/ethapi"
+	"github.com/emerauda/go-virbicoin/log"
+	"github.com/emerauda/go-virbicoin/node"
+	"github.com/emerauda/go-virbicoin/params"
 	"github.com/naoina/toml"
 )
 

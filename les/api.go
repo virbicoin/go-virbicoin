@@ -21,10 +21,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/common/mclock"
-	lps "github.com/ethereum/go-ethereum/les/lespay/server"
-	"github.com/ethereum/go-ethereum/p2p/enode"
+	"github.com/emerauda/go-virbicoin/common/hexutil"
+	"github.com/emerauda/go-virbicoin/common/mclock"
+	lps "github.com/emerauda/go-virbicoin/les/lespay/server"
+	"github.com/emerauda/go-virbicoin/p2p/enode"
 )
 
 var (

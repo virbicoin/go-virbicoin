@@ -25,13 +25,13 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	"github.com/ethereum/go-ethereum/common/compiler"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/internal/flags"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/emerauda/go-virbicoin/accounts/abi"
+	"github.com/emerauda/go-virbicoin/accounts/abi/bind"
+	"github.com/emerauda/go-virbicoin/cmd/utils"
+	"github.com/emerauda/go-virbicoin/common/compiler"
+	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/emerauda/go-virbicoin/internal/flags"
+	"github.com/emerauda/go-virbicoin/log"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -22,12 +22,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/trie"
+	"github.com/emerauda/go-virbicoin/common"
+	"github.com/emerauda/go-virbicoin/core/rawdb"
+	"github.com/emerauda/go-virbicoin/core/state"
+	"github.com/emerauda/go-virbicoin/ethdb"
+	"github.com/emerauda/go-virbicoin/log"
+	"github.com/emerauda/go-virbicoin/trie"
 	"golang.org/x/crypto/sha3"
 )
 

@@ -24,14 +24,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/emerauda/go-virbicoin"
+	"github.com/emerauda/go-virbicoin/common"
+	"github.com/emerauda/go-virbicoin/core"
+	"github.com/emerauda/go-virbicoin/core/rawdb"
+	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/emerauda/go-virbicoin/event"
+	"github.com/emerauda/go-virbicoin/log"
+	"github.com/emerauda/go-virbicoin/rpc"
 )
 
 // Type determines the kind of filter and is used to put the filter in to

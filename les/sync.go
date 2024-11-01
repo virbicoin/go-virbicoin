@@ -21,11 +21,11 @@ import (
 	"errors"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/eth/downloader"
-	"github.com/ethereum/go-ethereum/light"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/emerauda/go-virbicoin/common"
+	"github.com/emerauda/go-virbicoin/core/rawdb"
+	"github.com/emerauda/go-virbicoin/eth/downloader"
+	"github.com/emerauda/go-virbicoin/light"
+	"github.com/emerauda/go-virbicoin/log"
 )
 
 var errInvalidCheckpoint = errors.New("invalid advertised checkpoint")

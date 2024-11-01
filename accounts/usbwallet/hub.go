@@ -23,9 +23,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/emerauda/go-virbicoin/accounts"
+	"github.com/emerauda/go-virbicoin/event"
+	"github.com/emerauda/go-virbicoin/log"
 	"github.com/karalabe/usb"
 )
 

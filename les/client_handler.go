@@ -23,15 +23,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/core/forkid"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/eth/downloader"
-	"github.com/ethereum/go-ethereum/light"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/emerauda/go-virbicoin/common"
+	"github.com/emerauda/go-virbicoin/common/mclock"
+	"github.com/emerauda/go-virbicoin/core/forkid"
+	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/emerauda/go-virbicoin/eth/downloader"
+	"github.com/emerauda/go-virbicoin/light"
+	"github.com/emerauda/go-virbicoin/log"
+	"github.com/emerauda/go-virbicoin/p2p"
+	"github.com/emerauda/go-virbicoin/params"
 )
 
 // clientHandler is responsible for receiving and processing all incoming server

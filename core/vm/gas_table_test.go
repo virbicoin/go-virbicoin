@@ -21,11 +21,11 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/emerauda/go-virbicoin/common"
+	"github.com/emerauda/go-virbicoin/common/hexutil"
+	"github.com/emerauda/go-virbicoin/core/rawdb"
+	"github.com/emerauda/go-virbicoin/core/state"
+	"github.com/emerauda/go-virbicoin/params"
 )
 
 func TestMemoryGasCost(t *testing.T) {

@@ -21,12 +21,12 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/internal/debug"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/emerauda/go-virbicoin/common/hexutil"
+	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/emerauda/go-virbicoin/internal/debug"
+	"github.com/emerauda/go-virbicoin/p2p"
+	"github.com/emerauda/go-virbicoin/p2p/enode"
+	"github.com/emerauda/go-virbicoin/rpc"
 )
 
 // apis returns the collection of built-in RPC APIs.

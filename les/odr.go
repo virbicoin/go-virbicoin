@@ -20,10 +20,10 @@ import (
 	"context"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/light"
+	"github.com/emerauda/go-virbicoin/common/mclock"
+	"github.com/emerauda/go-virbicoin/core"
+	"github.com/emerauda/go-virbicoin/ethdb"
+	"github.com/emerauda/go-virbicoin/light"
 )
 
 // LesOdr implements light.OdrBackend

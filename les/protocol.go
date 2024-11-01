@@ -23,11 +23,11 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
-	lpc "github.com/ethereum/go-ethereum/les/lespay/client"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/emerauda/go-virbicoin/common"
+	"github.com/emerauda/go-virbicoin/crypto"
+	lpc "github.com/emerauda/go-virbicoin/les/lespay/client"
+	"github.com/emerauda/go-virbicoin/p2p/enode"
+	"github.com/emerauda/go-virbicoin/rlp"
 )
 
 // Constants to match up protocol versions and messages

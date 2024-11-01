@@ -24,15 +24,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/ethdb"
-	lpc "github.com/ethereum/go-ethereum/les/lespay/client"
-	"github.com/ethereum/go-ethereum/les/utils"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p/enode"
-	"github.com/ethereum/go-ethereum/p2p/enr"
-	"github.com/ethereum/go-ethereum/p2p/nodestate"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/emerauda/go-virbicoin/common/mclock"
+	"github.com/emerauda/go-virbicoin/ethdb"
+	lpc "github.com/emerauda/go-virbicoin/les/lespay/client"
+	"github.com/emerauda/go-virbicoin/les/utils"
+	"github.com/emerauda/go-virbicoin/log"
+	"github.com/emerauda/go-virbicoin/p2p/enode"
+	"github.com/emerauda/go-virbicoin/p2p/enr"
+	"github.com/emerauda/go-virbicoin/p2p/nodestate"
+	"github.com/emerauda/go-virbicoin/rlp"
 )
 
 const (

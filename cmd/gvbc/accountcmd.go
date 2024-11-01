@@ -20,11 +20,11 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/accounts/keystore"
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
+	"github.com/emerauda/go-virbicoin/accounts"
+	"github.com/emerauda/go-virbicoin/accounts/keystore"
+	"github.com/emerauda/go-virbicoin/cmd/utils"
+	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/emerauda/go-virbicoin/log"
 	"gopkg.in/urfave/cli.v1"
 )
 

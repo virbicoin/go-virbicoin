@@ -26,7 +26,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/common/math"
+	"github.com/emerauda/go-virbicoin/common/math"
 	"gopkg.in/urfave/cli.v1"
 )
 

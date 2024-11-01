@@ -19,15 +19,15 @@ package main
 import (
 	"strconv"
 
-	"github.com/ethereum/go-ethereum/accounts"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/accounts/external"
-	"github.com/ethereum/go-ethereum/cmd/utils"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/contracts/checkpointoracle"
-	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/emerauda/go-virbicoin/accounts"
+	"github.com/emerauda/go-virbicoin/accounts/abi/bind"
+	"github.com/emerauda/go-virbicoin/accounts/external"
+	"github.com/emerauda/go-virbicoin/cmd/utils"
+	"github.com/emerauda/go-virbicoin/common"
+	"github.com/emerauda/go-virbicoin/contracts/checkpointoracle"
+	"github.com/emerauda/go-virbicoin/ethclient"
+	"github.com/emerauda/go-virbicoin/params"
+	"github.com/emerauda/go-virbicoin/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 

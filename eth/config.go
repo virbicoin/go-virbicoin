@@ -24,13 +24,13 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/eth/downloader"
-	"github.com/ethereum/go-ethereum/eth/gasprice"
-	"github.com/ethereum/go-ethereum/miner"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/emerauda/go-virbicoin/common"
+	"github.com/emerauda/go-virbicoin/consensus/ethash"
+	"github.com/emerauda/go-virbicoin/core"
+	"github.com/emerauda/go-virbicoin/eth/downloader"
+	"github.com/emerauda/go-virbicoin/eth/gasprice"
+	"github.com/emerauda/go-virbicoin/miner"
+	"github.com/emerauda/go-virbicoin/params"
 )
 
 // DefaultFullGPOConfig contains default gasprice oracle settings for full node.

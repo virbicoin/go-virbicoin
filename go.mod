@@ -1,6 +1,6 @@
-module github.com/ethereum/go-ethereum
+module github.com/emerauda/go-virbicion
 
-go 1.19
+go 1.22
 
 require (
 	github.com/Azure/azure-storage-blob-go v0.7.0

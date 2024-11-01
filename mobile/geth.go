@@ -24,17 +24,17 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/eth"
-	"github.com/ethereum/go-ethereum/eth/downloader"
-	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/ethereum/go-ethereum/ethstats"
-	"github.com/ethereum/go-ethereum/internal/debug"
-	"github.com/ethereum/go-ethereum/les"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/nat"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/emerauda/go-virbicoin/core"
+	"github.com/emerauda/go-virbicoin/eth"
+	"github.com/emerauda/go-virbicoin/eth/downloader"
+	"github.com/emerauda/go-virbicoin/ethclient"
+	"github.com/emerauda/go-virbicoin/ethstats"
+	"github.com/emerauda/go-virbicoin/internal/debug"
+	"github.com/emerauda/go-virbicoin/les"
+	"github.com/emerauda/go-virbicoin/node"
+	"github.com/emerauda/go-virbicoin/p2p"
+	"github.com/emerauda/go-virbicoin/p2p/nat"
+	"github.com/emerauda/go-virbicoin/params"
 )
 
 // NodeConfig represents the collection of configuration values to fine tune the Geth
