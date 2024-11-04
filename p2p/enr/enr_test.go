@@ -72,7 +72,7 @@ func TestGetSetIPv6(t *testing.T) {
 
 // TestGetSetUDP tests encoding/decoding and setting/getting of the UDP key.
 func TestGetSetUDP(t *testing.T) {
-	port := UDP(30309)
+	port := UDP(28335)
 	var r Record
 	r.Set(port)
 

@@ -23,9 +23,9 @@ import "github.com/virbicoin/go-virbicoin/common"
 var MainnetBootnodes = []string{
 
     // VirBiCoin Official Go Bootnodes
-	"enode://a96b1e0d1e93987a81a08dcef602890d25e449ba2823b03bfb521cf4e72020e6af86ae87c6aae89b62d57a7ec380bced83108fb8810205db508bddf32f98f6e7@35.72.202.199:28329", // bootnode-AWS-ap-northeast-1a-01
-	"enode://156c3707f0a68d1a38e398b32ba11529201d37be49f5990ca3294cadac2870f6c08b3db604dbdf306f93d1128589631356095c59121acab37e8be7c56ba75931@52.69.140.99:28329", // bootnode-AWS-ap-northeast-1d-01
-	"enode://afb0a6b6a0a9b9881a384bea5c98f1997d0a0db7ae4ea89434e9b87ff65eb5e3f9a096d9ab757718f2915441f6d6ba8ab0ca9a6c452e1d7be9804bbcdf8ba662@13.208.46.232:28329", // bootnode-AWS-ap-northeast-3a-01
+	"enode://e8853097e51e155d6bac72b9ebff92ccdf5aa8ee9a845b92f6af969120b9ed017d6b79f231cf05f68e68237a824946f502b84914e0737e81c7a252a0174764f8@35.72.202.199:28329", // bootnode-aws-ap-northeast-1a-01
+	"enode://94fe52c478d13d584afe04102bd00c4fb0f229194d2163d9564f6c609b8f62614cc339866ab2473aed95c43d622ece71cbf1e87cb9fba65351a2c3db45be2074@52.69.140.99:28329", // bootnode-aws-ap-northeast-1d-01
+	"enode://141e23b0dc593a3e3474485d470df0057f2d710cd2d5dec733a7f2f8e6df81b034c4f5ff65e192af604c0d0f8bf2c53d2671190e3c9dcf78ada91e8810a43e54@13.208.46.232:28329", // bootnode-aws-ap-northeast-3a-01
 }
 
 // RopstenBootnodes are the enode URLs of the P2P bootstrap nodes running on the

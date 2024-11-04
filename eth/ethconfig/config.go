@@ -53,7 +53,7 @@ var LightClientGPO = gasprice.Config{
 	MaxPrice:   gasprice.DefaultMaxPrice,
 }
 
-// Defaults contains default settings for use on the Ethereum main net.
+// Defaults contains default settings for use on the VirBiCoin main net.
 var Defaults = Config{
 	SyncMode: downloader.FastSync,
 	Ethash: ethash.Config{

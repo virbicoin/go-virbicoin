@@ -133,7 +133,7 @@ var jsonTypedData = `
       "domain": {
         "name": "Ether Mail",
         "version": "1",
-        "chainId": "1",
+        "chainId": "329",
         "verifyingContract": "0xCCCcccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC"
       },
       "message": {
