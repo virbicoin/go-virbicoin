@@ -12,5 +12,5 @@ fi
 # Should be started by now
 if [ -S /home/user/.clef/clef.ipc ]; then
     # Post incoming request to HTTP channel
-	curl -H "Content-Type: application/json" -X POST -d @- http://localhost:8550 2>/dev/null
+	curl -H "Content-Type: application/json" -X POST -d @- http://localhost:8334 2>/dev/null
 fi

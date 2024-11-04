@@ -19,7 +19,7 @@ package rpc
 import (
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/metrics"
+	"github.com/virbicoin/go-virbicoin/metrics"
 )
 
 var (

@@ -26,9 +26,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/common/math"
-	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common/math"
+	"github.com/virbicoin/go-virbicoin/crypto"
 )
 
 const jsondata = `

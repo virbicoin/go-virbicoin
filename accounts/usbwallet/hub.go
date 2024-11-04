@@ -23,9 +23,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/accounts"
-	"github.com/emerauda/go-virbicoin/event"
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/accounts"
+	"github.com/virbicoin/go-virbicoin/event"
+	"github.com/virbicoin/go-virbicoin/log"
 	"github.com/karalabe/usb"
 )
 

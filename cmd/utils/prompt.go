@@ -20,7 +20,7 @@ package utils
 import (
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/console/prompt"
+	"github.com/virbicoin/go-virbicoin/console/prompt"
 )
 
 // GetPassPhrase displays the given text(prompt) to the user and requests some textual

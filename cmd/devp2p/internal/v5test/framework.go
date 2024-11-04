@@ -24,11 +24,11 @@ import (
 	"net"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common/mclock"
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/p2p/discover/v5wire"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
-	"github.com/emerauda/go-virbicoin/p2p/enr"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/p2p/discover/v5wire"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/p2p/enr"
 )
 
 // readError represents an error during packet reading.

@@ -20,7 +20,7 @@ import (
 	"testing"
 
 	"github.com/dop251/goja"
-	"github.com/emerauda/go-virbicoin/internal/jsre"
+	"github.com/virbicoin/go-virbicoin/internal/jsre"
 )
 
 // TestUndefinedAsParam ensures that personal functions can receive

@@ -31,20 +31,20 @@ import (
 	"sync"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/common/mclock"
-	"github.com/emerauda/go-virbicoin/consensus"
-	"github.com/emerauda/go-virbicoin/core"
-	"github.com/emerauda/go-virbicoin/core/types"
-	"github.com/emerauda/go-virbicoin/eth"
-	"github.com/emerauda/go-virbicoin/eth/downloader"
-	"github.com/emerauda/go-virbicoin/event"
-	"github.com/emerauda/go-virbicoin/les"
-	"github.com/emerauda/go-virbicoin/log"
-	"github.com/emerauda/go-virbicoin/miner"
-	"github.com/emerauda/go-virbicoin/node"
-	"github.com/emerauda/go-virbicoin/p2p"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/consensus"
+	"github.com/virbicoin/go-virbicoin/core"
+	"github.com/virbicoin/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/eth/downloader"
+	ethproto "github.com/virbicoin/go-virbicoin/eth/protocols/eth"
+	"github.com/virbicoin/go-virbicoin/event"
+	"github.com/virbicoin/go-virbicoin/les"
+	"github.com/virbicoin/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/miner"
+	"github.com/virbicoin/go-virbicoin/node"
+	"github.com/virbicoin/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/rpc"
 	"github.com/gorilla/websocket"
 )
 
@@ -444,13 +444,15 @@ func (s *Service) login(conn *connWrapper) error {
 	// Construct and send the login authentication
 	infos := s.server.NodeInfo()
 
-	var network, protocol string
+	var protocols []string
+	for _, proto := range s.server.Protocols {
+		protocols = append(protocols, fmt.Sprintf("%s/%d", proto.Name, proto.Version))
+	}
+	var network string
 	if info := infos.Protocols["eth"]; info != nil {
-		network = fmt.Sprintf("%d", info.(*eth.NodeInfo).Network)
-		protocol = fmt.Sprintf("eth/%d", eth.ProtocolVersions[0])
+		network = fmt.Sprintf("%d", info.(*ethproto.NodeInfo).Network)
 	} else {
 		network = fmt.Sprintf("%d", infos.Protocols["les"].(*les.NodeInfo).Network)
-		protocol = fmt.Sprintf("les/%d", les.ClientProtocolVersions[0])
 	}
 	auth := &authMsg{
 		ID: s.node,
@@ -459,7 +461,7 @@ func (s *Service) login(conn *connWrapper) error {
 			Node:     infos.Name,
 			Port:     infos.Ports.Listener,
 			Network:  network,
-			Protocol: protocol,
+			Protocol: strings.Join(protocols, ", "),
 			API:      "No",
 			Os:       runtime.GOOS,
 			OsVer:    runtime.GOARCH,

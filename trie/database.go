@@ -26,12 +26,12 @@ import (
 	"time"
 
 	"github.com/VictoriaMetrics/fastcache"
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/core/rawdb"
-	"github.com/emerauda/go-virbicoin/ethdb"
-	"github.com/emerauda/go-virbicoin/log"
-	"github.com/emerauda/go-virbicoin/metrics"
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/core/rawdb"
+	"github.com/virbicoin/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/metrics"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 var (
@@ -736,7 +736,7 @@ func (db *Database) Commit(node common.Hash, report bool, callback func(common.H
 	batch.Replay(uncacher)
 	batch.Reset()
 
-	// Reset the storage counters and bumpd metrics
+	// Reset the storage counters and bumped metrics
 	if db.preimages != nil {
 		db.preimages, db.preimagesSize = make(map[common.Hash][]byte), 0
 	}

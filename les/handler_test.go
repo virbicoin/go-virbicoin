@@ -23,19 +23,19 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/common/mclock"
-	"github.com/emerauda/go-virbicoin/consensus/ethash"
-	"github.com/emerauda/go-virbicoin/core"
-	"github.com/emerauda/go-virbicoin/core/rawdb"
-	"github.com/emerauda/go-virbicoin/core/types"
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/eth/downloader"
-	"github.com/emerauda/go-virbicoin/light"
-	"github.com/emerauda/go-virbicoin/p2p"
-	"github.com/emerauda/go-virbicoin/params"
-	"github.com/emerauda/go-virbicoin/rlp"
-	"github.com/emerauda/go-virbicoin/trie"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/consensus/ethash"
+	"github.com/virbicoin/go-virbicoin/core"
+	"github.com/virbicoin/go-virbicoin/core/rawdb"
+	"github.com/virbicoin/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/eth/downloader"
+	"github.com/virbicoin/go-virbicoin/light"
+	"github.com/virbicoin/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/params"
+	"github.com/virbicoin/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/trie"
 )
 
 func expectResponse(r p2p.MsgReader, msgcode, reqID, bv uint64, data interface{}) error {
@@ -51,7 +51,7 @@ func TestGetBlockHeadersLes2(t *testing.T) { testGetBlockHeaders(t, 2) }
 func TestGetBlockHeadersLes3(t *testing.T) { testGetBlockHeaders(t, 3) }
 
 func testGetBlockHeaders(t *testing.T, protocol int) {
-	server, tearDown := newServerEnv(t, downloader.MaxHashFetch+15, protocol, nil, false, true, 0)
+	server, tearDown := newServerEnv(t, downloader.MaxHeaderFetch+15, protocol, nil, false, true, 0)
 	defer tearDown()
 
 	bc := server.handler.blockchain
@@ -443,7 +443,7 @@ func testGetCHTProofs(t *testing.T, protocol int) {
 		Type:    htCanonical,
 		TrieIdx: 0,
 		Key:     key,
-		AuxReq:  auxHeader,
+		AuxReq:  htAuxHeader,
 	}}
 	// Send the proof request and verify the response
 	sendRequest(server.peer.app, GetHelperTrieProofsMsg, 42, requestsV2)

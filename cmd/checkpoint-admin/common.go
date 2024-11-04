@@ -19,15 +19,15 @@ package main
 import (
 	"strconv"
 
-	"github.com/emerauda/go-virbicoin/accounts"
-	"github.com/emerauda/go-virbicoin/accounts/abi/bind"
-	"github.com/emerauda/go-virbicoin/accounts/external"
-	"github.com/emerauda/go-virbicoin/cmd/utils"
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/contracts/checkpointoracle"
-	"github.com/emerauda/go-virbicoin/ethclient"
-	"github.com/emerauda/go-virbicoin/params"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/accounts"
+	"github.com/virbicoin/go-virbicoin/accounts/abi/bind"
+	"github.com/virbicoin/go-virbicoin/accounts/external"
+	"github.com/virbicoin/go-virbicoin/cmd/utils"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/contracts/checkpointoracle"
+	"github.com/virbicoin/go-virbicoin/ethclient"
+	"github.com/virbicoin/go-virbicoin/params"
+	"github.com/virbicoin/go-virbicoin/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -35,7 +35,7 @@ import (
 func newClient(ctx *cli.Context) *ethclient.Client {
 	client, err := ethclient.Dial(ctx.GlobalString(nodeURLFlag.Name))
 	if err != nil {
-		utils.Fatalf("Failed to connect to Ethereum node: %v", err)
+		utils.Fatalf("Failed to connect to VirBiCoin node: %v", err)
 	}
 	return client
 }
@@ -44,7 +44,7 @@ func newClient(ctx *cli.Context) *ethclient.Client {
 func newRPCClient(url string) *rpc.Client {
 	client, err := rpc.Dial(url)
 	if err != nil {
-		utils.Fatalf("Failed to connect to Ethereum node: %v", err)
+		utils.Fatalf("Failed to connect to VirBiCoin node: %v", err)
 	}
 	return client
 }

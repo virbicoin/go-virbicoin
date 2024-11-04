@@ -21,8 +21,8 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/core/types"
-	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/crypto"
 )
 
 // Tests that transactions can be added to strict lists and list contents and

@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/emerauda/go-virbicoin/node"
+	"github.com/virbicoin/go-virbicoin/node"
 )
 
 // SampleLifecycle is a trivial network service that can be attached to a node for

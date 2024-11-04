@@ -17,9 +17,9 @@
 package rawdb
 
 import (
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/ethdb"
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // ReadPreimage retrieves a single preimage of the provided hash.

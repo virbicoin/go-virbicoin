@@ -19,7 +19,7 @@ package downloader
 import (
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/core/types"
 )
 
 // peerDropFn is a callback type for dropping a peer detected as malicious.

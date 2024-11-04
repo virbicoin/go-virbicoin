@@ -26,18 +26,18 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/cmd/utils"
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/console/prompt"
-	"github.com/emerauda/go-virbicoin/core"
-	"github.com/emerauda/go-virbicoin/core/rawdb"
-	"github.com/emerauda/go-virbicoin/core/state"
-	"github.com/emerauda/go-virbicoin/core/types"
-	"github.com/emerauda/go-virbicoin/eth/downloader"
-	"github.com/emerauda/go-virbicoin/event"
-	"github.com/emerauda/go-virbicoin/log"
-	"github.com/emerauda/go-virbicoin/metrics"
-	"github.com/emerauda/go-virbicoin/trie"
+	"github.com/virbicoin/go-virbicoin/cmd/utils"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/console/prompt"
+	"github.com/virbicoin/go-virbicoin/core"
+	"github.com/virbicoin/go-virbicoin/core/rawdb"
+	"github.com/virbicoin/go-virbicoin/core/state"
+	"github.com/virbicoin/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/eth/downloader"
+	"github.com/virbicoin/go-virbicoin/event"
+	"github.com/virbicoin/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/metrics"
+	"github.com/virbicoin/go-virbicoin/trie"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -159,11 +159,12 @@ The export-preimages command export hash preimages to an RLP encoded stream`,
 			utils.CacheFlag,
 			utils.SyncModeFlag,
 			utils.FakePoWFlag,
+			utils.MainnetFlag,
 			utils.RopstenFlag,
 			utils.RinkebyFlag,
 			utils.TxLookupLimitFlag,
 			utils.GoerliFlag,
-			utils.YoloV2Flag,
+			utils.YoloV3Flag,
 			utils.LegacyTestnetFlag,
 		},
 		Category: "BLOCKCHAIN COMMANDS",
@@ -210,10 +211,11 @@ Use "ethereum dump 0" to dump the genesis block.`,
 			utils.DataDirFlag,
 			utils.AncientFlag,
 			utils.CacheFlag,
+			utils.MainnetFlag,
 			utils.RopstenFlag,
 			utils.RinkebyFlag,
 			utils.GoerliFlag,
-			utils.YoloV2Flag,
+			utils.YoloV3Flag,
 			utils.LegacyTestnetFlag,
 			utils.SyncModeFlag,
 		},

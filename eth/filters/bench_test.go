@@ -22,13 +22,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/common/bitutil"
-	"github.com/emerauda/go-virbicoin/core/bloombits"
-	"github.com/emerauda/go-virbicoin/core/rawdb"
-	"github.com/emerauda/go-virbicoin/core/types"
-	"github.com/emerauda/go-virbicoin/ethdb"
-	"github.com/emerauda/go-virbicoin/node"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common/bitutil"
+	"github.com/virbicoin/go-virbicoin/core/bloombits"
+	"github.com/virbicoin/go-virbicoin/core/rawdb"
+	"github.com/virbicoin/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/node"
 )
 
 func BenchmarkBloomBits512(b *testing.B) {
@@ -62,7 +62,7 @@ func BenchmarkBloomBits32k(b *testing.B) {
 const benchFilterCnt = 2000
 
 func benchmarkBloomBits(b *testing.B, sectionSize uint64) {
-	benchDataDir := node.DefaultDataDir() + "/geth/chaindata"
+	benchDataDir := node.DefaultDataDir() + "/gvbc/chaindata"
 	b.Log("Running bloombits benchmark   section size:", sectionSize)
 
 	db, err := rawdb.NewLevelDBDatabase(benchDataDir, 128, 1024, "")
@@ -155,7 +155,7 @@ func clearBloomBits(db ethdb.Database) {
 }
 
 func BenchmarkNoBloomBits(b *testing.B) {
-	benchDataDir := node.DefaultDataDir() + "/geth/chaindata"
+	benchDataDir := node.DefaultDataDir() + "/gvbc/chaindata"
 	b.Log("Running benchmark without bloombits")
 	db, err := rawdb.NewLevelDBDatabase(benchDataDir, 128, 1024, "")
 	if err != nil {

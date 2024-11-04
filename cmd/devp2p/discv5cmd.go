@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/cmd/devp2p/internal/v5test"
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/p2p/discover"
+	"github.com/virbicoin/go-virbicoin/cmd/devp2p/internal/v5test"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/p2p/discover"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -21,7 +21,7 @@ package metrics
 import (
 	"syscall"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // getProcessCPUTime retrieves the process' CPU time since program startup.

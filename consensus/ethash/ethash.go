@@ -34,10 +34,10 @@ import (
 	"unsafe"
 
 	"github.com/edsrzf/mmap-go"
-	"github.com/emerauda/go-virbicoin/consensus"
-	"github.com/emerauda/go-virbicoin/log"
-	"github.com/emerauda/go-virbicoin/metrics"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/consensus"
+	"github.com/virbicoin/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/metrics"
+	"github.com/virbicoin/go-virbicoin/rpc"
 	"github.com/hashicorp/golang-lru/simplelru"
 )
 

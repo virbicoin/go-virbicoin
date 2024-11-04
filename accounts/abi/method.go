@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/crypto"
 )
 
 // FunctionType represents different types of functions a contract might have.

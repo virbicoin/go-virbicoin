@@ -28,7 +28,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/emerauda/go-virbicoin/common/hexutil"
+	"github.com/virbicoin/go-virbicoin/common/hexutil"
 	"golang.org/x/crypto/sha3"
 )
 

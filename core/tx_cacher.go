@@ -19,7 +19,7 @@ package core
 import (
 	"runtime"
 
-	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/core/types"
 )
 
 // senderCacher is a concurrent transaction sender recoverer and cacher.

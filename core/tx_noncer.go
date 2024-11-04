@@ -19,8 +19,8 @@ package core
 import (
 	"sync"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/core/state"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/core/state"
 )
 
 // txNoncer is a tiny virtual state database to manage the executable nonces of

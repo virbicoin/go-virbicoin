@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/emerauda/go-virbicoin/log"
-	"github.com/emerauda/go-virbicoin/metrics"
-	"github.com/emerauda/go-virbicoin/metrics/prometheus"
+	"github.com/virbicoin/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/metrics"
+	"github.com/virbicoin/go-virbicoin/metrics/prometheus"
 )
 
 type exp struct {
@@ -128,7 +128,7 @@ func (exp *exp) publishMeter(name string, metric metrics.Meter) {
 	exp.getInt(name + ".count").Set(m.Count())
 	exp.getFloat(name + ".one-minute").Set(m.Rate1())
 	exp.getFloat(name + ".five-minute").Set(m.Rate5())
-	exp.getFloat(name + ".fifteen-minute").Set((m.Rate15()))
+	exp.getFloat(name + ".fifteen-minute").Set(m.Rate15())
 	exp.getFloat(name + ".mean").Set(m.RateMean())
 }
 

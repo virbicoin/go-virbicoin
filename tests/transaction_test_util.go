@@ -19,12 +19,12 @@ package tests
 import (
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/common/hexutil"
-	"github.com/emerauda/go-virbicoin/core"
-	"github.com/emerauda/go-virbicoin/core/types"
-	"github.com/emerauda/go-virbicoin/params"
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common/hexutil"
+	"github.com/virbicoin/go-virbicoin/core"
+	"github.com/virbicoin/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/params"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 // TransactionTest checks RLP decoding and sender derivation of transactions.

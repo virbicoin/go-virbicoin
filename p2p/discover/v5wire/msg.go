@@ -20,10 +20,10 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/emerauda/go-virbicoin/common/mclock"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
-	"github.com/emerauda/go-virbicoin/p2p/enr"
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/p2p/enr"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 // Packet is implemented by all message types.

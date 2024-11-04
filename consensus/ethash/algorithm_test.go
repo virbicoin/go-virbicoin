@@ -26,9 +26,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/common/hexutil"
-	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common/hexutil"
+	"github.com/virbicoin/go-virbicoin/core/types"
 )
 
 // prepare converts an ethash cache or dataset from a byte stream into the internal
@@ -731,7 +731,7 @@ func TestConcurrentDiskCacheGeneration(t *testing.T) {
 			defer pend.Done()
 			ethash := New(Config{cachedir, 0, 1, false, "", 0, 0, false, ModeNormal, nil}, nil, false)
 			defer ethash.Close()
-			if err := ethash.VerifySeal(nil, block.Header()); err != nil {
+			if err := ethash.verifySeal(nil, block.Header(), false); err != nil {
 				t.Errorf("proc %d: block verification failed: %v", idx, err)
 			}
 		}(i)

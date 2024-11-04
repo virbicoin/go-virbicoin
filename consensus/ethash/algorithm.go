@@ -27,10 +27,10 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/common/bitutil"
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common/bitutil"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/log"
 	"golang.org/x/crypto/sha3"
 )
 

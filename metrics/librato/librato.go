@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/metrics"
+	"github.com/virbicoin/go-virbicoin/metrics"
 )
 
 // a regexp for extracting the unit from time.Duration.String

@@ -28,12 +28,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/internal/testlog"
-	"github.com/emerauda/go-virbicoin/log"
-	"github.com/emerauda/go-virbicoin/p2p/discover/v5wire"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
-	"github.com/emerauda/go-virbicoin/p2p/enr"
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/internal/testlog"
+	"github.com/virbicoin/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/p2p/discover/v5wire"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/p2p/enr"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 // Real sockets, real crypto: this test checks end-to-end connectivity for UDPv5.

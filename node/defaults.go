@@ -22,9 +22,9 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/emerauda/go-virbicoin/p2p"
-	"github.com/emerauda/go-virbicoin/p2p/nat"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/p2p/nat"
+	"github.com/virbicoin/go-virbicoin/rpc"
 )
 
 const (

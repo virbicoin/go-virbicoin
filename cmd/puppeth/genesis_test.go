@@ -25,7 +25,7 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/emerauda/go-virbicoin/core"
+	"github.com/virbicoin/go-virbicoin/core"
 )
 
 // Tests the go-ethereum to Aleth chainspec conversion for the Stureby testnet.

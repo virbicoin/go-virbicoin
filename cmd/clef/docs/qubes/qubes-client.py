@@ -1,5 +1,5 @@
 """
-This implements a dispatcher which listens to localhost:8550, and proxies
+This implements a dispatcher which listens to localhost:8334, and proxies
 requests via qrexec to the service qubes.EthSign on a target domain
 """
 

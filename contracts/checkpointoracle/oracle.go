@@ -23,10 +23,10 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/emerauda/go-virbicoin/accounts/abi/bind"
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/contracts/checkpointoracle/contract"
-	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/accounts/abi/bind"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/contracts/checkpointoracle/contract"
+	"github.com/virbicoin/go-virbicoin/core/types"
 )
 
 // CheckpointOracle is a Go wrapper around an on-chain checkpoint oracle contract.

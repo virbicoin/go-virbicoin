@@ -16,13 +16,13 @@
 
 // Contains perverted wrappers to allow crossing over empty interfaces.
 
-package geth
+package gvbc
 
 import (
 	"errors"
 	"math/big"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 // Interface represents a wrapped version of Go's interface{}, with the capacity

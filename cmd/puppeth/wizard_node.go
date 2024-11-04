@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/accounts/keystore"
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/accounts/keystore"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // deployNode creates a new node configuration based on some user input.
@@ -168,7 +168,7 @@ func (w *wizard) deployNode(boot bool) {
 		nocache = w.readDefaultYesNo(false)
 	}
 	if out, err := deployNode(client, w.network, w.conf.bootnodes, infos, nocache); err != nil {
-		log.Error("Failed to deploy Ethereum node container", "err", err)
+		log.Error("Failed to deploy VIrBiCoin node container", "err", err)
 		if len(out) > 0 {
 			fmt.Printf("%s\n", out)
 		}

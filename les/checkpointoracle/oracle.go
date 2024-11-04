@@ -25,12 +25,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/accounts/abi/bind"
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/contracts/checkpointoracle"
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/log"
-	"github.com/emerauda/go-virbicoin/params"
+	"github.com/virbicoin/go-virbicoin/accounts/abi/bind"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/contracts/checkpointoracle"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/params"
 )
 
 // CheckpointOracle is responsible for offering the latest stable checkpoint

@@ -19,8 +19,8 @@ package les
 import (
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common/bitutil"
-	"github.com/emerauda/go-virbicoin/light"
+	"github.com/virbicoin/go-virbicoin/common/bitutil"
+	"github.com/virbicoin/go-virbicoin/light"
 )
 
 const (

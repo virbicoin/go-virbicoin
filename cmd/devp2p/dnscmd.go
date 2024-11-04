@@ -25,11 +25,11 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/accounts/keystore"
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/console/prompt"
-	"github.com/emerauda/go-virbicoin/p2p/dnsdisc"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/accounts/keystore"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/console/prompt"
+	"github.com/virbicoin/go-virbicoin/p2p/dnsdisc"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
 	"gopkg.in/urfave/cli.v1"
 )
 

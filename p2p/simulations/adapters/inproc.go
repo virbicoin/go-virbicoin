@@ -24,13 +24,13 @@ import (
 	"net"
 	"sync"
 
-	"github.com/emerauda/go-virbicoin/event"
-	"github.com/emerauda/go-virbicoin/log"
-	"github.com/emerauda/go-virbicoin/node"
-	"github.com/emerauda/go-virbicoin/p2p"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
-	"github.com/emerauda/go-virbicoin/p2p/simulations/pipes"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/event"
+	"github.com/virbicoin/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/node"
+	"github.com/virbicoin/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/p2p/simulations/pipes"
+	"github.com/virbicoin/go-virbicoin/rpc"
 	"github.com/gorilla/websocket"
 )
 
@@ -100,7 +100,6 @@ func (s *SimAdapter) NewNode(config *NodeConfig) (Node, error) {
 			EnableMsgEvents: config.EnableMsgEvents,
 		},
 		ExternalSigner: config.ExternalSigner,
-		NoUSB:          true,
 		Logger:         log.New("node.id", id.String()),
 	})
 	if err != nil {

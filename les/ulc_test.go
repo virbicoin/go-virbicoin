@@ -23,9 +23,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/p2p"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
 )
 
 func TestULCAnnounceThresholdLes2(t *testing.T) { testULCAnnounceThreshold(t, 2) }

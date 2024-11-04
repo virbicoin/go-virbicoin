@@ -26,7 +26,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common/math"
+	"github.com/virbicoin/go-virbicoin/common/math"
 )
 
 type testEncoder struct {

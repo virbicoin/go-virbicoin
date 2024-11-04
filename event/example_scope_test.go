@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/emerauda/go-virbicoin/event"
+	"github.com/virbicoin/go-virbicoin/event"
 )
 
 // This example demonstrates how SubscriptionScope can be used to control the lifetime of

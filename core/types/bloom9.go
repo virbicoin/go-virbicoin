@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/emerauda/go-virbicoin/common/hexutil"
-	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/common/hexutil"
+	"github.com/virbicoin/go-virbicoin/crypto"
 )
 
 type bytesBacked interface {

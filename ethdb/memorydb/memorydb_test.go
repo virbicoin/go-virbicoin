@@ -19,8 +19,8 @@ package memorydb
 import (
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/ethdb"
-	"github.com/emerauda/go-virbicoin/ethdb/dbtest"
+	"github.com/virbicoin/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/ethdb/dbtest"
 )
 
 func TestMemoryDB(t *testing.T) {

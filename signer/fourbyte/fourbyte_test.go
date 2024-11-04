@@ -22,8 +22,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/accounts/abi"
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/accounts/abi"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 // Tests that all the selectors contained in the 4byte database are valid.

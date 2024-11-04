@@ -19,8 +19,8 @@ package trie
 import (
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // SecureTrie wraps a trie with key hashing. In a secure trie, all

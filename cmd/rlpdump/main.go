@@ -26,7 +26,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 var (

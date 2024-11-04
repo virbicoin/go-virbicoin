@@ -21,9 +21,9 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/emerauda/go-virbicoin/core/state"
-	"github.com/emerauda/go-virbicoin/core/types"
-	"github.com/emerauda/go-virbicoin/params"
+	"github.com/virbicoin/go-virbicoin/core/state"
+	"github.com/virbicoin/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/params"
 )
 
 var (

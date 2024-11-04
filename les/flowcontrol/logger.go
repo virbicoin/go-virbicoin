@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
 )
 
 // logger collects events in string format and discards events older than the

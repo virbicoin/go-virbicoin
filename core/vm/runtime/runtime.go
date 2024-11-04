@@ -21,12 +21,12 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/core/rawdb"
-	"github.com/emerauda/go-virbicoin/core/state"
-	"github.com/emerauda/go-virbicoin/core/vm"
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/params"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/core/rawdb"
+	"github.com/virbicoin/go-virbicoin/core/state"
+	"github.com/virbicoin/go-virbicoin/core/vm"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/params"
 )
 
 // Config is a basic type specifying certain configuration flags for running
@@ -65,7 +65,7 @@ func setDefaults(cfg *Config) {
 			PetersburgBlock:     new(big.Int),
 			IstanbulBlock:       new(big.Int),
 			MuirGlacierBlock:    new(big.Int),
-			YoloV2Block:         nil,
+			YoloV3Block:         nil,
 		}
 	}
 
@@ -113,7 +113,7 @@ func Execute(code, input []byte, cfg *Config) ([]byte, *state.StateDB, error) {
 		vmenv   = NewEnv(cfg)
 		sender  = vm.AccountRef(cfg.Origin)
 	)
-	if cfg.ChainConfig.IsYoloV2(vmenv.Context.BlockNumber) {
+	if cfg.ChainConfig.IsYoloV3(vmenv.Context.BlockNumber) {
 		cfg.State.AddAddressToAccessList(cfg.Origin)
 		cfg.State.AddAddressToAccessList(address)
 		for _, addr := range vmenv.ActivePrecompiles() {
@@ -149,7 +149,7 @@ func Create(input []byte, cfg *Config) ([]byte, common.Address, uint64, error) {
 		vmenv  = NewEnv(cfg)
 		sender = vm.AccountRef(cfg.Origin)
 	)
-	if cfg.ChainConfig.IsYoloV2(vmenv.Context.BlockNumber) {
+	if cfg.ChainConfig.IsYoloV3(vmenv.Context.BlockNumber) {
 		cfg.State.AddAddressToAccessList(cfg.Origin)
 		for _, addr := range vmenv.ActivePrecompiles() {
 			cfg.State.AddAddressToAccessList(addr)
@@ -177,7 +177,7 @@ func Call(address common.Address, input []byte, cfg *Config) ([]byte, uint64, er
 	vmenv := NewEnv(cfg)
 
 	sender := cfg.State.GetOrNewStateObject(cfg.Origin)
-	if cfg.ChainConfig.IsYoloV2(vmenv.Context.BlockNumber) {
+	if cfg.ChainConfig.IsYoloV3(vmenv.Context.BlockNumber) {
 		cfg.State.AddAddressToAccessList(cfg.Origin)
 		cfg.State.AddAddressToAccessList(address)
 		for _, addr := range vmenv.ActivePrecompiles() {

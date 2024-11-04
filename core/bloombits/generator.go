@@ -19,7 +19,7 @@ package bloombits
 import (
 	"errors"
 
-	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/core/types"
 )
 
 var (

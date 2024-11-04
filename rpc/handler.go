@@ -25,7 +25,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // handler handles JSON-RPC messages. There is one handler per connection. Note that

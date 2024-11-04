@@ -26,7 +26,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 	"github.com/stretchr/testify/require"
 )
 

@@ -25,10 +25,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common/bitutil"
-	"github.com/emerauda/go-virbicoin/metrics"
-	"github.com/emerauda/go-virbicoin/p2p/rlpx"
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/common/bitutil"
+	"github.com/virbicoin/go-virbicoin/metrics"
+	"github.com/virbicoin/go-virbicoin/p2p/rlpx"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 const (

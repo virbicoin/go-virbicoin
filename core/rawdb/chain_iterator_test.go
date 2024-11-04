@@ -23,8 +23,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/core/types"
 )
 
 func TestChainIterator(t *testing.T) {

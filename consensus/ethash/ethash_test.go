@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/common/hexutil"
-	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common/hexutil"
+	"github.com/virbicoin/go-virbicoin/core/types"
 )
 
 // Tests that ethash works correctly in test mode.
@@ -46,16 +46,16 @@ func TestTestMode(t *testing.T) {
 	case block := <-results:
 		header.Nonce = types.EncodeNonce(block.Nonce())
 		header.MixDigest = block.MixDigest()
-		if err := ethash.VerifySeal(nil, header); err != nil {
+		if err := ethash.verifySeal(nil, header, false); err != nil {
 			t.Fatalf("unexpected verification error: %v", err)
 		}
-	case <-time.NewTimer(2 * time.Second).C:
+	case <-time.NewTimer(4 * time.Second).C:
 		t.Error("sealing result timeout")
 	}
 }
 
 // This test checks that cache lru logic doesn't crash under load.
-// It reproduces https://github.com/emerauda/go-virbicoin/issues/14943
+// It reproduces https://github.com/ethereum/go-ethereum/issues/14943
 func TestCacheFileEvict(t *testing.T) {
 	tmpdir, err := ioutil.TempDir("", "ethash-test")
 	if err != nil {
@@ -86,7 +86,7 @@ func verifyTest(wg *sync.WaitGroup, e *Ethash, workerIndex, epochs int) {
 			block = 0
 		}
 		header := &types.Header{Number: big.NewInt(block), Difficulty: big.NewInt(100)}
-		e.VerifySeal(nil, header)
+		e.verifySeal(nil, header, false)
 	}
 }
 

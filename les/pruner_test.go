@@ -23,8 +23,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/core"
-	"github.com/emerauda/go-virbicoin/light"
+	"github.com/virbicoin/go-virbicoin/core"
+	"github.com/virbicoin/go-virbicoin/light"
 )
 
 func TestLightPruner(t *testing.T) {

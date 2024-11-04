@@ -19,7 +19,7 @@ package keystore
 import (
 	"os"
 
-	"github.com/emerauda/go-virbicoin/accounts/keystore"
+	"github.com/virbicoin/go-virbicoin/accounts/keystore"
 )
 
 func Fuzz(input []byte) int {

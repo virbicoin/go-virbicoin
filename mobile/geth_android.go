@@ -16,7 +16,7 @@
 
 // +build android
 
-package geth
+package gvbc
 
 // clientIdentifier is a hard coded identifier to report into the network.
-var clientIdentifier = "GethDroid"
+var clientIdentifier = "GvbcDroid"

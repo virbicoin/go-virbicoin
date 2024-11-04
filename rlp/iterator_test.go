@@ -19,7 +19,7 @@ package rlp
 import (
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common/hexutil"
+	"github.com/virbicoin/go-virbicoin/common/hexutil"
 )
 
 // TestIterator tests some basic things about the ListIterator. A more

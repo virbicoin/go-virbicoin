@@ -25,13 +25,13 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/emerauda/go-virbicoin/accounts/abi"
-	"github.com/emerauda/go-virbicoin/accounts/abi/bind"
-	"github.com/emerauda/go-virbicoin/cmd/utils"
-	"github.com/emerauda/go-virbicoin/common/compiler"
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/internal/flags"
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/accounts/abi"
+	"github.com/virbicoin/go-virbicoin/accounts/abi/bind"
+	"github.com/virbicoin/go-virbicoin/cmd/utils"
+	"github.com/virbicoin/go-virbicoin/common/compiler"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/internal/flags"
+	"github.com/virbicoin/go-virbicoin/log"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -96,7 +96,7 @@ var (
 	}
 	aliasFlag = cli.StringFlag{
 		Name:  "alias",
-		Usage: "Comma separated aliases for function and event renaming, e.g. foo=bar",
+		Usage: "Comma separated aliases for function and event renaming, e.g. original1=alias1, original2=alias2",
 	}
 )
 

@@ -21,7 +21,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/p2p"
 	"github.com/stretchr/testify/assert"
 )
 

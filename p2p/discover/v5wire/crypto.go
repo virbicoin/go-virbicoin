@@ -25,9 +25,9 @@ import (
 	"fmt"
 	"hash"
 
-	"github.com/emerauda/go-virbicoin/common/math"
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/common/math"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
 	"golang.org/x/crypto/hkdf"
 )
 

@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // deployDashboard queries the user for various input on deploying a web-service

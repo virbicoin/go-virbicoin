@@ -22,12 +22,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common/mclock"
-	"github.com/emerauda/go-virbicoin/core/rawdb"
-	lps "github.com/emerauda/go-virbicoin/les/lespay/server"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
-	"github.com/emerauda/go-virbicoin/p2p/enr"
-	"github.com/emerauda/go-virbicoin/p2p/nodestate"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/core/rawdb"
+	lps "github.com/virbicoin/go-virbicoin/les/lespay/server"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/p2p/enr"
+	"github.com/virbicoin/go-virbicoin/p2p/nodestate"
 )
 
 func TestClientPoolL10C100Free(t *testing.T) {

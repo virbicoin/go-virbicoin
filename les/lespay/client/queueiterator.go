@@ -19,8 +19,8 @@ package client
 import (
 	"sync"
 
-	"github.com/emerauda/go-virbicoin/p2p/enode"
-	"github.com/emerauda/go-virbicoin/p2p/nodestate"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/p2p/nodestate"
 )
 
 // QueueIterator returns nodes from the specified selectable set in the same order as

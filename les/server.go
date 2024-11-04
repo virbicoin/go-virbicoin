@@ -21,20 +21,21 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common/mclock"
-	"github.com/emerauda/go-virbicoin/eth"
-	"github.com/emerauda/go-virbicoin/les/flowcontrol"
-	lps "github.com/emerauda/go-virbicoin/les/lespay/server"
-	"github.com/emerauda/go-virbicoin/light"
-	"github.com/emerauda/go-virbicoin/log"
-	"github.com/emerauda/go-virbicoin/node"
-	"github.com/emerauda/go-virbicoin/p2p"
-	"github.com/emerauda/go-virbicoin/p2p/discv5"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
-	"github.com/emerauda/go-virbicoin/p2p/enr"
-	"github.com/emerauda/go-virbicoin/p2p/nodestate"
-	"github.com/emerauda/go-virbicoin/params"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/core"
+	"github.com/virbicoin/go-virbicoin/eth/ethconfig"
+	"github.com/virbicoin/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/les/flowcontrol"
+	lps "github.com/virbicoin/go-virbicoin/les/lespay/server"
+	"github.com/virbicoin/go-virbicoin/light"
+	"github.com/virbicoin/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/node"
+	"github.com/virbicoin/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/p2p/enr"
+	"github.com/virbicoin/go-virbicoin/p2p/nodestate"
+	"github.com/virbicoin/go-virbicoin/params"
+	"github.com/virbicoin/go-virbicoin/rpc"
 )
 
 var (
@@ -51,6 +52,15 @@ func init() {
 	priorityPoolSetup.Connect(balanceTrackerSetup.BalanceField, balanceTrackerSetup.UpdateFlag) // NodeBalance implements nodePriority
 }
 
+type ethBackend interface {
+	ArchiveMode() bool
+	BlockChain() *core.BlockChain
+	BloomIndexer() *core.ChainIndexer
+	ChainDb() ethdb.Database
+	Synced() bool
+	TxPool() *core.TxPool
+}
+
 type LesServer struct {
 	lesCommons
 
@@ -58,7 +68,6 @@ type LesServer struct {
 	archiveMode bool // Flag whether the ethereum node runs in archive mode.
 	handler     *serverHandler
 	broadcaster *broadcaster
-	lesTopics   []discv5.Topic
 	privateKey  *ecdsa.PrivateKey
 
 	// Flow control and capacity management
@@ -75,13 +84,8 @@ type LesServer struct {
 	p2pSrv *p2p.Server
 }
 
-func NewLesServer(node *node.Node, e *eth.Ethereum, config *eth.Config) (*LesServer, error) {
+func NewLesServer(node *node.Node, e ethBackend, config *ethconfig.Config) (*LesServer, error) {
 	ns := nodestate.NewNodeStateMachine(nil, nil, mclock.System{}, serverSetup)
-	// Collect les protocol version information supported by local node.
-	lesTopics := make([]discv5.Topic, len(AdvertiseProtocolVersions))
-	for i, pv := range AdvertiseProtocolVersions {
-		lesTopics[i] = lesTopic(e.BlockChain().Genesis().Hash(), pv)
-	}
 	// Calculate the number of threads used to service the light client
 	// requests based on the user-specified value.
 	threads := config.LightServ * 4 / 100
@@ -103,7 +107,6 @@ func NewLesServer(node *node.Node, e *eth.Ethereum, config *eth.Config) (*LesSer
 		ns:           ns,
 		archiveMode:  e.ArchiveMode(),
 		broadcaster:  newBroadcaster(ns),
-		lesTopics:    lesTopics,
 		fcManager:    flowcontrol.NewClientManager(nil, &mclock.System{}),
 		servingQueue: newServingQueue(int64(time.Millisecond*10), float64(config.LightServ)/100),
 		threadsBusy:  config.LightServ/100 + 1,
@@ -202,19 +205,6 @@ func (s *LesServer) Start() error {
 
 	s.wg.Add(1)
 	go s.capacityManagement()
-
-	if s.p2pSrv.DiscV5 != nil {
-		for _, topic := range s.lesTopics {
-			topic := topic
-			go func() {
-				logger := log.New("topic", topic)
-				logger.Info("Starting topic registration")
-				defer logger.Info("Terminated topic registration")
-
-				s.p2pSrv.DiscV5.RegisterTopic(topic, s.closeCh)
-			}()
-		}
-	}
 
 	return nil
 }

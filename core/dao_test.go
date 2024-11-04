@@ -20,10 +20,10 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/consensus/ethash"
-	"github.com/emerauda/go-virbicoin/core/rawdb"
-	"github.com/emerauda/go-virbicoin/core/vm"
-	"github.com/emerauda/go-virbicoin/params"
+	"github.com/virbicoin/go-virbicoin/consensus/ethash"
+	"github.com/virbicoin/go-virbicoin/core/rawdb"
+	"github.com/virbicoin/go-virbicoin/core/vm"
+	"github.com/virbicoin/go-virbicoin/params"
 )
 
 // Tests that DAO-fork enabled clients can properly filter out fork-commencing

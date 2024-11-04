@@ -19,7 +19,7 @@ package trie
 import (
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 // MissingNodeError is returned by the trie functions (TryGet, TryUpdate, TryDelete)

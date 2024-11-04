@@ -16,7 +16,7 @@
 
 package downloader
 
-import "github.com/emerauda/go-virbicoin/core/types"
+import "github.com/virbicoin/go-virbicoin/core/types"
 
 type DoneEvent struct {
 	Latest *types.Header

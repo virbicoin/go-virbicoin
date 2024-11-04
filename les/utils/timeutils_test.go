@@ -20,7 +20,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
 )
 
 func TestUpdateTimer(t *testing.T) {

@@ -23,8 +23,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/crypto"
 )
 
 // The ABI holds information about a contract's context and available

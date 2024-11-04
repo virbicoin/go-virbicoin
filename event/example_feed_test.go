@@ -19,7 +19,7 @@ package event_test
 import (
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/event"
+	"github.com/virbicoin/go-virbicoin/event"
 )
 
 func ExampleFeed_acknowledgedEvents() {

@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 var (

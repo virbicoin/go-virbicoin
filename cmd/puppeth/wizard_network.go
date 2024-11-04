@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // manageServers displays a list of servers the user can disconnect from, and an

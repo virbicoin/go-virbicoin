@@ -16,13 +16,13 @@
 
 // Contains all the wrappers from the math/big package.
 
-package geth
+package gvbc
 
 import (
 	"errors"
 	"math/big"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 // A BigInt represents a signed multi-precision integer.

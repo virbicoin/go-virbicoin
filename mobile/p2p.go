@@ -16,12 +16,12 @@
 
 // Contains wrappers for the p2p package.
 
-package geth
+package gvbc
 
 import (
 	"errors"
 
-	"github.com/emerauda/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/p2p"
 )
 
 // NodeInfo represents pi short summary of the information known about the host.

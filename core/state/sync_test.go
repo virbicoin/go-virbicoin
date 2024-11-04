@@ -21,13 +21,13 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/core/rawdb"
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/ethdb"
-	"github.com/emerauda/go-virbicoin/ethdb/memorydb"
-	"github.com/emerauda/go-virbicoin/rlp"
-	"github.com/emerauda/go-virbicoin/trie"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/core/rawdb"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/ethdb/memorydb"
+	"github.com/virbicoin/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/trie"
 )
 
 // testAccount is the data associated with an account used by the state tests.

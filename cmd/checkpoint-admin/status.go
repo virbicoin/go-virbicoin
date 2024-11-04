@@ -19,8 +19,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/cmd/utils"
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/cmd/utils"
+	"github.com/virbicoin/go-virbicoin/common"
 	"gopkg.in/urfave/cli.v1"
 )
 

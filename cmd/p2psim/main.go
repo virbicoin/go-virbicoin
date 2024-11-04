@@ -45,12 +45,12 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/p2p"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
-	"github.com/emerauda/go-virbicoin/p2p/simulations"
-	"github.com/emerauda/go-virbicoin/p2p/simulations/adapters"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/p2p/simulations"
+	"github.com/virbicoin/go-virbicoin/p2p/simulations/adapters"
+	"github.com/virbicoin/go-virbicoin/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 

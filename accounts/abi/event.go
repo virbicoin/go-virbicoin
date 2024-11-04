@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/crypto"
 )
 
 // Event is an event potentially triggered by the EVM's LOG mechanism. The Event

@@ -23,8 +23,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/ethdb"
 )
 
 var (

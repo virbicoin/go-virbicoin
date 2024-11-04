@@ -24,8 +24,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/p2p"
 )
 
 // Tests that datadirs can be successfully created, be them manually configured
@@ -85,15 +85,15 @@ func TestIPCPathResolution(t *testing.T) {
 	}{
 		{"", "", false, ""},
 		{"data", "", false, ""},
-		{"", "geth.ipc", false, filepath.Join(os.TempDir(), "geth.ipc")},
-		{"data", "geth.ipc", false, "data/geth.ipc"},
-		{"data", "./geth.ipc", false, "./geth.ipc"},
-		{"data", "/geth.ipc", false, "/geth.ipc"},
+		{"", "gvbc.ipc", false, filepath.Join(os.TempDir(), "gvbc.ipc")},
+		{"data", "gvbc.ipc", false, "data/gvbc.ipc"},
+		{"data", "./gvbc.ipc", false, "./gvbc.ipc"},
+		{"data", "/gvbc.ipc", false, "/gvbc.ipc"},
 		{"", "", true, ``},
 		{"data", "", true, ``},
-		{"", "geth.ipc", true, `\\.\pipe\geth.ipc`},
-		{"data", "geth.ipc", true, `\\.\pipe\geth.ipc`},
-		{"data", `\\.\pipe\geth.ipc`, true, `\\.\pipe\geth.ipc`},
+		{"", "gvbc.ipc", true, `\\.\pipe\gvbc.ipc`},
+		{"data", "gvbc.ipc", true, `\\.\pipe\gvbc.ipc`},
+		{"data", `\\.\pipe\gvbc.ipc`, true, `\\.\pipe\gvbc.ipc`},
 	}
 	for i, test := range tests {
 		// Only run when platform/test match

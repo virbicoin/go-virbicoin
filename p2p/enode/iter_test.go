@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/p2p/enr"
+	"github.com/virbicoin/go-virbicoin/p2p/enr"
 )
 
 func TestReadNodes(t *testing.T) {

@@ -23,12 +23,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/accounts/abi/bind"
-	"github.com/emerauda/go-virbicoin/accounts/abi/bind/backends"
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/core"
-	"github.com/emerauda/go-virbicoin/core/types"
-	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/accounts/abi/bind"
+	"github.com/virbicoin/go-virbicoin/accounts/abi/bind/backends"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/core"
+	"github.com/virbicoin/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/crypto"
 )
 
 var testKey, _ = crypto.HexToECDSA("b71c71a67e1177ad4e901695e1b4b9ee17ae16c6668d313eac2f96dbcda3f291")

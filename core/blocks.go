@@ -16,7 +16,7 @@
 
 package core
 
-import "github.com/emerauda/go-virbicoin/common"
+import "github.com/virbicoin/go-virbicoin/common"
 
 // BadHashes represent a set of manually tracked bad hashes (usually hard forks)
 var BadHashes = map[common.Hash]bool{

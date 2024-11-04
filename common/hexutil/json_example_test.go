@@ -20,7 +20,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/common/hexutil"
+	"github.com/virbicoin/go-virbicoin/common/hexutil"
 )
 
 type MyType [5]byte

@@ -31,7 +31,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/params"
+	"github.com/virbicoin/go-virbicoin/params"
 )
 
 // Command line flags to configure the interpreters.

@@ -16,16 +16,16 @@
 
 // Contains all the wrappers from the core/types package.
 
-package geth
+package gvbc
 
 import (
 	"encoding/json"
 	"errors"
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/core/types"
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 type jsonEncoder interface {

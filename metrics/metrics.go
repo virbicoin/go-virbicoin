@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // Enabled is checked by the constructor functions for all of the

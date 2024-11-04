@@ -19,10 +19,10 @@ package state
 import (
 	"bytes"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/ethdb"
-	"github.com/emerauda/go-virbicoin/rlp"
-	"github.com/emerauda/go-virbicoin/trie"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/trie"
 )
 
 // NewStateSync create a new state trie download scheduler.

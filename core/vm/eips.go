@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/emerauda/go-virbicoin/params"
+	"github.com/virbicoin/go-virbicoin/params"
 	"github.com/holiman/uint256"
 )
 

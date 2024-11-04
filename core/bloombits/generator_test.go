@@ -21,7 +21,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/core/types"
 )
 
 // Tests that batched bloom bits are correctly rotated from the input bloom

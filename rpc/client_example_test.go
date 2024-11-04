@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common/hexutil"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/common/hexutil"
+	"github.com/virbicoin/go-virbicoin/rpc"
 )
 
 // In this example, our client wishes to track the latest 'block number'

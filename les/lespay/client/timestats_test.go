@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/les/utils"
+	"github.com/virbicoin/go-virbicoin/les/utils"
 )
 
 func TestTransition(t *testing.T) {

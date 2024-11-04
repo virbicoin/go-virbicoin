@@ -22,8 +22,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/emerauda/go-virbicoin/common/math"
-	"github.com/emerauda/go-virbicoin/core/vm"
+	"github.com/virbicoin/go-virbicoin/common/math"
+	"github.com/virbicoin/go-virbicoin/core/vm"
 )
 
 // Compiler contains information about the parsed source

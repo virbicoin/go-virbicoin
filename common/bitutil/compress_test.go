@@ -21,7 +21,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common/hexutil"
+	"github.com/virbicoin/go-virbicoin/common/hexutil"
 )
 
 // Tests that data bitset encoding and decoding works and is bijective.

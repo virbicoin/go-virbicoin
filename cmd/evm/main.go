@@ -22,9 +22,9 @@ import (
 	"math/big"
 	"os"
 
-	"github.com/emerauda/go-virbicoin/cmd/evm/internal/t8ntool"
-	"github.com/emerauda/go-virbicoin/cmd/utils"
-	"github.com/emerauda/go-virbicoin/internal/flags"
+	"github.com/virbicoin/go-virbicoin/cmd/evm/internal/t8ntool"
+	"github.com/virbicoin/go-virbicoin/cmd/utils"
+	"github.com/virbicoin/go-virbicoin/internal/flags"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/emerauda/go-virbicoin/cmd/evm/internal/compiler"
+	"github.com/virbicoin/go-virbicoin/cmd/evm/internal/compiler"
 
 	"gopkg.in/urfave/cli.v1"
 )

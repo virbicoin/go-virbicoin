@@ -19,7 +19,7 @@ package vm
 import (
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/crypto"
 )
 
 func TestJumpDestAnalysis(t *testing.T) {

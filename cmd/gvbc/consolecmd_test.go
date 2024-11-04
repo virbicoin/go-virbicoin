@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/params"
+	"github.com/virbicoin/go-virbicoin/params"
 )
 
 const (
@@ -38,13 +38,13 @@ const (
 // spawns gvbc with the given command line args, using a set of flags to minimise
 // memory and disk IO. If the args don't set --datadir, the
 // child g gets a temporary data directory.
-func runMinimalGeth(t *testing.T, args ...string) *testgeth {
+func runMinimalGvbc(t *testing.T, args ...string) *testgeth {
 	// --ropsten to make the 'writing genesis to disk' faster (no accounts)
 	// --networkid=1337 to avoid cache bump
 	// --syncmode=full to avoid allocating fast sync bloom
-	allArgs := []string{"--ropsten", "--nousb", "--networkid", "1337", "--syncmode=full", "--port", "0",
+	allArgs := []string{"--ropsten", "--networkid", "1337", "--syncmode=full", "--port", "0",
 		"--nat", "none", "--nodiscover", "--maxpeers", "0", "--cache", "64"}
-	return runGeth(t, append(allArgs, args...)...)
+	return runGvbc(t, append(allArgs, args...)...)
 }
 
 // Tests that a node embedded within a console can be started up properly and
@@ -53,7 +53,7 @@ func TestConsoleWelcome(t *testing.T) {
 	coinbase := "0x8605cdbbdb6d264aa742e77020dcbc58fcdce182"
 
 	// Start a gvbc console, make sure it's cleaned up and terminate the console
-	gvbc := runMinimalGeth(t, "--etherbase", coinbase, "console")
+	gvbc := runMinimalGvbc(t, "--etherbase", coinbase, "console")
 
 	// Gather all the infos the welcome message needs to contain
 	gvbc.SetTemplateFunc("goos", func() string { return runtime.GOOS })
@@ -67,9 +67,9 @@ func TestConsoleWelcome(t *testing.T) {
 
 	// Verify the actual welcome message to the required template
 	gvbc.Expect(`
-Welcome to the gvirbicoin JavaScript console!
+Welcome to the Gvbc JavaScript console!
 
-instance: gvirbicoin/v{{gvbcver}}/{{goos}}-{{goarch}}/{{gover}}
+instance: Gvbc/v{{gvbcver}}/{{goos}}-{{goarch}}/{{gover}}
 coinbase: {{.Etherbase}}
 at block: 0 ({{niltime}})
  datadir: {{.Datadir}}
@@ -100,7 +100,7 @@ func TestAttachWelcome(t *testing.T) {
 	p := trulyRandInt(1024, 65533) // Yeah, sometimes this will fail, sorry :P
 	httpPort = strconv.Itoa(p)
 	wsPort = strconv.Itoa(p + 1)
-	gvbc := runMinimalGeth(t, "--etherbase", "0x8605cdbbdb6d264aa742e77020dcbc58fcdce182",
+	gvbc := runMinimalGvbc(t, "--etherbase", "0x8605cdbbdb6d264aa742e77020dcbc58fcdce182",
 		"--ipcpath", ipc,
 		"--http", "--http.port", httpPort,
 		"--ws", "--ws.port", wsPort)
@@ -122,7 +122,7 @@ func TestAttachWelcome(t *testing.T) {
 
 func testAttachWelcome(t *testing.T, gvbc *testgeth, endpoint, apis string) {
 	// Attach to a running gvbc note and terminate immediately
-	attach := runGeth(t, "attach", endpoint)
+	attach := runGvbc(t, "attach", endpoint)
 	defer attach.ExpectExit()
 	attach.CloseStdin()
 
@@ -141,9 +141,9 @@ func testAttachWelcome(t *testing.T, gvbc *testgeth, endpoint, apis string) {
 
 	// Verify the actual welcome message to the required template
 	attach.Expect(`
-Welcome to the gvirbicoin JavaScript console!
+Welcome to the Gvbc JavaScript console!
 
-instance: gvirbicoin/v{{gvbcver}}/{{goos}}-{{goarch}}/{{gover}}
+instance: Gvbc/v{{gvbcver}}/{{goos}}-{{goarch}}/{{gover}}
 coinbase: {{etherbase}}
 at block: 0 ({{niltime}}){{if ipc}}
  datadir: {{datadir}}{{end}}

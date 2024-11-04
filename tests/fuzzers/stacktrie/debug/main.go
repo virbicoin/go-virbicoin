@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/emerauda/go-virbicoin/tests/fuzzers/stacktrie"
+	"github.com/virbicoin/go-virbicoin/tests/fuzzers/stacktrie"
 )
 
 func main() {

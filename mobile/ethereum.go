@@ -16,13 +16,13 @@
 
 // Contains all the wrappers from the go-ethereum root package.
 
-package geth
+package gvbc
 
 import (
 	"errors"
 
-	"github.com/emerauda/go-virbicoin"
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 // Subscription represents an event subscription where events are

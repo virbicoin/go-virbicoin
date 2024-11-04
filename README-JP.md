@@ -1,20 +1,20 @@
-# Go VirBiCoin (GVBC)
+# Go VirBiCoin (Gvbc)
 
-本リポジトリはVirBiCoinプロジェクトにおけるVirBiCoin Chainプロトコルの公式Golang実装版です。
+本リポジトリはGo EthereumからフォークされたVirBiCoinプロジェクトのVirBiCoin Chainプロトコル公式Golang実装です。
 
 [![API Reference](
 https://camo.githubusercontent.com/915b7be44ada53c290eb157634330494ebe3e30a/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f676f6c616e672f6764646f3f7374617475732e737667
-)](https://pkg.go.dev/github.com/emerauda/go-virbicoin?tab=doc)
-[![Go Report Card](https://goreportcard.com/badge/github.com/emerauda/go-virbicoin)](https://goreportcard.com/report/github.com/emerauda/go-virbicoin)
-[![Travis](https://travis-ci.org/emerauda/go-virbicoin.svg?branch=master)](https://travis-ci.org/emerauda/go-virbicoin)
+)](https://pkg.go.dev/github.com/virbicoin/go-virbicoin?tab=doc)
+[![Go Report Card](https://goreportcard.com/badge/github.com/virbicoin/go-virbicoin)](https://goreportcard.com/report/github.com/virbicoin/go-virbicoin)
+[![Travis](https://travis-ci.org/virbicoin/go-virbicoin.svg?branch=master)](https://travis-ci.org/virbicoin/go-virbicoin)
 [![Discord](https://img.shields.io/badge/discord-join%20chat-blue.svg)](https://discord.gg/nthXNEv)
 
 安定版リリースと最新のマスターブランチの自動ビルドが利用可能です。
-バイナリアーカイブはhttps://github.com/emerauda/go-virbicoin/releases で公開されています。
+バイナリアーカイブはhttps://github.com/virbicoin/go-virbicoin/releases で公開されています。
 
 ## ソースのビルド
 
-前提条件と詳細なビルド手順については、wikiの[インストール手順](https://github.com/emerauda/go-virbicoin/wiki/Building-VirBiCoin)を参照してください。
+前提条件と詳細なビルド手順については、wikiの[インストール手順](https://github.com/virbicoin/go-virbicoin/wiki/Installing-Gvbc)を参照してください。
 
 `gvbc`のビルドには、Go（バージョン1.13以降）とCコンパイラの両方が必要です。これらはお好みのパッケージマネージャを使用してインストールできます。依存関係がインストールされたら、以下のコマンドを実行します。
 
@@ -34,17 +34,17 @@ go-virbicoinプロジェクトには、`cmd`ディレクトリにいくつかの
 
 |    コマンド    | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | :-----------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  **`gvbc`**   | VirBiCoin のメインのクライアントCLIです。これは、VirBiCoin Chainネットワーク（メインネット、テストネット、プライベートネット）へのエントリーポイントであり、フルノード（デフォルト）、アーカイブノード（すべての履歴状態を保持）、またはライトノード（データをライブで取得）として動作できます。HTTP、WebSocket、および/またはIPCトランスポートの上に公開されたJSON RPCエンドポイントを介して、他のプロセスによってVirBiCoin Chainネットワークへのゲートウェイとして使用できます。コマンドラインオプションについては、`gvbc --help`および[CLI Wikiページ](https://github.com/emerauda/go-virbicoin/wiki/Command-Line-Options)を参照してください。          |
-|   `abigen`    | VirBiCoin Chainコントラクト定義を使いやすく、コンパイル時に型安全なGoパッケージに変換するソースコードジェネレータです。これは、プレーンな[VirBiCoin ChainコントラクトABI](https://github.com/emerauda/go-virbicoin/wiki/VirBiCoin-Chain-Contract-ABI)で動作し、コントラクトバイトコードが利用可能な場合に拡張機能を提供します。ただし、Solidityソースファイルも受け入れるため、開発が非常にスムーズになります。詳細については、[Native DApps](https://github.com/emerauda/go-virbicoin/wiki/Native-DApps:-Go-bindings-to-VirBiCoin-Chain-contracts) wikiページを参照してください。 |
+|  **`gvbc`**   | VirBiCoin のメインのクライアントCLIです。これは、VirBiCoin Chainネットワーク（メインネット、テストネット、プライベートネット）へのエントリーポイントであり、フルノード（デフォルト）、アーカイブノード（すべての履歴状態を保持）、またはライトノード（データをライブで取得）として動作できます。HTTP、WebSocket、および/またはIPCトランスポートの上に公開されたJSON RPCエンドポイントを介して、他のプロセスによってVirBiCoin Chainネットワークへのゲートウェイとして使用できます。コマンドラインオプションについては、`gvbc --help`および[CLI Wiki page](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)を参照してください。          |
+|   `abigen`    | VirBiCoin Chainコントラクト定義を使いやすく、コンパイル時に型安全なGoパッケージに変換するソースコードジェネレータです。これは、プレーンな[Ethereum contract ABIs](https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI)で動作し、コントラクトバイトコードが利用可能な場合に拡張機能を提供します。ただし、Solidityソースファイルも受け入れるため、開発が非常にスムーズになります。詳細については、[Native DApps](https://github.com/ethereum/go-ethereum/wiki/Native-DApps:-Go-bindings-to-Ethereum-contracts) wikiページを参照してください。 |
 |  `bootnode`   | ネットワークノード発見プロトコルにのみ参加し、上位レベルのアプリケーションプロトコルを実行しない、VirBiCoin Chainクライアント実装のストリップダウンバージョンです。プライベートネットワークでピアを見つけるのを支援する軽量ブートストラップノードとして使用できます。                                                                                                                                                                                                                                                                 |
 |     `evm`     | EVM（Ethereum Virtual Machine）の開発者ユーティリティバージョンで、構成可能な環境と実行モード内でバイトコードスニペットを実行できます。その目的は、EVMオペコードの分離された詳細なデバッグを可能にすることです（例：`evm --code 60ff60ff --debug run`）。                                                                                                                                                                                                                                                                     |
-| `gethrpctest` | [emerauda/rpc-test](https://github.com/emerauda/rpc-tests)テストスイートをサポートする開発者ユーティリティツールで、[VirBiCoin Chain JSON RPC](https://github.com/emerauda/go-virbicoin/wiki/JSON-RPC)仕様へのベースライン準拠を検証します。詳細については、[テストスイートのreadme](https://github.com/emerauda/rpc-tests/blob/master/README.md)を参照してください。                                                                                                                                                                                                     |
-|   `rlpdump`   | バイナリRLP（[Recursive Length Prefix](https://github.com/emerauda/go-virbicoin/wiki/RLP)）ダンプ（VirBiCoin Chainプロトコルによってネットワークおよびコンセンサスの両方で使用されるデータエンコーディング）をユーザーフレンドリーな階層表現に変換する開発者ユーティリティツールです（例：`rlpdump --hex CE0183FFFFFFC4C304050583616263`）。                                                                                                                                                                                                                                 |
+| `gethrpctest` | [ethereum/rpc-test](https://github.com/ethereum/rpc-tests)テストスイートをサポートする開発者ユーティリティツールで、[Ethereum JSON RPC](https://github.com/ethereum/wiki/wiki/JSON-RPC)仕様へのベースライン準拠を検証します。詳細については、[test suite's readme](https://github.com/ethereum/rpc-tests/blob/master/README.md)を参照してください。                                                                                                                                                                                                     |
+|   `rlpdump`   | バイナリRLP ([Recursive Length Prefix](https://github.com/ethereum/wiki/wiki/RLP))ダンプ（VirBiCoin Chainプロトコルによってネットワークおよびコンセンサスの両方で使用されるデータエンコーディング）をユーザーフレンドリーな階層表現に変換する開発者ユーティリティツールです（例：`rlpdump --hex CE0183FFFFFFC4C304050583616263`）。                                                                                                                                                                                                                                 |
 |   `puppeth`   | 新しいVirBiCoin Chainネットワークの作成を支援するCLIウィザードです。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 ## `gvbc`の実行
 
-すべてのコマンドラインフラグを説明するのはここでは範囲外ですが（[CLI Wikiページ](https://github.com/emerauda/go-virbicoin/wiki/Command-Line-Options)を参照してください）、いくつかの一般的なパラメータの組み合わせを列挙して、`gvbc`インスタンスを迅速に実行する方法を説明します。
+すべてのコマンドラインフラグを説明するのはここでは範囲外ですが（[CLI Wiki page](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)を参照してください）、いくつかの一般的なパラメータの組み合わせを列挙して、`gvbc`インスタンスを迅速に実行する方法を説明します。
 
 ### メインVirBiCoin Chainネットワーク上のフルノード
 
@@ -56,7 +56,7 @@ $ gvbc console
 
 このコマンドは次のことを行います：
  * `gvbc`を高速同期モード（デフォルト、`--syncmode`フラグで変更可能）で起動し、VirBiCoin Chainネットワークの全履歴を処理するのではなく、より多くのデータをダウンロードしてCPU負荷を軽減します。
- * `gvbc`の組み込みインタラクティブ[JavaScriptコンソール](https://github.com/emerauda/go-virbicoin/wiki/JavaScript-Console)を起動し（末尾の`console`サブコマンドを介して）、すべての公式[`web3`メソッド](https://github.com/username/go-virbicoin/wiki/JavaScript-API)および`gvbc`独自の[管理API](https://github.com/emerauda/go-virbicoin/wiki/Management-APIs)を呼び出すことができます。このツールはオプションであり、省略した場合でも、`gvbc attach`を使用して既に実行中の`gvbc`インスタンスに接続できます。
+ * `gvbc`の組み込みインタラクティブ[JavaScript console](https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console)を起動し（末尾の`console`サブコマンドを介して）、すべての公式[`web3`メソッド](https://github.com/username/go-virbicoin/wiki/JavaScript-API)および`gvbc`独自の[management APIs](https://github.com/ethereum/go-ethereum/wiki/Management-APIs)を呼び出すことができます。このツールはオプションであり、省略した場合でも、`gvbc attach`を使用して既に実行中の`gvbc`インスタンスに接続できます。
 
 ### Görliテストネットワーク上のフルノード
 
@@ -71,7 +71,7 @@ $ gvbc --goerli console
 `--goerli`フラグを指定すると、`gvbc`インスタンスが少し再構成されます：
 
  * メインVirBiCoin Chainネットワークに接続する代わりに、クライアントはGörliテストネットワークに接続します。これには異なるP2Pブートノード、異なるネットワークID、およびジェネシス状態が使用されます。
- * デフォルトのデータディレクトリ（例：Linuxでは`~/.virbicoin`）の代わりに、`gvbc`は1レベル深い`goerli`サブフォルダ（例：Linuxでは`~/.virbicoin/goerli`）に配置されます。注意：OSXおよびLinuxでは、テストネットノードに接続するにはカスタムエンドポイントを使用する必要があります。`gvbc attach`はデフォルトでプロダクションノードエンドポイントに接続しようとします。例：`gvbc attach <datadir>/goerli/gvbc.ipc`。Windowsユーザーは影響を受けません。
+ * デフォルトのデータディレクトリ（例：Linuxでは`~/.virbicoin`）の代わりに、`gvbc`は1段階深い`goerli`サブフォルダ（例：Linuxでは`~/.virbicoin/goerli`）に配置されます。注意：OSXおよびLinuxでは、テストネットノードに接続するにはカスタムエンドポイントを使用する必要があります。`gvbc attach`はデフォルトでプロダクションノードエンドポイントに接続しようとします。例：`gvbc attach <datadir>/goerli/gvbc.ipc`。Windowsユーザーは影響を受けません。
 
 *注意：メインネットワークとテストネットワーク間でトランザクションが交差しないようにする内部保護措置がありますが、プレイマネーとリアルマネーのために常に別々のアカウントを使用するようにしてください。アカウントを手動で移動しない限り、`gvbc`はデフォルトで2つのネットワークを正しく分離し、アカウントを相互に利用できないようにします。*
 
@@ -85,13 +85,13 @@ $ gvbc --rinkeby console
 
 ### Ropstenテストネットワーク上のフルノード
 
-GörliおよびRinkebyに加えて、GVBCは古いRopstenテストネットもサポートしています。RopstenテストネットワークはEthashプルーフ・オブ・ワークコンセンサスアルゴリズムに基づいています。そのため、追加のオーバーヘッドがあり、ネットワークの低難易度/セキュリティのために再編成攻撃に対してより脆弱です。
+GörliおよびRinkebyに加えて、Gvbcは古いRopstenテストネットもサポートしています。RopstenテストネットワークはEthashプルーフ・オブ・ワークコンセンサスアルゴリズムに基づいています。そのため、追加のオーバーヘッドがあり、ネットワークの低難易度/セキュリティのために再編成攻撃に対してより脆弱です。
 
 ```shell
 $ gvbc --ropsten console
 ```
 
-*注意：古いGVBC構成は、Ropstenデータベースを`testnet`サブディレクトリに保存します。*
+*注意：古いGvbc構成は、Ropstenデータベースを`testnet`サブディレクトリに保存します。*
 
 ### 設定
 
@@ -116,7 +116,7 @@ VirBiCoin Chainをマシンで迅速に稼働させる最も簡単な方法の1�
 ```shell
 docker run -d --name VirBiCoin-Chain-node -v /Users/alice/VirBiCoin-Chain:/root \
            -p 8329:8329 -p 28329:28329 \
-           emerauda/go-virbicoin
+           virbicoin/go-virbicoin
 ```
 
 これにより、上記のコマンドと同様に、DBメモリ許容量1GBで`gvbc`が高速同期モードで起動します。また、ブロックチェーンを保存するための永続ボリュームがホームディレクトリに作成され、デフォルトのポートがマッピングされます。スリムバージョンのイメージ用に`alpine`タグも利用可能です。
@@ -125,7 +125,7 @@ docker run -d --name VirBiCoin-Chain-node -v /Users/alice/VirBiCoin-Chain:/root 
 
 ### プログラムによる`gvbc`ノードとのインターフェース
 
-開発者として、手動でコンソールを介してではなく、独自のプログラムを介して`gvbc`およびVirBiCoin Chainネットワークと対話したくなるでしょう。これを支援するために、`gvbc`にはJSON-RPCベースのAPI（[標準API](https://github.com/emerauda/go-virbicoin/wiki/JSON-RPC)および[`gvbc`固有のAPI](https://github.com/emerauda/go-virbicoin/wiki/Management-APIs)）のサポートが組み込まれています。これらはHTTP、WebSockets、およびIPC（UNIXベースのプラットフォームではUNIXソケット、Windowsでは名前付きパイプ）を介して公開できます。
+開発者として、手動でコンソールを介してではなく、独自のプログラムを介して`gvbc`およびVirBiCoin Chainネットワークと対話したくなるでしょう。これを支援するために、`gvbc`にはJSON-RPCベースのAPI（[標準API](https://github.com/virbicoin/go-virbicoin/wiki/JSON-RPC)および`gvbc`固有の[management APIs](https://github.com/ethereum/go-ethereum/wiki/Management-APIs)）のサポートが組み込まれています。これらはHTTP、WebSockets、およびIPC（UNIXベースのプラットフォームではUNIXソケット、Windowsでは名前付きパイプ）を介して公開できます。
 
 IPCインターフェースはデフォルトで有効になっており、`gvbc`がサポートするすべてのAPIを公開しますが、HTTPおよびWSインターフェースは手動で有効にする必要があり、セキュリティ上の理由からAPIのサブセットのみを公開します。これらは期待通りにオン/オフおよび構成できます。
 
@@ -160,25 +160,25 @@ HTTPベースのJSON-RPC APIオプション：
 ```json
 {
   "config": {
-    "chainId": 329,
+    "chainId": <arbitrary positive integer>,
     "homesteadBlock": 0,
-    "daoForkSupport": true,
     "eip150Block": 0,
     "eip155Block": 0,
     "eip158Block": 0,
     "byzantiumBlock": 0,
-    "constantinopleBlock": 0
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0
   },
-  "nonce": "0x8329",
-  "timestamp": "0x0",
-  "extraData": "0x",
-  "gasLimit": "0x8000000",
-  "difficulty": "0x400",
-  "alloc": {
-    "0x950302976387b43E042aeA242AE8DAB8e5C204D1": {
-      "balance": "8888888888888888888"
-    }
-  }
+  "alloc": {},
+  "coinbase": "0x0000000000000000000000000000000000000000",
+  "difficulty": "0x20000",
+  "extraData": "",
+  "gasLimit": "0x2fefd8",
+  "nonce": "0x0000000000000042",
+  "mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "timestamp": "0x00"
 }
 ```
 
@@ -210,7 +210,7 @@ $ bootnode --genkey=boot.key
 $ bootnode --nodekey=boot.key
 ```
 
-ブートノードがオンラインになると、他のノードが接続してピア情報を交換するために使用できる[`enode` URL](https://github.com/emerauda/go-virbicoin/wiki/enode-url-format)が表示されます。表示されたIPアドレス情報（おそらく`[::]`）を外部からアクセス可能なIPに置き換えて、実際の`enode` URLを取得してください。
+ブートノードがオンラインになると、他のノードが接続してピア情報を交換するために使用できる[`enode` URL](https://github.com/virbicoin/go-virbicoin/wiki/enode-url-format)が表示されます。表示されたIPアドレス情報（おそらく`[::]`）を外部からアクセス可能なIPに置き換えて、実際の`enode` URLを取得してください。
 
 *注意：フル機能の`gvbc`ノードをブートノードとして使用することもできますが、これはあまり推奨されません。*
 
@@ -240,7 +240,7 @@ $ gvbc <usual-flags> --mine --miner.threads=1 --etherbase=0x00000000000000000000
 
 ソースコードの支援を検討していただきありがとうございます！インターネット上の誰からの貢献も歓迎し、最小の修正でも感謝します！
 
-go-virbicoinに貢献したい場合は、フォークして修正し、コミットしてプルリクエストを送信し、メンテナがレビューしてメインコードベースにマージします。より複雑な変更を提出したい場合は、[gitterチャンネル](https://gitter.im/emerauda/go-virbicoin)でコアデベロッパーに確認して、これらの変更がプロジェクトの一般的な哲学に沿っているかどうかを確認し、早期のフィードバックを得ることで、あなたの努力を軽減し、レビューとマージの手続きを迅速かつ簡単にすることができます。
+go-virbicoinに貢献したい場合は、フォークして修正し、コミットしてプルリクエストを送信し、メンテナがレビューしてメインコードベースにマージします。より複雑な変更を提出したい場合は、[gitterチャンネル](https://gitter.im/virbicoin/go-virbicoin)でコアデベロッパーに確認して、これらの変更がプロジェクトの一般的な哲学に沿っているかどうかを確認し、早期のフィードバックを得ることで、あなたの努力を軽減し、レビューとマージの手続きを迅速かつ簡単にすることができます。
 
 貢献が以下のコーディングガイドラインに従っていることを確認してください：
 
@@ -250,7 +250,7 @@ go-virbicoinに貢献したい場合は、フォークして修正し、コミ�
  * コミットメッセージは変更するパッケージにプレフィックスを付ける必要があります。
    * 例："eth, rpc: make trace configs optional"
 
-環境の設定、プロジェクト依存関係の管理、およびテスト手順の詳細については、[開発者ガイド](https://github.com/emerauda/go-virbicoin/wiki/Developers'-Guide)を参照してください。
+環境の設定、プロジェクト依存関係の管理、およびテスト手順の詳細については、[Developers' Guide](https://github.com/ethereum/go-ethereum/wiki/Developers'-Guide)を参照してください。
 
 ## ライセンス
 

@@ -26,8 +26,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common/bitutil"
-	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/common/bitutil"
+	"github.com/virbicoin/go-virbicoin/crypto"
 )
 
 // bloomIndexes represents the bit indexes inside the bloom filter that belong

@@ -22,13 +22,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/accounts"
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/common/hexutil"
-	"github.com/emerauda/go-virbicoin/core/types"
-	"github.com/emerauda/go-virbicoin/internal/ethapi"
-	"github.com/emerauda/go-virbicoin/signer/core"
-	"github.com/emerauda/go-virbicoin/signer/storage"
+	"github.com/virbicoin/go-virbicoin/accounts"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common/hexutil"
+	"github.com/virbicoin/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/internal/ethapi"
+	"github.com/virbicoin/go-virbicoin/signer/core"
+	"github.com/virbicoin/go-virbicoin/signer/storage"
 )
 
 const JS = `

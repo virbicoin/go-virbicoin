@@ -17,7 +17,7 @@
 package rawdb
 
 import (
-	"github.com/emerauda/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/ethdb"
 )
 
 // table is a wrapper around a database that prefixes each key access with a pre-

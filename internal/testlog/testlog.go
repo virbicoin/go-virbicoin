@@ -21,7 +21,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // Handler returns a log handler which logs to the unit test log of t.

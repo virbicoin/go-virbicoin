@@ -27,7 +27,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 // TestPack tests the general pack/unpack tests in packing_test.go

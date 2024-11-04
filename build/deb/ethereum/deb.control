@@ -4,9 +4,9 @@ Priority: extra
 Maintainer: {{.Author}}
 Build-Depends: debhelper (>= 8.0.0), {{.GoBootPackage}}
 Standards-Version: 3.9.5
-Homepage: https://ethereum.org
-Vcs-Git: git://github.com/emerauda/go-virbicoin.git
-Vcs-Browser: https://github.com/emerauda/go-virbicoin
+Homepage: https://virbicoin.github.io/go-virbicoin/
+Vcs-Git: git://github.com/virbicoin/go-virbicoin.git
+Vcs-Browser: https://github.com/virbicoin/go-virbicoin
 
 Package: {{.Name}}
 Architecture: any

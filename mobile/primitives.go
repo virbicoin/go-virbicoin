@@ -16,13 +16,13 @@
 
 // Contains various wrappers for primitive types.
 
-package geth
+package gvbc
 
 import (
 	"errors"
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 // Strings represents s slice of strs.

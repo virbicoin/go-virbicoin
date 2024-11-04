@@ -20,8 +20,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/core/types"
 )
 
 // senderFromServer is a types.Signer that remembers the sender address returned by the RPC

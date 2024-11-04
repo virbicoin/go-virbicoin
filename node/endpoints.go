@@ -21,8 +21,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/log"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/rpc"
 )
 
 // StartHTTPEndpoint starts the HTTP RPC endpoint.

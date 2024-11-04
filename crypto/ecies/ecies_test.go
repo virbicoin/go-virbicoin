@@ -39,7 +39,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/crypto"
 )
 
 func TestKDF(t *testing.T) {

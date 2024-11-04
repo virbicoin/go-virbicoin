@@ -19,9 +19,9 @@ package main
 import (
 	"os"
 
-	"github.com/emerauda/go-virbicoin/cmd/devp2p/internal/v4test"
-	"github.com/emerauda/go-virbicoin/internal/utesting"
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/cmd/devp2p/internal/v4test"
+	"github.com/virbicoin/go-virbicoin/internal/utesting"
+	"github.com/virbicoin/go-virbicoin/log"
 	"gopkg.in/urfave/cli.v1"
 )
 

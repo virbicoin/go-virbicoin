@@ -20,7 +20,7 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/emerauda/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
 )
 
 var (

@@ -19,7 +19,7 @@ package abi
 import (
 	"math/big"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 type packUnpackTest struct {

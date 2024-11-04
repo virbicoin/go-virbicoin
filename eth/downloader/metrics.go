@@ -19,7 +19,7 @@
 package downloader
 
 import (
-	"github.com/emerauda/go-virbicoin/metrics"
+	"github.com/virbicoin/go-virbicoin/metrics"
 )
 
 var (

@@ -26,7 +26,7 @@ import (
 	"sync"
 	"unicode"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 var (

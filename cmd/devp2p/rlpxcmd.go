@@ -20,11 +20,11 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/emerauda/go-virbicoin/cmd/devp2p/internal/ethtest"
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/p2p"
-	"github.com/emerauda/go-virbicoin/p2p/rlpx"
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/cmd/devp2p/internal/ethtest"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/p2p/rlpx"
+	"github.com/virbicoin/go-virbicoin/rlp"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/emerauda/go-virbicoin/internal/flags"
+	"github.com/virbicoin/go-virbicoin/internal/flags"
 	"gopkg.in/urfave/cli.v1"
 )
 

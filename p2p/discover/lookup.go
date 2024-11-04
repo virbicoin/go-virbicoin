@@ -20,7 +20,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
 )
 
 // lookup performs a network search for nodes close to the given target. It approaches the

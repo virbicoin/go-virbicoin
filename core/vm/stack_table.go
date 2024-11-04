@@ -17,7 +17,7 @@
 package vm
 
 import (
-	"github.com/emerauda/go-virbicoin/params"
+	"github.com/virbicoin/go-virbicoin/params"
 )
 
 func minSwapStack(n int) int {

@@ -19,9 +19,9 @@ package client
 import (
 	"sync"
 
-	"github.com/emerauda/go-virbicoin/les/utils"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
-	"github.com/emerauda/go-virbicoin/p2p/nodestate"
+	"github.com/virbicoin/go-virbicoin/les/utils"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/p2p/nodestate"
 )
 
 // WrsIterator returns nodes from the specified selectable set with a weighted random

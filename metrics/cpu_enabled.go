@@ -19,7 +19,7 @@
 package metrics
 
 import (
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 	"github.com/shirou/gopsutil/cpu"
 )
 

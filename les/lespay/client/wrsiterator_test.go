@@ -21,8 +21,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common/mclock"
-	"github.com/emerauda/go-virbicoin/p2p/nodestate"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/p2p/nodestate"
 )
 
 var (

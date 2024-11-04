@@ -67,7 +67,7 @@ fi
 # Should be started by now
 if [ -S /home/user/.clef/clef.ipc ]; then
     # Post incoming request to HTTP channel
-	curl -H "Content-Type: application/json" -X POST -d @- http://localhost:8550 2>/dev/null
+	curl -H "Content-Type: application/json" -X POST -d @- http://localhost:8334 2>/dev/null
 fi
 
 ```
@@ -99,14 +99,14 @@ On the `client` qube, we need to create a listener which will receive the reques
 ```python
 
 """
-This implements a dispatcher which listens to localhost:8550, and proxies
+This implements a dispatcher which listens to localhost:8334, and proxies
 requests via qrexec to the service qubes.EthSign on a target domain
 """
 
 import http.server
 import socketserver,subprocess
 
-PORT=8550
+PORT=8334
 TARGET_DOMAIN= 'debian-work'
 
 class Dispatcher(http.server.BaseHTTPRequestHandler):
@@ -150,7 +150,7 @@ To test the full flow, we use the client wrapper. Start it on the `client` qube:
 
 Make the request over http (`client` qube):
 ```
-[user@work clef]$ cat newaccnt.json | curl -X POST -d @- http://localhost:8550
+[user@work clef]$ cat newaccnt.json | curl -X POST -d @- http://localhost:8334
 ```
 And it should show the same popups again. 
 

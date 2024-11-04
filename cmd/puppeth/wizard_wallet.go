@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // deployWallet creates a new web wallet based on some user input.

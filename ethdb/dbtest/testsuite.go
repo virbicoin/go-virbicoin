@@ -22,7 +22,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/ethdb"
 )
 
 // TestDatabaseSuite runs a suite of tests against a KeyValueStore database

@@ -23,7 +23,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/p2p/simulations/pipes"
+	"github.com/virbicoin/go-virbicoin/p2p/simulations/pipes"
 )
 
 func TestTCPPipe(t *testing.T) {

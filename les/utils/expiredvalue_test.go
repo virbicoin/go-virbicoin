@@ -19,7 +19,7 @@ package utils
 import (
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
 )
 
 func TestValueExpiration(t *testing.T) {

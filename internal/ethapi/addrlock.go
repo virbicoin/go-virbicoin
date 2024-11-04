@@ -19,7 +19,7 @@ package ethapi
 import (
 	"sync"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 type AddrLocker struct {

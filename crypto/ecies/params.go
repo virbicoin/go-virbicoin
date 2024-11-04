@@ -42,7 +42,7 @@ import (
 	"fmt"
 	"hash"
 
-	ethcrypto "github.com/emerauda/go-virbicoin/crypto"
+	ethcrypto "github.com/virbicoin/go-virbicoin/crypto"
 )
 
 var (

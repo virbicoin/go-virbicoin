@@ -23,12 +23,12 @@ import (
 	"testing"
 
 	"github.com/VictoriaMetrics/fastcache"
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/core/rawdb"
-	"github.com/emerauda/go-virbicoin/ethdb"
-	"github.com/emerauda/go-virbicoin/ethdb/leveldb"
-	"github.com/emerauda/go-virbicoin/ethdb/memorydb"
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/core/rawdb"
+	"github.com/virbicoin/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/ethdb/leveldb"
+	"github.com/virbicoin/go-virbicoin/ethdb/memorydb"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 // reverse reverses the contents of a byte slice. It's used to update random accs
@@ -482,7 +482,7 @@ func TestDiskGeneratorPersistence(t *testing.T) {
 	if !bytes.Equal(generator.Marker, genMarker) {
 		t.Fatalf("Generator marker is not matched")
 	}
-	// Test senario 2, the disk layer is fully generated
+	// Test scenario 2, the disk layer is fully generated
 	// Modify or delete some accounts, flatten everything onto disk
 	if err := snaps.Update(diffTwoRoot, diffRoot, nil, map[common.Hash][]byte{
 		accThree: accThree.Bytes(),

@@ -17,7 +17,7 @@
 package state
 
 import (
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 type accessList struct {

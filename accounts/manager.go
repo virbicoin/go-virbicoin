@@ -21,8 +21,8 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/event"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/event"
 )
 
 // Config contains the settings of the global account manager.

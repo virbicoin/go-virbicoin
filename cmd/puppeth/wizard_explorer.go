@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // deployExplorer creates a new block explorer based on some user input.

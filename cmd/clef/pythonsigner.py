@@ -65,7 +65,7 @@ class StdIOHandler():
                 "call_info": "Warning! Could not validate ABI-data against calldata\nSupplied ABI spec does not contain method signature in data: 0xd7a58658",
                 "meta": {
                     "remote": "127.0.0.1:34572",
-                    "local": "localhost:8550",
+                    "local": "localhost:8334",
                     "scheme": "HTTP/1.1"
                 }
             }],

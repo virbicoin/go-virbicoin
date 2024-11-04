@@ -19,7 +19,7 @@ package miner
 import (
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/core/types"
 )
 
 // noopChainRetriever is an implementation of headerRetriever that always

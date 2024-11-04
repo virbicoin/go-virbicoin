@@ -19,7 +19,7 @@ package snapshot
 import (
 	"bytes"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 // hashes is a helper to implement sort.Interface.

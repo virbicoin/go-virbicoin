@@ -19,8 +19,8 @@ package trie
 import (
 	"sync"
 
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/rlp"
 	"golang.org/x/crypto/sha3"
 )
 

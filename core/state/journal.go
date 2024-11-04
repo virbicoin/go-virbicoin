@@ -19,7 +19,7 @@ package state
 import (
 	"math/big"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 // journalEntry is a modification entry in the state change journal that can be

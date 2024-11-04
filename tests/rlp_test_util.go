@@ -24,7 +24,7 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 // RLPTest is the JSON structure of a single RLP test.

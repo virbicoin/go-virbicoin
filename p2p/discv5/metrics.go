@@ -16,7 +16,7 @@
 
 package discv5
 
-import "github.com/emerauda/go-virbicoin/metrics"
+import "github.com/virbicoin/go-virbicoin/metrics"
 
 var (
 	ingressTrafficMeter = metrics.NewRegisteredMeter("discv5/InboundTraffic", nil)

@@ -22,9 +22,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/emerauda/go-virbicoin/common/fdlimit"
-	"github.com/emerauda/go-virbicoin/internal/flags"
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/common/fdlimit"
+	"github.com/virbicoin/go-virbicoin/internal/flags"
+	"github.com/virbicoin/go-virbicoin/log"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -72,7 +72,7 @@ var (
 	nodeURLFlag = cli.StringFlag{
 		Name:  "rpc",
 		Value: "http://localhost:8329",
-		Usage: "The rpc endpoint of a local or remote geth node",
+		Usage: "The rpc endpoint of a local or remote gvbc node",
 	}
 	clefURLFlag = cli.StringFlag{
 		Name:  "clef",

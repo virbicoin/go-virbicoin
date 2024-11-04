@@ -26,7 +26,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // makeWizard creates and returns a new puppeth wizard.

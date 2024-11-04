@@ -20,7 +20,7 @@ import (
 	"net"
 	"strings"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // StartIPCEndpoint starts an IPC endpoint.

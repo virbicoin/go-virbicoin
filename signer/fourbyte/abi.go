@@ -23,8 +23,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/emerauda/go-virbicoin/accounts/abi"
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/accounts/abi"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 // decodedCallData is an internal type to represent a method call parsed according

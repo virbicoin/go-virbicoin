@@ -21,7 +21,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/core/vm"
+	"github.com/virbicoin/go-virbicoin/core/vm"
 )
 
 // Iterator for disassembled EVM instructions

@@ -1,20 +1,20 @@
-# Go VirBiCoin (GVBC)
+## Go VirBiCoin
 
 Official Golang implementation of the VirBiCoin protocol.
 
 [![API Reference](
 https://camo.githubusercontent.com/915b7be44ada53c290eb157634330494ebe3e30a/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f676f6c616e672f6764646f3f7374617475732e737667
-)](https://pkg.go.dev/github.com/emerauda/go-virbicoin?tab=doc)
-[![Go Report Card](https://goreportcard.com/badge/github.com/emerauda/go-virbicoin)](https://goreportcard.com/report/github.com/emerauda/go-virbicoin)
-[![Travis](https://travis-ci.org/emerauda/go-virbicoin.svg?branch=master)](https://travis-ci.org/emerauda/go-virbicoin)
+)](https://pkg.go.dev/github.com/virbicoin/go-virbicoin?tab=doc)
+[![Go Report Card](https://goreportcard.com/badge/github.com/virbicoin/go-virbicoin)](https://goreportcard.com/report/github.com/virbicoin/go-virbicoin)
+[![Travis](https://travis-ci.com/virbicoin/go-virbicoin.svg?branch=master)](https://travis-ci.com/virbicoin/go-virbicoin)
 [![Discord](https://img.shields.io/badge/discord-join%20chat-blue.svg)](https://discord.gg/nthXNEv)
 
 Automated builds are available for stable releases and the unstable master branch. Binary
-archives are published at https://github.com/emerauda/go-virbicoin/releases/.
+archives are published at https://github.com/virbicoin/go-virbicoin/releases/.
 
 ## Building the source
 
-For prerequisites and detailed build instructions please read the [Installation Instructions](https://github.com/emerauda/go-virbicoin/wiki/Installing-Gvbc) on the wiki.
+For prerequisites and detailed build instructions please read the [Installation Instructions](https://github.com/virbicoin/go-virbicoin/wiki/Installing-Gvbc).
 
 Building `gvbc` requires both a Go (version 1.13 or later) and a C compiler. You can install
 them using your favourite package manager. Once the dependencies are installed, run
@@ -36,24 +36,24 @@ directory.
 
 |    Command    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | :-----------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  **`gvbc`**   | Our main VirBiCoin CLI client. It is the entry point into the VirBiCoin network (main-, test- or private net), capable of running as a full node (default), archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the VirBiCoin network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. `gvbc --help` and the [CLI Wiki page](https://github.com/emerauda/go-virbicoin/wiki/Command-Line-Options) for command line options.          |
-|   `abigen`    | Source code generator to convert VirBiCoin contract definitions into easy to use, compile-time type-safe Go packages. It operates on plain [VirBiCoin contract ABIs](https://github.com/emerauda/go-virbicoin/wiki/VirBiCoin-Chain-Contract-ABI) with expanded functionality if the contract bytecode is also available. However, it also accepts Solidity source files, making development much more streamlined. Please see our [Native DApps](https://github.com/emerauda/go-virbicoin/wiki/Native-DApps:-Go-bindings-to-VirBiCoin-Chain-contracts) wiki page for details. |
-|  `bootnode`   | Stripped down version of our VirBiCoin client implementation that only takes part in the network node discovery protocol, but does not run any of the higher level application protocols. It can be used as a lightweight bootstrap node to aid in finding peers in private networks.                                                                                                                                                                                                                                                                 |
+|  **`gvbc`**   | Our main VirBICoin CLI client. It is the entry point into the VirBICoin network (main-, test- or private net), capable of running as a full node (default), archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the VirBICoin network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. `gvbc --help` and the [CLI page](https://geth.ethereum.org/docs/interface/command-line-options) for command line options.          |
+|   `abigen`    | Source code generator to convert VirBICoin contract definitions into easy to use, compile-time type-safe Go packages. It operates on plain [Ethereum contract ABIs](https://docs.soliditylang.org/en/develop/abi-spec.html) with expanded functionality if the contract bytecode is also available. However, it also accepts Solidity source files, making development much more streamlined. Please see our [Native DApps](https://geth.ethereum.org/docs/dapp/native-bindings) page for details. |
+|  `bootnode`   | Stripped down version of our VirBICoin client implementation that only takes part in the network node discovery protocol, but does not run any of the higher level application protocols. It can be used as a lightweight bootstrap node to aid in finding peers in private networks.                                                                                                                                                                                                                                                                 |
 |     `evm`     | Developer utility version of the EVM (Ethereum Virtual Machine) that is capable of running bytecode snippets within a configurable environment and execution mode. Its purpose is to allow isolated, fine-grained debugging of EVM opcodes (e.g. `evm --code 60ff60ff --debug run`).                                                                                                                                                                                                                                                                     |
-| `gethrpctest` | Developer utility tool to support our [emerauda/rpc-test](https://github.com/emerauda/rpc-tests) test suite which validates baseline conformity to the [VirBiCoin JSON RPC](https://github.com/emerauda/go-virbicoin/wiki/JSON-RPC) specs. Please see the [test suite's readme](https://github.com/emerauda/rpc-tests/blob/master/README.md) for details.                                                                                                                                                                                                     |
-|   `rlpdump`   | Developer utility tool to convert binary RLP ([Recursive Length Prefix](https://github.com/emerauda/go-virbicoin/wiki/RLP)) dumps (data encoding used by the VirBiCoin protocol both network as well as consensus wise) to user-friendlier hierarchical representation (e.g. `rlpdump --hex CE0183FFFFFFC4C304050583616263`).                                                                                                                                                                                                                                 |
-|   `puppeth`   | a CLI wizard that aids in creating a new VirBiCoin network.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `gethrpctest` | Developer utility tool to support our [ethereum/rpc-test](https://github.com/ethereum/rpc-tests) test suite which validates baseline conformity to the [Ethereum JSON RPC](https://eth.wiki/json-rpc/API) specs. Please see the [test suite's readme](https://github.com/ethereum/rpc-tests/blob/master/README.md) for details.                                                                                                                                                                                                     |
+|   `rlpdump`   | Developer utility tool to convert binary RLP ([Recursive Length Prefix](https://eth.wiki/en/fundamentals/rlp)) dumps (data encoding used by the VirBICoin protocol both network as well as consensus wise) to user-friendlier hierarchical representation (e.g. `rlpdump --hex CE0183FFFFFFC4C304050583616263`).                                                                                                                                                                                                                                 |
+|   `puppeth`   | a CLI wizard that aids in creating a new VirBICoin network.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 ## Running `gvbc`
 
 Going through all the possible command line flags is out of scope here (please consult our
-[CLI Wiki page](https://github.com/emerauda/go-virbicoin/wiki/Command-Line-Options)),
+[CLI Wiki page](https://geth.ethereum.org/docs/interface/command-line-options)),
 but we've enumerated a few common parameter combos to get you up to speed quickly
 on how you can run your own `gvbc` instance.
 
-### Full node on the main VirBiCoin network
+### Full node on the main VirBICoin network
 
-By far the most common scenario is people wanting to simply interact with the VirBiCoin
+By far the most common scenario is people wanting to simply interact with the VirBICoin
 network: create accounts; transfer funds; deploy and interact with contracts. For this
 particular use-case the user doesn't care about years-old historical data, so we can
 fast-sync quickly to the current state of the network. To do so:
@@ -65,16 +65,16 @@ $ gvbc console
 This command will:
  * Start `gvbc` in fast sync mode (default, can be changed with the `--syncmode` flag),
    causing it to download more data in exchange for avoiding processing the entire history
-   of the VirBiCoin network, which is very CPU intensive.
- * Start up `gvbc`'s built-in interactive [JavaScript console](https://github.com/emerauda/go-virbicoin/wiki/JavaScript-Console),
-   (via the trailing `console` subcommand) through which you can invoke all official [`web3` methods](https://github.com/enerauda/go-virbicoin/wiki/JavaScript-API)
-   as well as `gvbc`'s own [management APIs](https://github.com/emerauda/go-virbicoin/wiki/Management-APIs).
+   of the VirBICoin network, which is very CPU intensive.
+ * Start up `gvbc`'s built-in interactive [JavaScript console](https://geth.ethereum.org/docs/interface/javascript-console),
+   (via the trailing `console` subcommand) through which you can invoke all official [`web3` methods](https://web3js.readthedocs.io/en/)
+   as well as `gvbc`'s own [management APIs](https://geth.ethereum.org/docs/rpc/server).
    This tool is optional and if you leave it out you can always attach to an already running
    `gvbc` instance with `gvbc attach`.
 
 ### A Full node on the Görli test network
 
-Transitioning towards developers, if you'd like to play around with creating VirBiCoin
+Transitioning towards developers, if you'd like to play around with creating VirBICoin
 contracts, you almost certainly would like to do that without any real money involved until
 you get the hang of the entire system. In other words, instead of attaching to the main
 network, you want to join the **test** network with your node, which is fully equivalent to
@@ -89,7 +89,7 @@ useful on the testnet too. Please, see above for their explanations if you've sk
 
 Specifying the `--goerli` flag, however, will reconfigure your `gvbc` instance a bit:
 
- * Instead of connecting the main VirBiCoin network, the client will connect to the Görli
+ * Instead of connecting the main VirBICoin network, the client will connect to the Görli
    test network, which uses different P2P bootnodes, different network IDs and genesis
    states.
  * Instead of using the default data directory (`~/.virbicoin` on Linux for example), `gvbc`
@@ -108,7 +108,7 @@ accounts available between them.*
 
 ### Full node on the Rinkeby test network
 
-Go VirBiCoin also supports connecting to the older proof-of-authority based test network
+Go VirBICoin also supports connecting to the older proof-of-authority based test network
 called [*Rinkeby*](https://www.rinkeby.io) which is operated by members of the community.
 
 ```shell
@@ -117,7 +117,7 @@ $ gvbc --rinkeby console
 
 ### Full node on the Ropsten test network
 
-In addition to Görli and Rinkeby, GVBC also supports the ancient Ropsten testnet. The
+In addition to Görli and Rinkeby, Gvbc also supports the ancient Ropsten testnet. The
 Ropsten test network is based on the Ethash proof-of-work consensus algorithm. As such,
 it has certain extra overhead and is more susceptible to reorganization attacks due to the
 network's low difficulty/security.
@@ -126,7 +126,7 @@ network's low difficulty/security.
 $ gvbc --ropsten console
 ```
 
-*Note: Older GVBC configurations store the Ropsten database in the `testnet` subdirectory.*
+*Note: Older Gvbc configurations store the Ropsten database in the `testnet` subdirectory.*
 
 ### Configuration
 
@@ -148,13 +148,13 @@ $ gvbc --your-favourite-flags dumpconfig
 
 #### Docker quick start
 
-One of the quickest ways to get VirBiCoin up and running on your machine is by using
+One of the quickest ways to get VirBICoin up and running on your machine is by using
 Docker:
 
 ```shell
-docker run -d --name VirBiCoin-Chain-node -v /Users/alice/VirBiCoin-Chain:/root \
+docker run -d --name virbicoin-node -v /Users/alice/virbicoin:/root \
            -p 8329:8329 -p 28329:28329 \
-           emerauda/go-virbicoin
+           virbicoin/client-go
 ```
 
 This will start `gvbc` in fast-sync mode with a DB memory allowance of 1GB just as the
@@ -169,9 +169,9 @@ accessible from the outside.
 ### Programmatically interfacing `gvbc` nodes
 
 As a developer, sooner rather than later you'll want to start interacting with `gvbc` and the
-VirBiCoin network via your own programs and not manually through the console. To aid
-this, `gvbc` has built-in support for a JSON-RPC based APIs ([standard APIs](https://github.com/emerauda/go-virbicoin/wiki/JSON-RPC)
-and [`gvbc` specific APIs](https://github.com/emerauda/go-virbicoin/wiki/Management-APIs)).
+VirBICoin network via your own programs and not manually through the console. To aid
+this, `gvbc` has built-in support for a JSON-RPC based APIs ([standard APIs](https://eth.wiki/json-rpc/API)
+and [`gvbc` specific APIs](https://geth.ethereum.org/docs/rpc/server)).
 These can be exposed via HTTP, WebSockets and IPC (UNIX sockets on UNIX based
 platforms, and named pipes on Windows).
 
@@ -203,7 +203,7 @@ can reuse the same connection for multiple requests!
 
 **Note: Please understand the security implications of opening up an HTTP/WS based
 transport before doing so! Hackers on the internet are actively trying to subvert
-VirBiCoin nodes with exposed APIs! Further, all browser tabs can access locally
+VirBICoin nodes with exposed APIs! Further, all browser tabs can access locally
 running web servers, so malicious web pages could try to subvert locally available
 APIs!**
 
@@ -220,25 +220,25 @@ aware of and agree upon. This consists of a small JSON file (e.g. call it `genes
 ```json
 {
   "config": {
-    "chainId": 329,
+    "chainId": <arbitrary positive integer>,
     "homesteadBlock": 0,
-    "daoForkSupport": true,
     "eip150Block": 0,
     "eip155Block": 0,
     "eip158Block": 0,
     "byzantiumBlock": 0,
-    "constantinopleBlock": 0
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "istanbulBlock": 0
   },
-  "nonce": "0x8329",
-  "timestamp": "0x0",
-  "extraData": "0x",
-  "gasLimit": "0x8000000",
-  "difficulty": "0x400",
-  "alloc": {
-    "0x950302976387b43E042aeA242AE8DAB8e5C204D1": {
-      "balance": "8888888888888888888"
-    }
-  }
+  "alloc": {},
+  "coinbase": "0x0000000000000000000000000000000000000000",
+  "difficulty": "0x20000",
+  "extraData": "",
+  "gasLimit": "0x2fefd8",
+  "nonce": "0x0000000000000042",
+  "mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "timestamp": "0x00"
 }
 ```
 
@@ -277,7 +277,7 @@ $ bootnode --genkey=boot.key
 $ bootnode --nodekey=boot.key
 ```
 
-With the bootnode online, it will display an [`enode` URL](https://github.com/emerauda/go-virbicoin/wiki/enode-url-format)
+With the bootnode online, it will display an [`enode` URL](https://eth.wiki/en/fundamentals/enode-url-format)
 that other nodes can use to connect to it and exchange peer information. Make sure to
 replace the displayed IP address information (most probably `[::]`) with your externally
 accessible IP to get the actual `enode` URL.
@@ -302,7 +302,7 @@ also need to configure a miner to process transactions and create new blocks for
 
 #### Running a private miner
 
-Mining on the public VirBiCoin network is a complex task as it's only feasible using GPUs,
+Mining on the public VirBICoin network is a complex task as it's only feasible using GPUs,
 requiring an OpenCL or CUDA enabled `ethminer` instance. For information on such a
 setup, please consult the [EtherMining subreddit](https://www.reddit.com/r/EtherMining/)
 and the [ethminer](https://github.com/ethereum-mining/ethminer) repository.
@@ -329,7 +329,7 @@ from anyone on the internet, and are grateful for even the smallest of fixes!
 
 If you'd like to contribute to go-virbicoin, please fork, fix, commit and send a pull request
 for the maintainers to review and merge into the main code base. If you wish to submit
-more complex changes though, please check up with the core devs first on [our gitter channel](https://gitter.im/emerauda/go-virbicoin)
+more complex changes though, please check up with the core devs first on [our gitter channel](https://gitter.im/virbicoin/go-virbicoin)
 to ensure those changes are in line with the general philosophy of the project and/or get
 some early feedback which can make both your efforts much lighter as well as our review
 and merge procedures quick and simple.
@@ -344,7 +344,7 @@ Please make sure your contributions adhere to our coding guidelines:
  * Commit messages should be prefixed with the package(s) they modify.
    * E.g. "eth, rpc: make trace configs optional"
 
-Please see the [Developers' Guide](https://github.com/emerauda/go-virbicoin/wiki/Developers'-Guide)
+Please see the [Developers' Guide](https://geth.ethereum.org/docs/developers/devguide)
 for more details on configuring your environment, managing project dependencies, and
 testing procedures.
 

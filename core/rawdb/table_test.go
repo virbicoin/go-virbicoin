@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/ethdb"
 )
 
 func TestTableDatabase(t *testing.T)            { testTableDatabase(t, "prefix") }

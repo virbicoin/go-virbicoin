@@ -21,7 +21,7 @@ package keystore
 import (
 	"time"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 	"github.com/rjeczalik/notify"
 )
 

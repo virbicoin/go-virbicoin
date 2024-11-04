@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 func newTestFullNode(v []byte) []interface{} {

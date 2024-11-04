@@ -34,8 +34,8 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/emerauda/go-virbicoin/core"
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/core"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 type allocItem struct{ Addr, Balance *big.Int }

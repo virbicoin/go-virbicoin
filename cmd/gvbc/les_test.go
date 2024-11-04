@@ -11,35 +11,35 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/p2p"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/rpc"
 )
 
 type gethrpc struct {
 	name     string
 	rpc      *rpc.Client
-	geth     *testgeth
+	gvbc     *testgeth
 	nodeInfo *p2p.NodeInfo
 }
 
 func (g *gethrpc) killAndWait() {
-	g.geth.Kill()
-	g.geth.WaitExit()
+	g.gvbc.Kill()
+	g.gvbc.WaitExit()
 }
 
 func (g *gethrpc) callRPC(result interface{}, method string, args ...interface{}) {
 	if err := g.rpc.Call(&result, method, args...); err != nil {
-		g.geth.Fatalf("callRPC %v: %v", method, err)
+		g.gvbc.Fatalf("callRPC %v: %v", method, err)
 	}
 }
 
 func (g *gethrpc) addPeer(peer *gethrpc) {
-	g.geth.Logf("%v.addPeer(%v)", g.name, peer.name)
+	g.gvbc.Logf("%v.addPeer(%v)", g.name, peer.name)
 	enode := peer.getNodeInfo().Enode
 	peerCh := make(chan *p2p.PeerEvent)
 	sub, err := g.rpc.Subscribe(context.Background(), "admin", peerCh, "peerEvents")
 	if err != nil {
-		g.geth.Fatalf("subscribe %v: %v", g.name, err)
+		g.gvbc.Fatalf("subscribe %v: %v", g.name, err)
 	}
 	defer sub.Unsubscribe()
 	g.callRPC(nil, "admin_addPeer", enode)
@@ -47,11 +47,11 @@ func (g *gethrpc) addPeer(peer *gethrpc) {
 	timeout := time.After(dur)
 	select {
 	case ev := <-peerCh:
-		g.geth.Logf("%v received event: type=%v, peer=%v", g.name, ev.Type, ev.Peer)
+		g.gvbc.Logf("%v received event: type=%v, peer=%v", g.name, ev.Type, ev.Peer)
 	case err := <-sub.Err():
-		g.geth.Fatalf("%v sub error: %v", g.name, err)
+		g.gvbc.Fatalf("%v sub error: %v", g.name, err)
 	case <-timeout:
-		g.geth.Error("timeout adding peer after", dur)
+		g.gvbc.Error("timeout adding peer after", dur)
 	}
 }
 
@@ -71,7 +71,7 @@ func (g *gethrpc) waitSynced() {
 	g.callRPC(&result, "eth_syncing")
 	syncing, ok := result.(bool)
 	if ok && !syncing {
-		g.geth.Logf("%v already synced", g.name)
+		g.gvbc.Logf("%v already synced", g.name)
 		return
 	}
 
@@ -79,23 +79,23 @@ func (g *gethrpc) waitSynced() {
 	ch := make(chan interface{})
 	sub, err := g.rpc.Subscribe(context.Background(), "eth", ch, "syncing")
 	if err != nil {
-		g.geth.Fatalf("%v syncing: %v", g.name, err)
+		g.gvbc.Fatalf("%v syncing: %v", g.name, err)
 	}
 	defer sub.Unsubscribe()
 	timeout := time.After(4 * time.Second)
 	select {
 	case ev := <-ch:
-		g.geth.Log("'syncing' event", ev)
+		g.gvbc.Log("'syncing' event", ev)
 		syncing, ok := ev.(bool)
 		if ok && !syncing {
 			break
 		}
-		g.geth.Log("Other 'syncing' event", ev)
+		g.gvbc.Log("Other 'syncing' event", ev)
 	case err := <-sub.Err():
-		g.geth.Fatalf("%v notification: %v", g.name, err)
+		g.gvbc.Fatalf("%v notification: %v", g.name, err)
 		break
 	case <-timeout:
-		g.geth.Fatalf("%v timeout syncing", g.name)
+		g.gvbc.Fatalf("%v timeout syncing", g.name)
 		break
 	}
 }
@@ -129,18 +129,18 @@ func ipcEndpoint(ipcPath, datadir string) string {
 var nextIPC = uint32(0)
 
 func startGethWithIpc(t *testing.T, name string, args ...string) *gethrpc {
-	ipcName := fmt.Sprintf("geth-%d.ipc", atomic.AddUint32(&nextIPC, 1))
-	args = append([]string{"--networkid=42", "--port=0", "--nousb", "--ipcpath", ipcName}, args...)
+	ipcName := fmt.Sprintf("gvbc-%d.ipc", atomic.AddUint32(&nextIPC, 1))
+	args = append([]string{"--networkid=42", "--port=0", "--ipcpath", ipcName}, args...)
 	t.Logf("Starting %v with rpc: %v", name, args)
 
 	g := &gethrpc{
 		name: name,
-		geth: runGeth(t, args...),
+		gvbc: runGvbc(t, args...),
 	}
 	// wait before we can attach to it. TODO: probe for it properly
 	time.Sleep(1 * time.Second)
 	var err error
-	ipcpath := ipcEndpoint(ipcName, g.geth.Datadir)
+	ipcpath := ipcEndpoint(ipcName, g.gvbc.Datadir)
 	if g.rpc, err = rpc.Dial(ipcpath); err != nil {
 		t.Fatalf("%v rpc connect to %v: %v", name, ipcpath, err)
 	}
@@ -148,9 +148,9 @@ func startGethWithIpc(t *testing.T, name string, args ...string) *gethrpc {
 }
 
 func initGeth(t *testing.T) string {
-	args := []string{"--nousb", "--networkid=42", "init", "./testdata/clique.json"}
-	t.Logf("Initializing geth: %v ", args)
-	g := runGeth(t, args...)
+	args := []string{"--networkid=42", "init", "./testdata/clique.json"}
+	t.Logf("Initializing gvbc: %v ", args)
+	g := runGvbc(t, args...)
 	datadir := g.Datadir
 	g.WaitExit()
 	return datadir
@@ -158,8 +158,8 @@ func initGeth(t *testing.T) string {
 
 func startLightServer(t *testing.T) *gethrpc {
 	datadir := initGeth(t)
-	t.Logf("Importing keys to geth")
-	runGeth(t, "--nousb", "--datadir", datadir, "--password", "./testdata/password.txt", "account", "import", "./testdata/key.prv", "--lightkdf").WaitExit()
+	t.Logf("Importing keys to gvbc")
+	runGvbc(t, "--datadir", datadir, "--password", "./testdata/password.txt", "account", "import", "./testdata/key.prv", "--lightkdf").WaitExit()
 	account := "0x02f0d131f1f97aef08aec6e3291b957d9efe7105"
 	server := startGethWithIpc(t, "lightserver", "--allow-insecure-unlock", "--datadir", datadir, "--password", "./testdata/password.txt", "--unlock", account, "--mine", "--light.serve=100", "--light.maxpeers=1", "--nodiscover", "--nat=extip:127.0.0.1", "--verbosity=4")
 	return server

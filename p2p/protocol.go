@@ -19,8 +19,8 @@ package p2p
 import (
 	"fmt"
 
-	"github.com/emerauda/go-virbicoin/p2p/enode"
-	"github.com/emerauda/go-virbicoin/p2p/enr"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/p2p/enr"
 )
 
 // Protocol represents a P2P subprotocol implementation.

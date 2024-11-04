@@ -21,7 +21,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common/hexutil"
+	"github.com/virbicoin/go-virbicoin/common/hexutil"
 )
 
 func TestBytesPadding(t *testing.T) {

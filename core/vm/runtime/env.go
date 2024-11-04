@@ -17,8 +17,8 @@
 package runtime
 
 import (
-	"github.com/emerauda/go-virbicoin/core"
-	"github.com/emerauda/go-virbicoin/core/vm"
+	"github.com/virbicoin/go-virbicoin/core"
+	"github.com/virbicoin/go-virbicoin/core/vm"
 )
 
 func NewEnv(cfg *Config) *vm.EVM {

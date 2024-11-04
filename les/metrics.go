@@ -17,8 +17,8 @@
 package les
 
 import (
-	"github.com/emerauda/go-virbicoin/metrics"
-	"github.com/emerauda/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/metrics"
+	"github.com/virbicoin/go-virbicoin/p2p"
 )
 
 var (

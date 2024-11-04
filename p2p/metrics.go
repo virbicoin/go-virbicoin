@@ -21,7 +21,7 @@ package p2p
 import (
 	"net"
 
-	"github.com/emerauda/go-virbicoin/metrics"
+	"github.com/virbicoin/go-virbicoin/metrics"
 )
 
 const (

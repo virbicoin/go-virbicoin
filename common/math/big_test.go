@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 func TestHexOrDecimal256(t *testing.T) {

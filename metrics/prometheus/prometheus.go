@@ -22,8 +22,8 @@ import (
 	"net/http"
 	"sort"
 
-	"github.com/emerauda/go-virbicoin/log"
-	"github.com/emerauda/go-virbicoin/metrics"
+	"github.com/virbicoin/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/metrics"
 )
 
 // Handler returns an HTTP handler which dump metrics in Prometheus format.

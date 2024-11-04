@@ -22,8 +22,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common/mclock"
-	"github.com/emerauda/go-virbicoin/common/prque"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/common/prque"
 )
 
 // cmNodeFields are ClientNode fields used by the client manager

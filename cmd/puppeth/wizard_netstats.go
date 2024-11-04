@@ -23,8 +23,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/emerauda/go-virbicoin/core"
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/core"
+	"github.com/virbicoin/go-virbicoin/log"
 	"github.com/olekukonko/tablewriter"
 )
 

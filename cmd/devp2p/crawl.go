@@ -19,8 +19,8 @@ package main
 import (
 	"time"
 
-	"github.com/emerauda/go-virbicoin/log"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
 )
 
 type crawler struct {

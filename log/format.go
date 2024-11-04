@@ -23,7 +23,7 @@ const (
 
 // locationTrims are trimmed for display to avoid unwieldy log lines.
 var locationTrims = []string{
-	"github.com/emerauda/go-virbicoin/",
+	"github.com/virbicoin/go-virbicoin/",
 }
 
 // PrintOrigins sets or unsets log location (file:line) printing for terminal

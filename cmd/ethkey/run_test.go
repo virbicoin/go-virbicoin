@@ -22,7 +22,7 @@ import (
 	"testing"
 
 	"github.com/docker/docker/pkg/reexec"
-	"github.com/emerauda/go-virbicoin/internal/cmdtest"
+	"github.com/virbicoin/go-virbicoin/internal/cmdtest"
 )
 
 type testEthkey struct {

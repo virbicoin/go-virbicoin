@@ -25,12 +25,12 @@ import (
 	"time"
 
 	"github.com/dop251/goja"
-	"github.com/emerauda/go-virbicoin/accounts/scwallet"
-	"github.com/emerauda/go-virbicoin/accounts/usbwallet"
-	"github.com/emerauda/go-virbicoin/common/hexutil"
-	"github.com/emerauda/go-virbicoin/console/prompt"
-	"github.com/emerauda/go-virbicoin/internal/jsre"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/accounts/scwallet"
+	"github.com/virbicoin/go-virbicoin/accounts/usbwallet"
+	"github.com/virbicoin/go-virbicoin/common/hexutil"
+	"github.com/virbicoin/go-virbicoin/console/prompt"
+	"github.com/virbicoin/go-virbicoin/internal/jsre"
+	"github.com/virbicoin/go-virbicoin/rpc"
 )
 
 // bridge is a collection of JavaScript utility methods to bride the .js runtime

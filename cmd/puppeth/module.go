@@ -25,7 +25,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 var (

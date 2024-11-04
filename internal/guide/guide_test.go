@@ -30,8 +30,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/accounts/keystore"
-	"github.com/emerauda/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/accounts/keystore"
+	"github.com/virbicoin/go-virbicoin/core/types"
 )
 
 // Tests that the account management snippets work correctly.

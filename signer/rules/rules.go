@@ -23,11 +23,11 @@ import (
 	"strings"
 
 	"github.com/dop251/goja"
-	"github.com/emerauda/go-virbicoin/internal/ethapi"
-	"github.com/emerauda/go-virbicoin/log"
-	"github.com/emerauda/go-virbicoin/signer/core"
-	"github.com/emerauda/go-virbicoin/signer/rules/deps"
-	"github.com/emerauda/go-virbicoin/signer/storage"
+	"github.com/virbicoin/go-virbicoin/internal/ethapi"
+	"github.com/virbicoin/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/signer/core"
+	"github.com/virbicoin/go-virbicoin/signer/rules/deps"
+	"github.com/virbicoin/go-virbicoin/signer/storage"
 )
 
 var (

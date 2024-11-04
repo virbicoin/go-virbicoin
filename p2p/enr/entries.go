@@ -21,7 +21,7 @@ import (
 	"io"
 	"net"
 
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 // Entry is implemented by known node record entry types.

@@ -18,11 +18,11 @@ However, from a security perspective, the most critical step in a synchronizatio
 
 #### Hardcoded checkpoint
 
-There are several hardcoded checkpoints in the [source code](https://github.com/emerauda/go-virbicoin/blob/master/params/config.go#L38) of the go-ethereum project. These checkpoints are updated by go-ethereum developers when new versions of software are released. Because light client users trust Geth developers to some extent, hardcoded checkpoints in the code can also be considered correct.
+There are several hardcoded checkpoints in the [source code](https://github.com/virbicoin/go-virbicoin/blob/master/params/config.go#L38) of the go-ethereum project. These checkpoints are updated by go-ethereum developers when new versions of software are released. Because light client users trust Gvbc developers to some extent, hardcoded checkpoints in the code can also be considered correct.
 
 #### Checkpoint oracle
 
-Hardcoded checkpoints can solve the problem of verifying the correctness of checkpoints (although this is a more centralized solution). But the pain point of this solution is that developers can only update checkpoints when a new version of software is released. In addition, light client users usually do not keep the Geth version they use always up to date. So hardcoded checkpoints used by users are generally stale. Therefore, it still needs to download a large amount of blockchain data during synchronization.
+Hardcoded checkpoints can solve the problem of verifying the correctness of checkpoints (although this is a more centralized solution). But the pain point of this solution is that developers can only update checkpoints when a new version of software is released. In addition, light client users usually do not keep the Gvbc version they use always up to date. So hardcoded checkpoints used by users are generally stale. Therefore, it still needs to download a large amount of blockchain data during synchronization.
 
 Checkpoint oracle is a more flexible solution. In simple terms, this is a smart contract that is deployed on the blockchain. The smart contract records several designated trusted signers. Whenever enough trusted signers have issued their signatures for the same checkpoint, it can be considered that the checkpoint has been authenticated by the signers. Checkpoints authenticated by trusted signers can be considered correct.
 
@@ -35,7 +35,7 @@ Checkpoint-admin is a command line tool designed for checkpoint oracle. Users ca
 #### Install
 
 ```shell
-go get github.com/emerauda/go-virbicoin/cmd/checkpoint-admin
+go get github.com/virbicoin/go-virbicoin/cmd/checkpoint-admin
 ```
 
 #### Deploy
@@ -58,7 +58,7 @@ Checkpoint-admin provides two different modes of signing. You can automatically 
 checkpoint-admin sign --clef <CLEF_ENDPOINT> --signer <SIGNER_TO_SIGN_CHECKPOINT> --rpc <NODE_RPC_ENDPOINT>
 ```
 
-*It is worth noting that the connected Geth node can be a fullnode or a light client. If it is fullnode, you must enable the LES protocol. E.G. add `--light.serv 50` to the startup command line flags*.
+*It is worth noting that the connected Gvbc node can be a fullnode or a light client. If it is fullnode, you must enable the LES protocol. E.G. add `--light.serv 50` to the startup command line flags*.
 
 **Offline mode**
 
@@ -66,7 +66,7 @@ checkpoint-admin sign --clef <CLEF_ENDPOINT> --signer <SIGNER_TO_SIGN_CHECKPOINT
 checkpoint-admin sign --clef <CLEF_ENDPOINT> --signer <SIGNER_TO_SIGN_CHECKPOINT> --index <CHECKPOINT_INDEX> --hash <CHECKPOINT_HASH> --oracle <CHECKPOINT_ORACLE_ADDRESS>
 ```
 
-*CHECKPOINT_HASH is obtained based on this [calculation method](https://github.com/emerauda/go-virbicoin/blob/master/params/config.go#L251).*
+*CHECKPOINT_HASH is obtained based on this [calculation method](https://github.com/virbicoin/go-virbicoin/blob/master/params/config.go#L251).*
 
 #### Publish
 
@@ -88,7 +88,7 @@ checkpoint-admin status --rpc <NODE_RPC_ENDPOINT>
 
 Currently, only the Ethereum mainnet and the default supported test networks (ropsten, rinkeby, goerli) activate this feature. If you want to activate this feature in your private network, you can overwrite the relevant checkpoint oracle settings through the configuration file after deploying the oracle contract.
 
-* Get your node configuration file `geth dumpconfig OTHER_COMMAND_LINE_OPTIONS > config.toml`
+* Get your node configuration file `gvbc dumpconfig OTHER_COMMAND_LINE_OPTIONS > config.toml`
 * Edit the configuration file and add the following information
 
 ```toml
@@ -98,6 +98,6 @@ Signers = [TRUSTED_SIGNER_1, ..., TRUSTED_SIGNER_N]
 Threshold = THRESHOLD
 ```
 
-* Start geth with the modified configuration file
+* Start gvbc with the modified configuration file
 
 *In the private network, all fullnodes and light clients need to be started using the same checkpoint oracle settings.*

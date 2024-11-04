@@ -20,7 +20,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 func bigFromHex(hex string) *big.Int {

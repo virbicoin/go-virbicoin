@@ -23,7 +23,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -31,7 +31,7 @@ import (
 func main() {
 	app := cli.NewApp()
 	app.Name = "puppeth"
-	app.Usage = "assemble and maintain private Ethereum networks"
+	app.Usage = "assemble and maintain private VirBiCoin networks"
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name:  "network",

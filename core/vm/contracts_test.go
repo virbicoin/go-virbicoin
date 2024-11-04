@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 // precompiledTest defines the input/output pairs for precompiled contract tests.

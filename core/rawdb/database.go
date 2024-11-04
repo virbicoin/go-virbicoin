@@ -24,11 +24,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/ethdb"
-	"github.com/emerauda/go-virbicoin/ethdb/leveldb"
-	"github.com/emerauda/go-virbicoin/ethdb/memorydb"
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/ethdb/leveldb"
+	"github.com/virbicoin/go-virbicoin/ethdb/memorydb"
+	"github.com/virbicoin/go-virbicoin/log"
 	"github.com/olekukonko/tablewriter"
 )
 
@@ -355,7 +355,7 @@ func InspectDatabase(db ethdb.Database) error {
 			bloomTrieNodes.Add(size)
 		default:
 			var accounted bool
-			for _, meta := range [][]byte{databaseVerisionKey, headHeaderKey, headBlockKey, headFastBlockKey, fastTrieProgressKey} {
+			for _, meta := range [][]byte{databaseVersionKey, headHeaderKey, headBlockKey, headFastBlockKey, fastTrieProgressKey, uncleanShutdownKey, badBlockKey} {
 				if bytes.Equal(key, meta) {
 					metadata.Add(size)
 					accounted = true

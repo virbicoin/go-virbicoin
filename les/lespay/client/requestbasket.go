@@ -19,8 +19,8 @@ package client
 import (
 	"io"
 
-	"github.com/emerauda/go-virbicoin/les/utils"
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/les/utils"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 const basketFactor = 1000000 // reference basket amount and value scale factor

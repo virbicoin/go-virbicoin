@@ -22,7 +22,7 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/emerauda/go-virbicoin/core/asm"
+	"github.com/virbicoin/go-virbicoin/core/asm"
 	"gopkg.in/urfave/cli.v1"
 )
 

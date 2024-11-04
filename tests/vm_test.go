@@ -19,7 +19,7 @@ package tests
 import (
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/core/vm"
+	"github.com/virbicoin/go-virbicoin/core/vm"
 )
 
 func TestVM(t *testing.T) {

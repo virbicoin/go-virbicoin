@@ -34,7 +34,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // Handler is the global debugging handler.

@@ -17,8 +17,8 @@
 package types
 
 import (
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 type DerivableList interface {

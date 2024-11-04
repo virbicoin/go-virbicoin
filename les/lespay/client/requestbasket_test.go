@@ -20,7 +20,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/les/utils"
+	"github.com/virbicoin/go-virbicoin/les/utils"
 )
 
 func checkU64(t *testing.T, name string, value, exp uint64) {

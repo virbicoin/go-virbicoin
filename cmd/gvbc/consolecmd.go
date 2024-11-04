@@ -24,10 +24,10 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/emerauda/go-virbicoin/cmd/utils"
-	"github.com/emerauda/go-virbicoin/console"
-	"github.com/emerauda/go-virbicoin/node"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/cmd/utils"
+	"github.com/virbicoin/go-virbicoin/console"
+	"github.com/virbicoin/go-virbicoin/node"
+	"github.com/virbicoin/go-virbicoin/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -41,9 +41,9 @@ var (
 		Flags:    append(append(append(nodeFlags, rpcFlags...), consoleFlags...), whisperFlags...),
 		Category: "CONSOLE COMMANDS",
 		Description: `
-The Geth console is an interactive shell for the JavaScript runtime environment
+The Gvbc console is an interactive shell for the JavaScript runtime environment
 which exposes a node admin interface as well as the Ðapp JavaScript API.
-See https://github.com/emerauda/go-virbicoin/wiki/JavaScript-Console.`,
+See https://geth.ethereum.org/docs/interface/javascript-console.`,
 	}
 
 	attachCommand = cli.Command{
@@ -54,9 +54,9 @@ See https://github.com/emerauda/go-virbicoin/wiki/JavaScript-Console.`,
 		Flags:     append(consoleFlags, utils.DataDirFlag),
 		Category:  "CONSOLE COMMANDS",
 		Description: `
-The Geth console is an interactive shell for the JavaScript runtime environment
+The Gvbc console is an interactive shell for the JavaScript runtime environment
 which exposes a node admin interface as well as the Ðapp JavaScript API.
-See https://github.com/emerauda/go-virbicoin/wiki/JavaScript-Console.
+See https://geth.ethereum.org/docs/interface/javascript-console.
 This command allows to open a console on a running gvbc node.`,
 	}
 
@@ -69,7 +69,7 @@ This command allows to open a console on a running gvbc node.`,
 		Category:  "CONSOLE COMMANDS",
 		Description: `
 The JavaScript VM exposes a node admin interface as well as the Ðapp
-JavaScript API. See https://github.com/emerauda/go-virbicoin/wiki/JavaScript-Console`,
+JavaScript API. See https://geth.ethereum.org/docs/interface/javascript-console`,
 	}
 )
 
@@ -124,7 +124,7 @@ func remoteConsole(ctx *cli.Context) error {
 		}
 		if path != "" {
 			if ctx.GlobalBool(utils.LegacyTestnetFlag.Name) || ctx.GlobalBool(utils.RopstenFlag.Name) {
-				// Maintain compatibility with older Geth configurations storing the
+				// Maintain compatibility with older Gvbc configurations storing the
 				// Ropsten database in `testnet` instead of `ropsten`.
 				legacyPath := filepath.Join(path, "testnet")
 				if _, err := os.Stat(legacyPath); !os.IsNotExist(err) {
@@ -136,8 +136,8 @@ func remoteConsole(ctx *cli.Context) error {
 				path = filepath.Join(path, "rinkeby")
 			} else if ctx.GlobalBool(utils.GoerliFlag.Name) {
 				path = filepath.Join(path, "goerli")
-			} else if ctx.GlobalBool(utils.YoloV2Flag.Name) {
-				path = filepath.Join(path, "yolo-v2")
+			} else if ctx.GlobalBool(utils.YoloV3Flag.Name) {
+				path = filepath.Join(path, "yolo-v3")
 			}
 		}
 		endpoint = fmt.Sprintf("%s/gvbc.ipc", path)

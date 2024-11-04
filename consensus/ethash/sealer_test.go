@@ -25,10 +25,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/core/types"
-	"github.com/emerauda/go-virbicoin/internal/testlog"
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/core/types"
+	"github.com/virbicoin/go-virbicoin/internal/testlog"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // Tests whether remote HTTP servers are correctly notified of new work.

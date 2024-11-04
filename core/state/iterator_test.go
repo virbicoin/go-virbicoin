@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/ethdb"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/ethdb"
 )
 
 // Tests that the node iterator indeed walks over the entire database contents.

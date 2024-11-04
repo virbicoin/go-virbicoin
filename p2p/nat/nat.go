@@ -25,7 +25,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 	natpmp "github.com/jackpal/go-nat-pmp"
 )
 

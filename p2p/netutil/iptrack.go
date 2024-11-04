@@ -19,7 +19,7 @@ package netutil
 import (
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
 )
 
 // IPTracker predicts the external endpoint, i.e. IP address and port, of the local host

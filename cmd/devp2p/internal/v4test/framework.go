@@ -22,9 +22,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/p2p/discover/v4wire"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/p2p/discover/v4wire"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
 )
 
 const waitTime = 300 * time.Millisecond

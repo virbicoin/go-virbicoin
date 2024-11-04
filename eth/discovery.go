@@ -17,11 +17,11 @@
 package eth
 
 import (
-	"github.com/emerauda/go-virbicoin/core"
-	"github.com/emerauda/go-virbicoin/core/forkid"
-	"github.com/emerauda/go-virbicoin/p2p/dnsdisc"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
-	"github.com/emerauda/go-virbicoin/rlp"
+	"github.com/virbicoin/go-virbicoin/core"
+	"github.com/virbicoin/go-virbicoin/core/forkid"
+	"github.com/virbicoin/go-virbicoin/p2p/dnsdisc"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/rlp"
 )
 
 // ethEntry is the "eth" ENR entry which advertises eth protocol
@@ -63,11 +63,12 @@ func (eth *Ethereum) currentEthEntry() *ethEntry {
 		eth.blockchain.CurrentHeader().Number.Uint64())}
 }
 
-// setupDiscovery creates the node discovery source for the eth protocol.
-func (eth *Ethereum) setupDiscovery() (enode.Iterator, error) {
-	if len(eth.config.DiscoveryURLs) == 0 {
+// setupDiscovery creates the node discovery source for the `eth` and `snap`
+// protocols.
+func setupDiscovery(urls []string) (enode.Iterator, error) {
+	if len(urls) == 0 {
 		return nil, nil
 	}
 	client := dnsdisc.NewClient(dnsdisc.Config{})
-	return client.NewIterator(eth.config.DiscoveryURLs...)
+	return client.NewIterator(urls...)
 }

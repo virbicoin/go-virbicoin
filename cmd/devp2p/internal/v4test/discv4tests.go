@@ -24,9 +24,9 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/crypto"
-	"github.com/emerauda/go-virbicoin/internal/utesting"
-	"github.com/emerauda/go-virbicoin/p2p/discover/v4wire"
+	"github.com/virbicoin/go-virbicoin/crypto"
+	"github.com/virbicoin/go-virbicoin/internal/utesting"
+	"github.com/virbicoin/go-virbicoin/p2p/discover/v4wire"
 )
 
 const (

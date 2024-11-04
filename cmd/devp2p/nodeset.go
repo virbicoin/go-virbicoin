@@ -25,8 +25,8 @@ import (
 	"sort"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
 )
 
 const jsonIndent = "    "

@@ -19,7 +19,7 @@ package p2p
 import (
 	"container/heap"
 
-	"github.com/emerauda/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
 )
 
 // expHeap tracks strings and their expiry time.

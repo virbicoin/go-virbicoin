@@ -150,7 +150,7 @@ UserInputResponse struct {
       ],
       "meta": {
         "remote": "127.0.0.1:54286",
-        "local": "localhost:8550",
+        "local": "localhost:8334",
         "scheme": "HTTP/1.1"
       }
     }
@@ -172,7 +172,7 @@ Example call:
   "params": [
     {
       "info": {
-        "extapi_http": "http://localhost:8550",
+        "extapi_http": "http://localhost:8334",
         "extapi_ipc": null,
         "extapi_version": "2.0.0",
         "intapi_version": "1.2.0"

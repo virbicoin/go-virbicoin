@@ -20,7 +20,7 @@ import (
 	"container/heap"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/common/mclock"
+	"github.com/virbicoin/go-virbicoin/common/mclock"
 )
 
 // LazyQueue is a priority queue data structure where priorities can change over

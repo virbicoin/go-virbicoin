@@ -25,7 +25,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/emerauda/go-virbicoin/log"
+	"github.com/virbicoin/go-virbicoin/log"
 )
 
 // ethstatsDockerfile is the Dockerfile required to build an ethstats backend

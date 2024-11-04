@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/metrics"
+	"github.com/virbicoin/go-virbicoin/metrics"
 )
 
 func TestMain(m *testing.M) {

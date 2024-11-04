@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common/hexutil"
+	"github.com/virbicoin/go-virbicoin/common/hexutil"
 )
 
 func TestTextHash(t *testing.T) {

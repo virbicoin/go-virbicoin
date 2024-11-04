@@ -20,8 +20,8 @@
 package node
 
 import (
-	"github.com/emerauda/go-virbicoin/p2p"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/p2p"
+	"github.com/virbicoin/go-virbicoin/rpc"
 )
 
 // NoopLifecycle is a trivial implementation of the Service interface.
@@ -82,11 +82,11 @@ func (f *FullService) Stop() error { return nil }
 
 func (f *FullService) Protocols() []p2p.Protocol {
 	return []p2p.Protocol{
-		p2p.Protocol{
+		{
 			Name:    "test1",
 			Version: uint(1),
 		},
-		p2p.Protocol{
+		{
 			Name:    "test2",
 			Version: uint(2),
 		},

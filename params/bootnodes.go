@@ -16,15 +16,16 @@
 
 package params
 
-import "github.com/emerauda/go-virbicoin/common"
+import "github.com/virbicoin/go-virbicoin/common"
 
 // MainnetBootnodes are the enode URLs of the P2P bootstrap nodes running on
 // the main Ethereum network.
 var MainnetBootnodes = []string{
-	// VirBiCoin Go Bootnodes
-	"enode://a96b1e0d1e93987a81a08dcef602890d25e449ba2823b03bfb521cf4e72020e6af86ae87c6aae89b62d57a7ec380bced83108fb8810205db508bddf32f98f6e7@35.72.202.199:28329", // bootNode-AWS-ap-northeast-1a-001
-	"enode://156c3707f0a68d1a38e398b32ba11529201d37be49f5990ca3294cadac2870f6c08b3db604dbdf306f93d1128589631356095c59121acab37e8be7c56ba75931@52.69.140.99:28329", // bootNode-AWS-ap-northeast-1d-001
-	"enode://afb0a6b6a0a9b9881a384bea5c98f1997d0a0db7ae4ea89434e9b87ff65eb5e3f9a096d9ab757718f2915441f6d6ba8ab0ca9a6c452e1d7be9804bbcdf8ba662@13.208.46.232:28329", // bootNode-AWS-ap-northeast-3a-001
+
+    // VirBiCoin Official Go Bootnodes
+	"enode://a96b1e0d1e93987a81a08dcef602890d25e449ba2823b03bfb521cf4e72020e6af86ae87c6aae89b62d57a7ec380bced83108fb8810205db508bddf32f98f6e7@35.72.202.199:28329", // bootnode-AWS-ap-northeast-1a-01
+	"enode://156c3707f0a68d1a38e398b32ba11529201d37be49f5990ca3294cadac2870f6c08b3db604dbdf306f93d1128589631356095c59121acab37e8be7c56ba75931@52.69.140.99:28329", // bootnode-AWS-ap-northeast-1d-01
+	"enode://afb0a6b6a0a9b9881a384bea5c98f1997d0a0db7ae4ea89434e9b87ff65eb5e3f9a096d9ab757718f2915441f6d6ba8ab0ca9a6c452e1d7be9804bbcdf8ba662@13.208.46.232:28329", // bootnode-AWS-ap-northeast-3a-01
 }
 
 // RopstenBootnodes are the enode URLs of the P2P bootstrap nodes running on the
@@ -39,9 +40,12 @@ var RinkebyBootnodes = []string{}
 // Görli test network.
 var GoerliBootnodes = []string{}
 
-// YoloV2Bootnodes are the enode URLs of the P2P bootstrap nodes running on the
-// YOLOv2 ephemeral test network.
-var YoloV2Bootnodes = []string{}
+// YoloV3Bootnodes are the enode URLs of the P2P bootstrap nodes running on the
+// YOLOv3 ephemeral test network.
+// TODO: Set Yolov3 bootnodes
+var YoloV3Bootnodes = []string{}
+
+var V5Bootnodes = []string{}
 
 const dnsPrefix = "enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUDPE@"
 

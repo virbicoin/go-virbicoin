@@ -29,11 +29,11 @@ import (
 	"syscall"
 
 	"github.com/dop251/goja"
-	"github.com/emerauda/go-virbicoin/console/prompt"
-	"github.com/emerauda/go-virbicoin/internal/jsre"
-	"github.com/emerauda/go-virbicoin/internal/jsre/deps"
-	"github.com/emerauda/go-virbicoin/internal/web3ext"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/console/prompt"
+	"github.com/virbicoin/go-virbicoin/internal/jsre"
+	"github.com/virbicoin/go-virbicoin/internal/jsre/deps"
+	"github.com/virbicoin/go-virbicoin/internal/web3ext"
+	"github.com/virbicoin/go-virbicoin/rpc"
 	"github.com/mattn/go-colorable"
 	"github.com/peterh/liner"
 )

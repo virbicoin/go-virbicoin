@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/rpc"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/rpc"
 )
 
 func TestUnmarshalJSONNewFilterArgs(t *testing.T) {

@@ -7,8 +7,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/emerauda/go-virbicoin/common"
-	"github.com/emerauda/go-virbicoin/common/math"
+	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common/math"
 )
 
 var _ = (*stEnvMarshaling)(nil)

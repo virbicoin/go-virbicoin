@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/emerauda/go-virbicoin/p2p/enode"
+	"github.com/virbicoin/go-virbicoin/p2p/enode"
 )
 
 func TestMocker(t *testing.T) {

@@ -22,7 +22,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/emerauda/go-virbicoin/metrics"
+	"github.com/virbicoin/go-virbicoin/metrics"
 )
 
 var (

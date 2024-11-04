@@ -20,7 +20,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/emerauda/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common"
 )
 
 func BenchmarkCutOriginal(b *testing.B) {
