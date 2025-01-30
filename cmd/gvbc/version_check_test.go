@@ -91,7 +91,7 @@ func TestMatching(t *testing.T) {
 		t.Fatal(err)
 	}
 	check := func(version string) {
-		vFull := fmt.Sprintf("Gvbc/%v-unstable-15339cf1-20201204/linux-amd64/go1.15.4", version)
+		vFull := fmt.Sprintf("Gvbc/%v-unstable-26e5bd06-20241104/linux-amd64/go1.22.8", version)
 		for _, vuln := range vulns {
 			r, err := regexp.Compile(vuln.Check)
 			vulnIntro := versionUint(vuln.Introduced)

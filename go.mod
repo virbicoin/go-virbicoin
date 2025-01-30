@@ -1,6 +1,6 @@
 module github.com/virbicoin/go-virbicoin
 
-go 1.13
+go 1.22.11
 
 require (
 	github.com/Azure/azure-storage-blob-go v0.7.0
@@ -33,7 +33,6 @@ require (
 	github.com/jedisct1/go-minisign v0.0.0-20190909160543-45766022959e
 	github.com/julienschmidt/httprouter v1.2.0
 	github.com/karalabe/usb v0.0.0-20190919080040-51dc0efba356
-	github.com/karalabe/xgo v0.0.0-20191115072854-c5ccff8648a7 // indirect
 	github.com/mattn/go-colorable v0.1.0
 	github.com/mattn/go-isatty v0.0.5-0.20180830101745-3fb116b82035
 	github.com/naoina/toml v0.1.2-0.20170918210437-9fafd6967416
@@ -48,11 +47,32 @@ require (
 	github.com/stretchr/testify v1.7.0
 	github.com/syndtr/goleveldb v1.0.1-0.20200815110645-5c35d600f0ca
 	github.com/tyler-smith/go-bip39 v1.0.1-0.20181017060643-dbb3b84ba2ef
-	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
-	golang.org/x/sys v0.0.0-20210124154548-22da62e12c0c
-	golang.org/x/text v0.3.3
-	golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
+	golang.org/x/crypto v0.22.0
+	golang.org/x/sys v0.29.0
+	golang.org/x/text v0.14.0
+	golang.org/x/time v0.5.0
 	gopkg.in/natefinch/npipe.v2 v2.0.0-20160621034901-c1b8fa8bdcce
 	gopkg.in/olebedev/go-duktape.v3 v3.0.0-20200619000410-60c24ae608a6
 	gopkg.in/urfave/cli.v1 v1.20.0
+)
+
+require (
+	github.com/Azure/azure-pipeline-go v0.2.2 // indirect
+	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect
+	github.com/cespare/xxhash/v2 v2.1.1 // indirect
+	github.com/dlclark/regexp2 v1.2.0 // indirect
+	github.com/go-ole/go-ole v1.2.1 // indirect
+	github.com/go-sourcemap/sourcemap v2.1.2+incompatible // indirect
+	github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af // indirect
+	github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d // indirect
+	github.com/mattn/go-runewidth v0.0.4 // indirect
+	github.com/naoina/go-stringutil v0.1.0 // indirect
+	github.com/opentracing/opentracing-go v1.1.0 // indirect
+	github.com/pkg/errors v0.8.1 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
+	golang.org/x/net v0.21.0 // indirect
+	golang.org/x/sync v0.10.0 // indirect
+	golang.org/x/term v0.28.0 // indirect
+	google.golang.org/protobuf v1.23.0 // indirect
+	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
 )
