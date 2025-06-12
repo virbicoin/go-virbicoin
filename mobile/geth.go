@@ -80,7 +80,7 @@ var defaultNodeConfig = &NodeConfig{
 	BootstrapNodes:        FoundationBootnodes(),
 	MaxPeers:              25,
 	EthereumEnabled:       true,
-	EthereumNetworkID:     1,
+	EthereumNetworkID:     329,
 	EthereumDatabaseCache: 16,
 }
 
@@ -161,22 +161,22 @@ func NewNode(datadir string, config *NodeConfig) (stack *Node, _ error) {
 		// If we have the Ropsten testnet, hard code the chain configs too
 		if config.EthereumGenesis == RopstenGenesis() {
 			genesis.Config = params.RopstenChainConfig
-			if config.EthereumNetworkID == 1 {
-				config.EthereumNetworkID = 3
+			if config.EthereumNetworkID == 329 {
+				config.EthereumNetworkID = 3329
 			}
 		}
 		// If we have the Rinkeby testnet, hard code the chain configs too
 		if config.EthereumGenesis == RinkebyGenesis() {
 			genesis.Config = params.RinkebyChainConfig
-			if config.EthereumNetworkID == 1 {
-				config.EthereumNetworkID = 4
+			if config.EthereumNetworkID == 329 {
+				config.EthereumNetworkID = 4329
 			}
 		}
 		// If we have the Goerli testnet, hard code the chain configs too
 		if config.EthereumGenesis == GoerliGenesis() {
 			genesis.Config = params.GoerliChainConfig
-			if config.EthereumNetworkID == 1 {
-				config.EthereumNetworkID = 5
+			if config.EthereumNetworkID == 329 {
+				config.EthereumNetworkID = 5329
 			}
 		}
 	}
