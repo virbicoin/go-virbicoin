@@ -342,7 +342,7 @@ func DefaultGenesisBlock() *Genesis {
 		Difficulty: big.NewInt(1024),
 		Alloc: map[common.Address]GenesisAccount{
 			common.HexToAddress("0x950302976387b43e042aea242ae8dab8e5c204d1"): {
-				Balance: big.NewInt(0x21e19e0C9bab2400000),
+				Balance: big.NewInt(0x56bc75e2d63100000),
 			},
 		},
 	}
