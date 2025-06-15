@@ -24,7 +24,7 @@ var MainnetBootnodes = []string{
 
     // VirBiCoin Official Go Bootnodes
 	"enode://e8853097e51e155d6bac72b9ebff92ccdf5aa8ee9a845b92f6af969120b9ed017d6b79f231cf05f68e68237a824946f502b84914e0737e81c7a252a0174764f8@35.72.202.199:28329", // bootnode-aws-ap-northeast-1a-01
-	"enode://141e23b0dc593a3e3474485d470df0057f2d710cd2d5dec733a7f2f8e6df81b034c4f5ff65e192af604c0d0f8bf2c53d2671190e3c9dcf78ada91e8810a43e54@13.208.46.232:28329", // bootnode-aws-ap-northeast-3a-01
+	"enode://141e23b0dc593a3e3474485d470df0057f2d710cd2d5dec733a7f2f8e6df81b034c4f5ff65e192af604c0d0f8bf2c53d2671190e3c9dcf78ada91e8810a43e54@13.208.46.232:28329", // bootnode-aws-ap-northeast-3c-01
 }
 
 // RopstenBootnodes are the enode URLs of the P2P bootstrap nodes running on the
