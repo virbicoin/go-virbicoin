@@ -1,0 +1,25 @@
+{
+  "config": {
+    "chainId": 329,
+    "networkId": 329,
+    "homesteadBlock": 0,
+    "daoForkBlock": 0,
+    "daoForkSupport": true,
+    "eip150Block": 0,
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0
+  },
+  "nonce": "0x8329",
+  "timestamp": "0x0",
+  "extraData": "0x",
+  "gasLimit": "0x8000000",
+  "difficulty": "0x400",
+  "alloc": {
+    "0x950302976387b43e042aea242ae8dab8e5c204d1": {
+      "balance": "1000000000000000000"
+    }
+  }
+}
+

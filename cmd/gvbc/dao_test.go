@@ -20,6 +20,7 @@ import (
 	"io/ioutil"
 	"math/big"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"testing"
 
@@ -27,6 +28,28 @@ import (
 	"github.com/virbicoin/go-virbicoin/core/rawdb"
 	"github.com/virbicoin/go-virbicoin/params"
 )
+
+// runGeth runs the given command and returns a struct with WaitExit method.
+type CmdWrap struct {
+	cmd *exec.Cmd
+	t   *testing.T
+}
+
+func runGeth(t *testing.T, args ...string) *CmdWrap {
+	cmd := exec.Command("gvbc", args...)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	if err := cmd.Start(); err != nil {
+		t.Fatalf("failed to start geth: %v", err)
+	}
+	return &CmdWrap{cmd: cmd, t: t}
+}
+
+func (c *CmdWrap) WaitExit() {
+	if err := c.cmd.Wait(); err != nil {
+		c.t.Fatalf("gvbc exited with error: %v", err)
+	}
+}
 
 // Genesis block for nodes which don't care about the DAO fork (i.e. not configured)
 var daoOldGenesis = `{
@@ -57,7 +80,7 @@ var daoNoForkGenesis = `{
 	"timestamp"  : "0x00",
 	"config"     : {
 		"homesteadBlock" : 0,
-		"daoForkBlock"   : 314,
+		"daoForkBlock"   : 0,
 		"daoForkSupport" : false
 	}
 }`
@@ -75,13 +98,13 @@ var daoProForkGenesis = `{
 	"timestamp"  : "0x00",
 	"config"     : {
 		"homesteadBlock" : 0,
-		"daoForkBlock"   : 314,
+		"daoForkBlock"   : 0,
 		"daoForkSupport" : true
 	}
 }`
 
 var daoGenesisHash = common.HexToHash("5e1fc79cb4ffa4739177b5408045cd5d51c6cf766133f23f7cd72ee1f8d790e0")
-var daoGenesisForkBlock = big.NewInt(314)
+var daoGenesisForkBlock = big.NewInt(0)
 
 // TestDAOForkBlockNewChain tests that the DAO hard-fork number and the nodes support/opposition is correctly
 // set in the database after various initialization procedures and invocations.
@@ -118,6 +141,9 @@ func testDAOForkBlockNewChain(t *testing.T, test int, genesis string, expectBloc
 		runGeth(t, "--datadir", datadir, "--networkid", "1337", "init", json).WaitExit()
 	} else {
 		// Force chain initialization
+		mainnetGenesisPath := filepath.Join("testdata", "test_genesis.json")
+		runGeth(t, "--datadir", datadir, "--networkid", "1337", "init", mainnetGenesisPath).WaitExit()
+		// After that, start the console
 		args := []string{"--port", "0", "--networkid", "1337", "--maxpeers", "0", "--nodiscover", "--nat", "none", "--ipcdisable", "--datadir", datadir}
 		runGeth(t, append(args, []string{"--exec", "2+2", "console"}...)...).WaitExit()
 	}
@@ -129,10 +155,8 @@ func testDAOForkBlockNewChain(t *testing.T, test int, genesis string, expectBloc
 	}
 	defer db.Close()
 
-	genesisHash := common.HexToHash("0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3")
-	if genesis != "" {
-		genesisHash = daoGenesisHash
-	}
+	header := rawdb.ReadHeader(db, rawdb.ReadCanonicalHash(db, 0), 0)
+	genesisHash := header.Hash()
 	config := rawdb.ReadChainConfig(db, genesisHash)
 	if config == nil {
 		t.Errorf("test %d: failed to retrieve chain config: %v", test, err)

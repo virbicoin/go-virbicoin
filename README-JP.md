@@ -3,11 +3,9 @@
 本リポジトリはGo EthereumからフォークされたVirBiCoinプロジェクトのVirBiCoin Chainプロトコル公式Golang実装です。
 
 [![API Reference](
-https://camo.githubusercontent.com/915b7be44ada53c290eb157634330494ebe3e30a/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f676f6c616e672f6764646f3f7374617475732e737667
+https://camo.githubusercontent.com/2063f3f9554951409bbfe24df02fdb42654b032b1f13062829c198b58f836335/68747470733a2f2f706b672e676f2e6465762f62616467652f6769746875622e636f6d2f657468657265756d2f676f2d657468657265756d
 )](https://pkg.go.dev/github.com/virbicoin/go-virbicoin?tab=doc)
 [![Go Report Card](https://goreportcard.com/badge/github.com/virbicoin/go-virbicoin)](https://goreportcard.com/report/github.com/virbicoin/go-virbicoin)
-[![Travis](https://travis-ci.org/virbicoin/go-virbicoin.svg?branch=master)](https://travis-ci.org/virbicoin/go-virbicoin)
-[![Discord](https://img.shields.io/badge/discord-join%20chat-blue.svg)](https://discord.gg/nthXNEv)
 
 安定版リリースと最新のマスターブランチの自動ビルドが利用可能です。
 バイナリアーカイブはhttps://github.com/virbicoin/go-virbicoin/releases で公開されています。

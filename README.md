@@ -3,18 +3,17 @@
 Official Golang implementation of the VirBiCoin protocol.
 
 [![API Reference](
-https://camo.githubusercontent.com/915b7be44ada53c290eb157634330494ebe3e30a/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f676f6c616e672f6764646f3f7374617475732e737667
+https://camo.githubusercontent.com/2063f3f9554951409bbfe24df02fdb42654b032b1f13062829c198b58f836335/68747470733a2f2f706b672e676f2e6465762f62616467652f6769746875622e636f6d2f657468657265756d2f676f2d657468657265756d
 )](https://pkg.go.dev/github.com/virbicoin/go-virbicoin?tab=doc)
+[![GitHub CI](https://github.com/virbicoin/go-virbicoin/actions/workflows/go.yml/badge.svg)](https://github.com/virbicoin/go-virbicoin/actions/workflows/go.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/virbicoin/go-virbicoin)](https://goreportcard.com/report/github.com/virbicoin/go-virbicoin)
-[![Travis](https://travis-ci.com/virbicoin/go-virbicoin.svg?branch=master)](https://travis-ci.com/virbicoin/go-virbicoin)
-[![Discord](https://img.shields.io/badge/discord-join%20chat-blue.svg)](https://discord.gg/nthXNEv)
 
 Automated builds are available for stable releases and the unstable master branch. Binary
 archives are published at https://github.com/virbicoin/go-virbicoin/releases/.
 
 ## Building the source
 
-For prerequisites and detailed build instructions please read the [Installation Instructions](https://geth.ethereum.org/docs/install-and-build/installing-geth).
+For prerequisites and detailed build instructions please read the [Installation Instructions](https://github.com/virbicoin/go-virbicoin/wiki/Installing-Gvbc).
 
 Building `gvbc` requires both a Go (version 1.13 or later) and a C compiler. You can install
 them using your favourite package manager. Once the dependencies are installed, run
