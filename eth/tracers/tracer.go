@@ -1,3 +1,6 @@
+//go:build linux && amd64
+// +build linux,amd64
+
 // Copyright 2017 The go-ethereum Authors
 // This file is part of the go-ethereum library.
 //

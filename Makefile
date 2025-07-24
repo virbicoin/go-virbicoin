@@ -47,7 +47,7 @@ clean:
 
 devtools:
 	env GOBIN= go get -u golang.org/x/tools/cmd/stringer
-	env GOBIN= go get -u github.com/kevinburke/go-bindata/go-bindata
+	env GOBIN= go get -u github.com/go-bindata/go-bindata
 	env GOBIN= go get -u github.com/fjl/gencodec
 	env GOBIN= go get -u github.com/golang/protobuf/protoc-gen-go
 	env GOBIN= go install ./cmd/abigen
@@ -146,3 +146,12 @@ gvbc-windows-amd64:
 	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=windows/amd64 -v ./cmd/gvbc
 	@echo "Windows amd64 cross compilation done:"
 	@ls -ld $(GOBIN)/gvbc-windows-* | grep amd64
+
+goreleaser-install:
+	go install github.com/goreleaser/goreleaser@latest
+
+goreleaser-release:
+	goreleaser release --clean
+
+goreleaser-build:
+	goreleaser build --clean --snapshot

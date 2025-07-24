@@ -17,5 +17,5 @@
 // Package deps contains the console JavaScript dependencies Go embedded.
 package deps
 
-//go:generate go-bindata -nometadata -pkg deps -o bindata.go bignumber.js
+//go:generate go run github.com/go-bindata/go-bindata/go-bindata@v3.1.2 -nometadata -pkg deps -o bindata.go bignumber.js
 //go:generate gofmt -w -s bindata.go

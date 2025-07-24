@@ -17,7 +17,7 @@
 // faucet is an Ether faucet backed by a light client.
 package main
 
-//go:generate go-bindata -nometadata -o website.go faucet.html
+//go:generate go run github.com/go-bindata/go-bindata/go-bindata@v3.1.2 -nometadata -o website.go faucet.html
 //go:generate gofmt -w -s website.go
 
 import (
@@ -41,6 +41,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/gorilla/websocket"
 	"github.com/virbicoin/go-virbicoin/accounts"
 	"github.com/virbicoin/go-virbicoin/accounts/keystore"
 	"github.com/virbicoin/go-virbicoin/cmd/utils"
@@ -58,7 +59,6 @@ import (
 	"github.com/virbicoin/go-virbicoin/p2p/enode"
 	"github.com/virbicoin/go-virbicoin/p2p/nat"
 	"github.com/virbicoin/go-virbicoin/params"
-	"github.com/gorilla/websocket"
 )
 
 var (
