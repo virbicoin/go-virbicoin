@@ -157,7 +157,7 @@ goreleaser-build:
 	goreleaser build --clean --snapshot
 
 goreleaser-archive:
-	goreleaser release --clean --snapshot --skip-publish
+	goreleaser release --clean --skip-publish
 
 goreleaser-full:
-	goreleaser release --clean --snapshot
+	goreleaser release --clean
