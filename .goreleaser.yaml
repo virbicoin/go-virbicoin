@@ -46,7 +46,7 @@ archives:
   - formats: [tar.gz]
     name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
     files:
-      - LICENSE
+      - COPYING
       - README.md
       - README-JP.md
       - go.mod
