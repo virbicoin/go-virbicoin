@@ -1,27 +1,30 @@
 #!/usr/bin/env bash
 #
-# release.sh — VirBiCoin リリースサイクルを半自動化するヘルパー。
+# release.sh — Semi-automated helper for the VirBiCoin release cycle.
 #
-# ブランチモデル（go-ethereum 流）:
-#   - main          : 開発本流。常に vX.Y.Z + "unstable"。
-#   - dev           : 機能統合・検証用。
-#   - release/X.Y   : メンテナンスライン。stable コミットとリリースタグはここに置く。
+# Branch model (go-ethereum style):
+#   - main          : Mainline development. Always vX.Y.Z + "unstable".
+#   - dev           : Feature integration and verification.
+#   - release/X.Y   : Maintenance line. Stable commits and release tags live here.
 #
-# リリースサイクル:
-#   1. 開発フェーズ : main は vX.Y.Z + "unstable"
-#   2. リリース時   : release/X.Y へ main を取り込み "stable" 化してタグ付け・公開
-#   3. リリース後   : main のパッチ番号を +1 して次の開発サイクルへ（unstable 維持）
+# Release cycle:
+#   1. Development : main is vX.Y.Z + "unstable"
+#   2. Release     : merge main into release/X.Y, flip to "stable", tag, publish
+#   3. Post-release: bump main's patch number for the next development cycle
+#                    (main stays "unstable")
 #
-# 使い方:
-#   build/release.sh            main の unstable バージョンを release/X.Y で stable
-#                               リリースし、main を次パッチの unstable に進める
-#   build/release.sh --dry-run  実際の変更・push・リリースを行わず手順だけ表示する
+# Usage:
+#   build/release.sh            Release main's unstable version as a stable build
+#                               on release/X.Y, then advance main to the next
+#                               unstable patch.
+#   build/release.sh --dry-run  Print the steps without making any changes,
+#                               pushes, or releases.
 #
-# 前提:
-#   - クリーンな作業ツリー（未コミットの変更が無いこと）
-#   - main ブランチで実行すること
-#   - GITHUB_TOKEN が設定されていること（~/.gvbc_token.env を自動 source）
-#   - goreleaser がインストール済みであること
+# Requirements:
+#   - Clean working tree (no uncommitted changes)
+#   - Run from the main branch
+#   - GITHUB_TOKEN must be set (~/.gvbc_token.env is sourced automatically)
+#   - goreleaser must be installed
 #
 set -euo pipefail
 
@@ -33,27 +36,27 @@ DRY_RUN=0
 [[ "${1:-}" == "--dry-run" ]] && DRY_RUN=1
 
 log()  { printf '\033[1;34m==>\033[0m %s\n' "$*"; }
-err()  { printf '\033[1;31mエラー:\033[0m %s\n' "$*" >&2; exit 1; }
+err()  { printf '\033[1;31mError:\033[0m %s\n' "$*" >&2; exit 1; }
 run()  { if [[ $DRY_RUN -eq 1 ]]; then printf '   (dry-run) %s\n' "$*"; else eval "$*"; fi; }
 
-# --- トークン読み込み ---
+# --- Load token ---
 if [[ -z "${GITHUB_TOKEN:-}" && -f "$HOME/.gvbc_token.env" ]]; then
   # shellcheck disable=SC1091
   source "$HOME/.gvbc_token.env"
 fi
 
-# --- 事前チェック ---
-command -v goreleaser >/dev/null || err "goreleaser がインストールされていません"
-[[ -n "${GITHUB_TOKEN:-}" ]] || err "GITHUB_TOKEN が設定されていません（~/.gvbc_token.env を確認）"
+# --- Preflight checks ---
+command -v goreleaser >/dev/null || err "goreleaser is not installed"
+[[ -n "${GITHUB_TOKEN:-}" ]] || err "GITHUB_TOKEN is not set (check ~/.gvbc_token.env)"
 
 branch="$(git rev-parse --abbrev-ref HEAD)"
-[[ "$branch" == "main" ]] || err "main ブランチで実行してください（現在: $branch）"
+[[ "$branch" == "main" ]] || err "Run from the main branch (current: $branch)"
 
 if [[ -n "$(git status --porcelain)" ]]; then
-  err "作業ツリーに未コミットの変更があります。コミットまたは退避してください"
+  err "Working tree has uncommitted changes. Commit or stash them first."
 fi
 
-# --- 現在のバージョンを読み取り ---
+# --- Read the current version ---
 get_field() { grep -E "^\s*$1\s*=" "$VERSION_FILE" | head -1 | sed -E 's/.*=\s*//; s/\s*\/\/.*//; s/"//g; s/\s*$//'; }
 MAJOR="$(get_field VersionMajor)"
 MINOR="$(get_field VersionMinor)"
@@ -62,46 +65,46 @@ META="$(get_field VersionMeta)"
 
 CUR_TAG="v${MAJOR}.${MINOR}.${PATCH}"
 RELEASE_BRANCH="release/${MAJOR}.${MINOR}"
-log "現在のバージョン: ${CUR_TAG} (${META})"
-log "リリースブランチ: ${RELEASE_BRANCH}"
+log "Current version: ${CUR_TAG} (${META})"
+log "Release branch:  ${RELEASE_BRANCH}"
 
-[[ "$META" == "unstable" ]] || err "VersionMeta が unstable ではありません（現在: ${META}）。リリース済みの可能性があります"
+[[ "$META" == "unstable" ]] || err "VersionMeta is not 'unstable' (current: ${META}). It may already be released."
 
 NEXT_PATCH=$((PATCH + 1))
 NEXT_TAG="v${MAJOR}.${MINOR}.${NEXT_PATCH}"
 
-# 後始末: 失敗・終了時には必ず main へ戻す
+# Cleanup: always return to main on exit
 cleanup() { git checkout main >/dev/null 2>&1 || true; }
 trap cleanup EXIT
 
-# --- 0) 最新を取得 ---
-log "[0/6] リモートの最新を取得"
+# --- 0) Fetch latest ---
+log "[0/6] Fetch the latest from the remote"
 run "git fetch origin --prune"
 
-# --- 1) release/X.Y を用意し main を取り込む ---
-log "[1/6] ${RELEASE_BRANCH} に main を取り込む"
+# --- 1) Prepare release/X.Y and merge main ---
+log "[1/6] Merge main into ${RELEASE_BRANCH}"
 if git show-ref --verify --quiet "refs/remotes/origin/${RELEASE_BRANCH}"; then
   run "git checkout -B \"$RELEASE_BRANCH\" \"origin/${RELEASE_BRANCH}\""
   run "git merge --no-edit main"
 else
-  log "  ${RELEASE_BRANCH} が無いため main から新規作成"
+  log "  ${RELEASE_BRANCH} does not exist; creating it from main"
   run "git checkout -B \"$RELEASE_BRANCH\" main"
 fi
 
-# --- 2) release/X.Y 上で stable 化してコミット ---
-log "[2/6] ${CUR_TAG} を stable に変更してコミット（${RELEASE_BRANCH}）"
+# --- 2) Flip to stable and commit on release/X.Y ---
+log "[2/6] Set ${CUR_TAG} to stable and commit (${RELEASE_BRANCH})"
 run "sed -i -E 's/(VersionMeta\s*=\s*)\"unstable\"/\\1\"stable\"   /' \"$VERSION_FILE\""
 run "git add \"$VERSION_FILE\""
-run "git commit -m \"${CUR_TAG} リリース: VersionMeta を stable に変更\""
+run "git commit -m \"Release ${CUR_TAG}: set VersionMeta to stable\""
 
-# --- 3) タグ付けして push ---
-log "[3/6] タグ ${CUR_TAG} を作成して ${RELEASE_BRANCH} と共に push"
+# --- 3) Tag and push ---
+log "[3/6] Create tag ${CUR_TAG} and push it with ${RELEASE_BRANCH}"
 run "git tag -f \"$CUR_TAG\""
 run "git push origin \"$RELEASE_BRANCH\""
 run "git push -f origin \"$CUR_TAG\""
 
-# --- 4) 既存ドラフトがあれば削除 ---
-log "[4/6] 同タグの既存ドラフトを確認・削除"
+# --- 4) Delete any existing draft for this tag ---
+log "[4/6] Check for and delete an existing draft for this tag"
 if [[ $DRY_RUN -eq 0 ]]; then
   RID="$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
     "https://api.github.com/repos/${REPO}/releases?per_page=10" \
@@ -112,26 +115,26 @@ for r in json.load(sys.stdin):
   if [[ -n "${RID:-}" ]]; then
     curl -s -X DELETE -H "Authorization: token $GITHUB_TOKEN" \
       "https://api.github.com/repos/${REPO}/releases/$RID" \
-      -w "   既存ドラフト($RID)を削除: HTTP=%{http_code}\n"
+      -w "   Deleted existing draft ($RID): HTTP=%{http_code}\n"
   else
-    echo "   既存ドラフトなし"
+    echo "   No existing draft"
   fi
 else
-  echo "   (dry-run) ドラフト確認・削除をスキップ"
+  echo "   (dry-run) Skipping draft check/delete"
 fi
 
-# --- 5) GoReleaser でドラフトリリース（release/X.Y をチェックアウトした状態で実行）---
-log "[5/6] GoReleaser で ${CUR_TAG} のドラフトを生成（自動 changelog）"
+# --- 5) Build the draft release with GoReleaser (on release/X.Y) ---
+log "[5/6] Build the ${CUR_TAG} draft with GoReleaser (auto changelog)"
 run "goreleaser release --skip=validate --clean"
 
-# --- 6) main を次の開発サイクル（unstable）へ ---
-log "[6/6] main を ${NEXT_TAG} unstable に更新して次の開発サイクルを開始"
+# --- 6) Advance main to the next development cycle (unstable) ---
+log "[6/6] Bump main to ${NEXT_TAG} unstable for the next development cycle"
 run "git checkout main"
 run "sed -i -E 's/(VersionPatch\s*=\s*)[0-9]+/\\1${NEXT_PATCH}/' \"$VERSION_FILE\""
-# main は元々 unstable なので META 行はそのまま（patch のみ更新）
+# main is already unstable, so only the patch number changes
 run "git add \"$VERSION_FILE\""
-run "git commit -m \"次の開発サイクル: ${NEXT_TAG} unstable\""
+run "git commit -m \"Begin next development cycle: ${NEXT_TAG} unstable\""
 run "git push origin main"
 
-log "完了: ${CUR_TAG} を ${RELEASE_BRANCH} からリリース（ドラフト）し、main を ${NEXT_TAG} unstable に更新しました"
-echo "   GitHub のリリースページでドラフトを確認し、問題なければ Publish してください。"
+log "Done: released ${CUR_TAG} (draft) from ${RELEASE_BRANCH} and bumped main to ${NEXT_TAG} unstable"
+echo "   Review the draft on the GitHub releases page and publish it when ready."

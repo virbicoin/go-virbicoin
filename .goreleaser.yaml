@@ -70,21 +70,21 @@ release:
   header: |
     ## VirBiCoin {{ .Tag }}
 
-    VirBiCoin プロトコルの公式 Go 実装 `gvbc` のリリースです。
+    Official Go implementation of the VirBiCoin protocol (`gvbc`).
 
-    ### 対応プラットフォーム
+    ### Supported platforms
 
     - **Linux**: amd64 / arm64 / 386
     - **macOS**: amd64 / arm64
     - **Windows**: amd64 / arm64 / 386
 
-    ### インストール
+    ### Installation
 
-    お使いのプラットフォームのアーカイブをダウンロードして展開し、`gvbc`
-    バイナリをパスの通ったディレクトリに配置してください。
+    Download the archive for your platform, extract it, and place the `gvbc`
+    binary in a directory on your `PATH`.
 
     ```shell
-    # 例: Linux amd64
+    # Example: Linux amd64
     wget https://github.com/virbicoin/go-virbicoin/releases/download/{{ .Tag }}/go-virbicoin_{{ trimprefix .Tag "v" }}_linux_amd64.tar.gz
     tar zxvf go-virbicoin_{{ trimprefix .Tag "v" }}_linux_amd64.tar.gz
     ```

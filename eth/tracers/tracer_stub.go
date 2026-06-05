@@ -33,5 +33,5 @@ func (t *Tracer) CaptureEnd(output []byte, gasUsed uint64, t2 time.Duration, err
 }
 func (t *Tracer) Stop(err error) {}
 func (t *Tracer) GetResult() (json.RawMessage, error) {
-	return nil, errors.New("JSトレーサはlinux/amd64のみサポートされています")
+	return nil, errors.New("JS tracer is only supported on linux/amd64")
 }
