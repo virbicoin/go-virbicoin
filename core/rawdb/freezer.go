@@ -27,11 +27,11 @@ import (
 	"time"
 
 	"github.com/virbicoin/go-virbicoin/common"
+	"github.com/virbicoin/go-virbicoin/common/fileutil"
 	"github.com/virbicoin/go-virbicoin/ethdb"
 	"github.com/virbicoin/go-virbicoin/log"
 	"github.com/virbicoin/go-virbicoin/metrics"
 	"github.com/virbicoin/go-virbicoin/params"
-	"github.com/prometheus/tsdb/fileutil"
 )
 
 var (

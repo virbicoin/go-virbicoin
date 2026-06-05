@@ -27,13 +27,13 @@ import (
 	"sync"
 
 	"github.com/virbicoin/go-virbicoin/accounts"
+	"github.com/virbicoin/go-virbicoin/common/fileutil"
 	"github.com/virbicoin/go-virbicoin/core/rawdb"
 	"github.com/virbicoin/go-virbicoin/ethdb"
 	"github.com/virbicoin/go-virbicoin/event"
 	"github.com/virbicoin/go-virbicoin/log"
 	"github.com/virbicoin/go-virbicoin/p2p"
 	"github.com/virbicoin/go-virbicoin/rpc"
-	"github.com/prometheus/tsdb/fileutil"
 )
 
 // Node is a container on which services can be registered.
