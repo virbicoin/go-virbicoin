@@ -5,6 +5,7 @@
 [![API Reference](
 https://camo.githubusercontent.com/2063f3f9554951409bbfe24df02fdb42654b032b1f13062829c198b58f836335/68747470733a2f2f706b672e676f2e6465762f62616467652f6769746875622e636f6d2f657468657265756d2f676f2d657468657265756d
 )](https://pkg.go.dev/github.com/virbicoin/go-virbicoin?tab=doc)
+[![GitHub CI](https://github.com/virbicoin/go-virbicoin/actions/workflows/go.yml/badge.svg)](https://github.com/virbicoin/go-virbicoin/actions/workflows/go.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/virbicoin/go-virbicoin)](https://goreportcard.com/report/github.com/virbicoin/go-virbicoin)
 
 安定版リリースと最新のマスターブランチの自動ビルドが利用可能です。
@@ -14,7 +15,7 @@ https://camo.githubusercontent.com/2063f3f9554951409bbfe24df02fdb42654b032b1f130
 
 前提条件と詳細なビルド手順については、wikiの[インストール手順](https://github.com/virbicoin/go-virbicoin/wiki/Installing-Gvbc)を参照してください。
 
-`gvbc`のビルドには、Go（バージョン1.13以降）とCコンパイラの両方が必要です。これらはお好みのパッケージマネージャを使用してインストールできます。依存関係がインストールされたら、以下のコマンドを実行します。
+`gvbc`のビルドには、Go（バージョン1.24以降）とCコンパイラの両方が必要です。これらはお好みのパッケージマネージャを使用してインストールできます。依存関係がインストールされたら、以下のコマンドを実行します。
 
 ```shell
 make gvbc

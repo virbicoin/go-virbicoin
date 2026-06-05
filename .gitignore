@@ -49,3 +49,6 @@ profile.cov
 **/yarn-error.log
 # Added by goreleaser init:
 dist/
+
+# AI agent guidance (local only)
+CLAUDE.md

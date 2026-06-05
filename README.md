@@ -15,7 +15,7 @@ archives are published at https://github.com/virbicoin/go-virbicoin/releases/.
 
 For prerequisites and detailed build instructions please read the [Installation Instructions](https://github.com/virbicoin/go-virbicoin/wiki/Installing-Gvbc).
 
-Building `gvbc` requires both a Go (version 1.13 or later) and a C compiler. You can install
+Building `gvbc` requires both a Go (version 1.24 or later) and a C compiler. You can install
 them using your favourite package manager. Once the dependencies are installed, run
 
 ```shell
