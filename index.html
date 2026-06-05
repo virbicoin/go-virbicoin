@@ -1,51 +1,400 @@
----
-layout: default
-root: ./
-css:
-- /static/styles/custom/home.css
----
-    <div class="jumbotron">
-      <div class="container mascot">
-        <h1>Go Ethereum</h1>
-        <h2>Official Go implementation of the Ethereum protocol</h2>
-        <br/>
-        <a href="https://github.com/ethereum/go-ethereum" target="_blank" class="btn btn-success" style="margin: 4px;"><i class="fa fa-github" aria-hidden="true"></i> View on GitHub</a>
-        <a href="https://discord.com/invite/nthXNEv" target="_blank" class="btn btn-success" style="margin: 4px;"><i class="fa fa-user-circle" aria-hidden="true"></i> Chat on Discord</a>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>go-virbicoin — Official Go implementation of the VirBiCoin protocol</title>
+    <meta
+      name="description"
+      content="go-virbicoin (gvbc) is the official Go implementation of the VirBiCoin protocol — an EVM-compatible, Proof-of-Work blockchain for the Metaverse economy."
+    />
+    <link rel="icon" href="https://virbicoin.com/VBC-icon.svg" type="image/svg+xml" />
+    <style>
+      :root {
+        --bg: #020617;
+        --bg-soft: #0f172a;
+        --panel: rgba(30, 41, 59, 0.45);
+        --border: rgba(51, 65, 85, 0.6);
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --cyan: #22d3ee;
+        --cyan-soft: rgba(34, 211, 238, 0.1);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family:
+          ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: var(--cyan);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .wrap {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      header.site {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(12px);
+        background: rgba(2, 6, 23, 0.8);
+        border-bottom: 1px solid var(--border);
+      }
+      header.site .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #fff;
+      }
+      .brand img {
+        width: 32px;
+        height: 32px;
+      }
+      .brand small {
+        color: var(--muted);
+        font-weight: 500;
+        font-size: 0.85rem;
+      }
+      nav.top a {
+        margin-left: 1.25rem;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      nav.top a:hover {
+        color: var(--cyan);
+        text-decoration: none;
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        padding: 6rem 0 5rem;
+        background:
+          radial-gradient(ellipse at center, rgba(0, 195, 255, 0.15), transparent 70%),
+          linear-gradient(to bottom right, #0f172a, rgba(30, 58, 138, 0.2), #0f172a);
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid rgba(34, 211, 238, 0.2);
+        background: var(--cyan-soft);
+        color: var(--cyan);
+        border-radius: 9999px;
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+        margin-bottom: 1.75rem;
+      }
+      .badge .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 9999px;
+        background: var(--cyan);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+      .hero h1 {
+        font-size: clamp(2.4rem, 6vw, 3.75rem);
+        font-weight: 800;
+        background: linear-gradient(to right, #fff, #a5f3fc, #22d3ee);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1rem;
+      }
+      .hero p.lead {
+        font-size: 1.15rem;
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 2rem;
+      }
+      .cta {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-radius: 0.6rem;
+        padding: 0.7rem 1.4rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+      .btn-primary {
+        background: linear-gradient(to right, #06b6d4, #2563eb);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        text-decoration: none;
+        opacity: 0.92;
+      }
+      .btn-ghost {
+        border: 1px solid rgba(34, 211, 238, 0.3);
+        color: var(--cyan);
+      }
+      .btn-ghost:hover {
+        background: var(--cyan-soft);
+        text-decoration: none;
+      }
+      section.block {
+        padding: 4rem 0;
+      }
+      section.block h2 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+      section.block p.section-lead {
+        color: var(--muted);
+        margin-bottom: 2rem;
+      }
+      .grid {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .card {
+        border: 1px solid var(--border);
+        background: linear-gradient(to bottom right, rgba(30, 41, 59, 0.5), rgba(2, 6, 23, 0.5));
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+        display: block;
+        color: inherit;
+      }
+      .card:hover {
+        border-color: rgba(34, 211, 238, 0.4);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+      .card .icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 0.6rem;
+        background: linear-gradient(to bottom right, #06b6d4, #2563eb);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+      }
+      .card h3 {
+        color: #fff;
+        font-size: 1.1rem;
+        margin-bottom: 0.4rem;
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .specs {
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        overflow: hidden;
+      }
+      .specs table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+      }
+      .specs th,
+      .specs td {
+        text-align: left;
+        padding: 0.85rem 1.25rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .specs tr:last-child th,
+      .specs tr:last-child td {
+        border-bottom: none;
+      }
+      .specs th {
+        color: var(--muted);
+        font-weight: 500;
+        width: 45%;
+      }
+      .specs td {
+        color: #fff;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      pre {
+        background: rgba(2, 6, 23, 0.8);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        padding: 1rem 1.25rem;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        color: var(--text);
+      }
+      footer.site {
+        border-top: 1px solid var(--border);
+        padding: 2.5rem 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        text-align: center;
+      }
+      footer.site a {
+        margin: 0 0.6rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="https://virbicoin.com">
+          <img src="https://virbicoin.com/VBC-icon.svg" alt="VBC" />
+          VirBiCoin <small>go-virbicoin</small>
+        </a>
+        <nav class="top">
+          <a href="https://virbicoin.com">Website</a>
+          <a href="https://github.com/virbicoin/go-virbicoin/wiki">Wiki</a>
+          <a href="https://virbicoin.com/docs">Docs</a>
+          <a href="https://github.com/virbicoin/go-virbicoin">GitHub</a>
+        </nav>
       </div>
-    </div>
+    </header>
 
-    <div class="container mascot-mobile">
-      <img src="./static/images/mascot.png" alt="Geth mascot" height="auto" />
-    </div>
+    <section class="hero">
+      <div class="wrap">
+        <span class="badge"><span class="dot"></span>Official Go implementation</span>
+        <h1>go-virbicoin</h1>
+        <p class="lead">
+          The official Go implementation of the VirBiCoin protocol — an EVM-compatible,
+          Proof-of-Work blockchain for the Metaverse economy. The client binary is
+          <code>gvbc</code>.
+        </p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://github.com/virbicoin/go-virbicoin/releases"
+            >Download gvbc</a
+          >
+          <a class="btn btn-ghost" href="https://github.com/virbicoin/go-virbicoin">View on GitHub</a>
+        </div>
+      </div>
+    </section>
 
-    <div class="container marketing">
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">What is Ethereum?</h2>
-          <p class="lead">Ethereum is a  decentralized platform that runs smart contracts, applications that run exactly as programmed without possibility of downtime, censorship, fraud or third party interference.</p>
-          <p class="lead">See <a href="https://ethereum.org" target="_blank">our website</a> or <a href="https://www.ethereum.org/beginners/" target="_blank">read the docs</a> for more infos!</p>
-        </div>
-        <div class="col-md-5 hide-on-small-screen">
-          <img class="featurette-image center-block" src="./static/images/ethereum.png" alt="Ethereum logo" height="300px">
-        </div>
-      </div>
-      <hr/>
-      <div class="row featurette">
-        <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">What is Go Ethereum?</h2>
-          <p class="lead">Go Ethereum is one of the three original implementations (along with C++ and Python) of the Ethereum protocol. It is written in Go, fully open source and licensed under the GNU LGPL v3.</p>
-          <p class="lead">See <a href="https://github.com/ethereum/go-ethereum" target="_blank">our repository</a> and <a href="./downloads">downloads section</a> for the code!</p>
-        </div>
-        <div class="col-md-5 col-md-pull-7 hide-on-small-screen">
-          <img class="featurette-image center-block" src="./static/images/mascot.png" alt="Geth mascot" height="300px">
-        </div>
-      </div>
-      <hr/>
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">How can I use it?</h2>
-          <p class="lead">Go Ethereum is available either as a standalone client called Geth that you can install on pretty much any operating system, or as a library that you can embed in your Go, Android or iOS projects.</p>
-          <p class="lead">See our <a href="./docs/install-and-build/installing-geth">installation guide</a> for details!</p>
+    <section class="block">
+      <div class="wrap">
+        <h2>Documentation</h2>
+        <p class="section-lead">Everything you need to run a node and build on VirBiCoin.</p>
+        <div class="grid">
+          <a class="card" href="https://github.com/virbicoin/go-virbicoin/wiki/Installing-Gvbc">
+            <div class="icon">⚙️</div>
+            <h3>Install &amp; Run</h3>
+            <p>Build gvbc from source or grab a release, then sync your first node.</p>
+          </a>
+          <a class="card" href="https://github.com/virbicoin/go-virbicoin/wiki">
+            <div class="icon">📖</div>
+            <h3>Gvbc Wiki</h3>
+            <p>Command-line options, JavaScript console, RPC server and developer guide.</p>
+          </a>
+          <a class="card" href="https://virbicoin.com/docs">
+            <div class="icon">🔌</div>
+            <h3>Protocol Docs</h3>
+            <p>JSON-RPC API, RLP encoding and the enode URL format.</p>
+          </a>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="block">
+      <div class="wrap">
+        <h2>Network at a glance</h2>
+        <p class="section-lead">Connect tooling to VirBiCoin mainnet with these parameters.</p>
+        <div class="specs">
+          <table>
+            <tbody>
+              <tr>
+                <th>Chain ID / Network ID</th>
+                <td>329</td>
+              </tr>
+              <tr>
+                <th>Native currency</th>
+                <td>VBC (18 decimals)</td>
+              </tr>
+              <tr>
+                <th>HTTP RPC port</th>
+                <td>8329</td>
+              </tr>
+              <tr>
+                <th>WebSocket RPC port</th>
+                <td>8330</td>
+              </tr>
+              <tr>
+                <th>devp2p (P2P) port</th>
+                <td>28329</td>
+              </tr>
+              <tr>
+                <th>Default data directory</th>
+                <td>~/.virbicoin</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="wrap">
+        <h2>Quick start</h2>
+        <p class="section-lead">Build the client and start a node in a few commands.</p>
+        <pre><code># Build gvbc
+git clone https://github.com/virbicoin/go-virbicoin.git
+cd go-virbicoin
+make gvbc
+
+# Start a full node
+./build/bin/gvbc</code></pre>
+      </div>
+    </section>
+
+    <footer class="site">
+      <div class="wrap">
+        <div>
+          <a href="https://virbicoin.com">Website</a>
+          <a href="https://github.com/virbicoin/go-virbicoin">GitHub</a>
+          <a href="https://github.com/virbicoin/go-virbicoin/wiki">Wiki</a>
+          <a href="https://virbicoin.com/docs">Docs</a>
+          <a href="https://explorer.virbicoin.com">Explorer</a>
+        </div>
+        <p style="margin-top: 1rem">
+          © 2024–2026 The go-virbicoin Authors. Licensed under GNU LGPL v3.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
