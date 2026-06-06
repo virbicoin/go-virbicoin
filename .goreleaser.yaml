@@ -15,7 +15,7 @@ before:
 
 builds:
   - id: linux
-    binary: go-virbicoin
+    binary: gvbc
     main: ./cmd/gvbc
     goos:
       - linux
@@ -24,7 +24,7 @@ builds:
       - 386
       - arm64
   - id: darwin
-    binary: go-virbicoin
+    binary: gvbc
     main: ./cmd/gvbc
     goos:
       - darwin
@@ -32,7 +32,7 @@ builds:
       - amd64
       - arm64
   - id: windows
-    binary: go-virbicoin
+    binary: gvbc
     main: ./cmd/gvbc
     goos:
       - windows
@@ -43,7 +43,7 @@ builds:
 
 archives:
   - formats: [tar.gz]
-    name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    name_template: "go-virbicoin_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
     wrap_in_directory: true
     files:
       - COPYING
