@@ -2,7 +2,7 @@ module github.com/virbicoin/go-virbicoin
 
 go 1.24.0
 
-toolchain go1.24.5
+toolchain go1.26.4
 
 require (
 	github.com/Azure/azure-storage-blob-go v0.7.0
