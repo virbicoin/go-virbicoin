@@ -1,12 +1,40 @@
-## Go VirBiCoin
+<p align="center">
+  <img src="https://raw.githubusercontent.com/virbicoin/virbicoin.com/main/public/VBC.svg" alt="VirBiCoin Logo" width="120" height="120">
+</p>
 
-Official Golang implementation of the VirBiCoin protocol.
+<h1 align="center">Go VirBiCoin</h1>
 
-[![API Reference](
-https://pkg.go.dev/badge/github.com/virbicoin/go-virbicoin.svg
-)](https://pkg.go.dev/github.com/virbicoin/go-virbicoin?tab=doc)
-[![GitHub CI](https://github.com/virbicoin/go-virbicoin/actions/workflows/go.yml/badge.svg)](https://github.com/virbicoin/go-virbicoin/actions/workflows/go.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/virbicoin/go-virbicoin)](https://goreportcard.com/report/github.com/virbicoin/go-virbicoin)
+<p align="center">
+  <strong>Official Golang Implementation of the VirBiCoin Protocol</strong>
+</p>
+
+<p align="center">
+  <a href="https://www.virbicoin.com">
+    <img src="https://img.shields.io/badge/Website-virbicoin.com-cyan?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website">
+  </a>
+  <a href="https://github.com/virbicoin/go-virbicoin/releases">
+    <img src="https://img.shields.io/badge/Downloads-Releases-green?style=for-the-badge&logo=github&logoColor=white" alt="Releases">
+  </a>
+  <a href="https://discord.virbicoin.com">
+    <img src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/virbicoin/go-virbicoin/actions/workflows/go.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/virbicoin/go-virbicoin/go.yml?style=flat-square&label=CI" alt="CI">
+  </a>
+  <a href="https://goreportcard.com/report/github.com/virbicoin/go-virbicoin">
+    <img src="https://img.shields.io/badge/Go_Report-A+-brightgreen?style=flat-square&logo=go&logoColor=white" alt="Go Report">
+  </a>
+  <a href="https://pkg.go.dev/github.com/virbicoin/go-virbicoin">
+    <img src="https://img.shields.io/badge/Go_Reference-pkg.go.dev-007D9C?style=flat-square&logo=go&logoColor=white" alt="Go Reference">
+  </a>
+  <img src="https://img.shields.io/badge/Go-≥1.24-00ADD8?style=flat-square&logo=go&logoColor=white" alt="Go">
+  <img src="https://img.shields.io/badge/License-LGPL--3.0-blue?style=flat-square" alt="License: LGPL-3.0">
+</p>
+
+---
 
 Automated builds are available for stable releases and the unstable main branch. Binary
 archives are published at https://github.com/virbicoin/go-virbicoin/releases/.
