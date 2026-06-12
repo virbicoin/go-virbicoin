@@ -93,9 +93,18 @@ fi
 
 # --- 2) Flip to stable and commit on release/X.Y ---
 log "[2/6] Set ${CUR_TAG} to stable and commit (${RELEASE_BRANCH})"
-run "sed -i -E 's/(VersionMeta\s*=\s*)\"unstable\"/\\1\"stable\"   /' \"$VERSION_FILE\""
+# The merge can leave version.go at the previous release (the stable-flip
+# commit on release/X.Y reverts main's patch bump), so pin both fields
+# explicitly instead of only rewriting "unstable".
+run "sed -i -E 's/(VersionPatch\s*=\s*)[0-9]+/\\1${PATCH}/' \"$VERSION_FILE\""
+run "sed -i -E 's/(VersionMeta\s*=\s*)\"unstable\"/\\1\"stable\"/' \"$VERSION_FILE\""
+run "gofmt -w \"$VERSION_FILE\""
 run "git add \"$VERSION_FILE\""
-run "git commit -m \"Release ${CUR_TAG}: set VersionMeta to stable\""
+if [[ $DRY_RUN -eq 1 ]] || ! git diff --cached --quiet; then
+  run "git commit -m \"Release ${CUR_TAG}: set VersionMeta to stable\""
+else
+  log "  version.go already at ${CUR_TAG} stable after the merge; skipping commit"
+fi
 
 # --- 3) Tag and push ---
 log "[3/6] Create tag ${CUR_TAG} and push it with ${RELEASE_BRANCH}"
