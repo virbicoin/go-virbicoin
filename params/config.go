@@ -68,6 +68,13 @@ var (
 		PetersburgBlock:     big.NewInt(100000000),
 		IstanbulBlock:       big.NewInt(500000000),
 		MuirGlacierBlock:    nil,
+		QuicheBlock:         big.NewInt(4200000),  // VirBiCoin reward reduction: 7 VBC (Quiche)
+		MicheBlock:          big.NewInt(8400000),  // VirBiCoin reward reduction: 6 VBC (Miche, BOOTH #1571700)
+		RuskBlock:           big.NewInt(12600000), // VirBiCoin reward reduction: 5 VBC (Rusk)
+		CelestiaBlock:       big.NewInt(16800000), // VirBiCoin reward reduction: 4 VBC (Celestia)
+		MafuyuBlock:         big.NewInt(21000000), // VirBiCoin reward reduction: 3 VBC (Mafuyu)
+		KipfelBlock:         big.NewInt(25200000), // VirBiCoin reward reduction: 2 VBC (Kipfel)
+		LuminaBlock:         big.NewInt(29400000), // VirBiCoin reward reduction: 1 VBC (Lumina)
 		Ethash:              new(EthashConfig),
 	}
 
@@ -239,16 +246,16 @@ var (
 	//
 	// This configuration is intentionally not using keyed fields to force anyone
 	// adding flags to the config to also have to set these fields.
-	AllEthashProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, nil, new(EthashConfig), nil}
+	AllEthashProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, new(EthashConfig), nil}
 
 	// AllCliqueProtocolChanges contains every protocol change (EIPs) introduced
 	// and accepted by the Ethereum core developers into the Clique consensus.
 	//
 	// This configuration is intentionally not using keyed fields to force anyone
 	// adding flags to the config to also have to set these fields.
-	AllCliqueProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, nil, nil, &CliqueConfig{Period: 0, Epoch: 30000}}
+	AllCliqueProtocolChanges = &ChainConfig{big.NewInt(1337), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, &CliqueConfig{Period: 0, Epoch: 30000}}
 
-	TestChainConfig = &ChainConfig{big.NewInt(1), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, nil, new(EthashConfig), nil}
+	TestChainConfig = &ChainConfig{big.NewInt(1), big.NewInt(0), nil, false, big.NewInt(0), common.Hash{}, big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), big.NewInt(0), nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, new(EthashConfig), nil}
 	TestRules       = TestChainConfig.Rules(new(big.Int))
 )
 
@@ -322,6 +329,15 @@ type ChainConfig struct {
 
 	YoloV3Block *big.Int `json:"yoloV3Block,omitempty"` // YOLO v3: Gas repricings TODO @holiman add EIP references
 	EWASMBlock  *big.Int `json:"ewasmBlock,omitempty"`  // EWASM switch block (nil = no fork, 0 = already activated)
+
+	// VirBiCoin block reward reduction forks (VRChat avatar series, release order)
+	QuicheBlock   *big.Int `json:"quicheBlock,omitempty"`   // Quiche fork: reward 8 -> 7 VBC at block 4,200,000
+	MicheBlock    *big.Int `json:"micheBlock,omitempty"`    // Miche fork: reward 7 -> 6 VBC at block 8,400,000
+	RuskBlock     *big.Int `json:"ruskBlock,omitempty"`     // Rusk fork: reward 6 -> 5 VBC at block 12,600,000
+	CelestiaBlock *big.Int `json:"celestiaBlock,omitempty"` // Celestia fork: reward 5 -> 4 VBC at block 16,800,000
+	MafuyuBlock   *big.Int `json:"mafuyuBlock,omitempty"`   // Mafuyu fork: reward 4 -> 3 VBC at block 21,000,000
+	KipfelBlock   *big.Int `json:"kipfelBlock,omitempty"`   // Kipfel fork: reward 3 -> 2 VBC at block 25,200,000
+	LuminaBlock   *big.Int `json:"luminaBlock,omitempty"`   // Lumina fork: reward 2 -> 1 VBC at block 29,400,000
 
 	// Various consensus engines
 	Ethash *EthashConfig `json:"ethash,omitempty"`

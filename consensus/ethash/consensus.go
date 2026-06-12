@@ -45,6 +45,14 @@ var (
 	maxUncles                     = 2                 // Maximum number of uncles allowed in a single block
 	allowedFutureBlockTimeSeconds = int64(15)         // Max seconds from current time allowed for blocks, before they're considered future blocks
 
+	// VirBiCoin reward reduction parameters
+	// Reward decreases by 1 VBC every 4,200,000 blocks (~4 years at 12s/block)
+	// Schedule: 8 -> 7 -> 6 -> 5 -> 4 -> 3 -> 2 -> 1 VBC (minimum 1 VBC)
+	RewardReductionInterval = big.NewInt(4200000)  // Reduce reward every 4,200,000 blocks
+	FirstReductionBlock     = big.NewInt(4200000)  // First reduction at block 4,200,000
+	MinimumBlockReward      = big.NewInt(1e+18)    // Minimum reward: 1 VBC
+	OneVBC                  = big.NewInt(1e+18)    // 1 VBC in wei
+
 	// calcDifficultyEip2384 is the difficulty adjustment algorithm as specified by EIP 2384.
 	// It offsets the bomb 4M blocks from Constantinople, so in total 9M blocks.
 	// Specification EIP-2384: https://eips.ethereum.org/EIPS/eip-2384
@@ -612,18 +620,48 @@ var (
 	big32 = big.NewInt(32)
 )
 
+// calcBlockReward calculates the block reward with gradual reduction schedule.
+// Reward decreases by 1 VBC every 4,200,000 blocks (~4 years at 12s/block).
+// Reward schedule:
+//   - Block 0 - 4,199,999: 8 VBC
+//   - Block 4,200,000 - 8,399,999: 7 VBC
+//   - Block 8,400,000 - 12,599,999: 6 VBC
+//   - Block 12,600,000 - 16,799,999: 5 VBC
+//   - Block 16,800,000 - 20,999,999: 4 VBC
+//   - Block 21,000,000 - 25,199,999: 3 VBC
+//   - Block 25,200,000 - 29,399,999: 2 VBC
+//   - Block 29,400,000+: 1 VBC (minimum)
+func calcBlockReward(blockNumber *big.Int) *big.Int {
+	// Before first reduction, return base reward (8 VBC)
+	if blockNumber.Cmp(FirstReductionBlock) < 0 {
+		return new(big.Int).Set(FrontierBlockReward)
+	}
+
+	// Calculate number of reductions since first reduction block
+	blocksSinceFirstReduction := new(big.Int).Sub(blockNumber, FirstReductionBlock)
+	reductions := new(big.Int).Div(blocksSinceFirstReduction, RewardReductionInterval)
+	reductions.Add(reductions, big.NewInt(1)) // Add 1 for the first reduction
+
+	// Cap at minimum 1 VBC (7 reductions max: 8->7->6->5->4->3->2->1)
+	if reductions.Cmp(big.NewInt(7)) >= 0 {
+		return new(big.Int).Set(MinimumBlockReward)
+	}
+
+	// Calculate reward: 8 VBC - (reductions * 1 VBC)
+	reward := new(big.Int).Set(FrontierBlockReward)
+	reduction := new(big.Int).Mul(OneVBC, reductions)
+	reward.Sub(reward, reduction)
+
+	return reward
+}
+
 // AccumulateRewards credits the coinbase of the given block with the mining
 // reward. The total reward consists of the static block reward and rewards for
 // included uncles. The coinbase of each uncle block is also rewarded.
 func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header *types.Header, uncles []*types.Header) {
-	// Select the correct block reward based on chain progression
-	blockReward := FrontierBlockReward
-	if config.IsByzantium(header.Number) {
-		blockReward = ByzantiumBlockReward
-	}
-	if config.IsConstantinople(header.Number) {
-		blockReward = ConstantinopleBlockReward
-	}
+	// Calculate block reward with halving
+	blockReward := calcBlockReward(header.Number)
+
 	// Accumulate the rewards for the miner and any included uncles
 	reward := new(big.Int).Set(blockReward)
 	r := new(big.Int)
