@@ -46,9 +46,10 @@ var (
 	allowedFutureBlockTimeSeconds = int64(15)         // Max seconds from current time allowed for blocks, before they're considered future blocks
 
 	// VirBiCoin reward reduction parameters
-	// Reward decreases by 1 VBC every 4,200,000 blocks (~4 years at 12s/block)
+	// Reward decreases by 1 VBC every 2,100,000 blocks (~2 years at 12s/block)
+	// First reduction at block 4,200,000, then every 2,100,000 blocks
 	// Schedule: 8 -> 7 -> 6 -> 5 -> 4 -> 3 -> 2 -> 1 VBC (minimum 1 VBC)
-	RewardReductionInterval = big.NewInt(4200000)  // Reduce reward every 4,200,000 blocks
+	RewardReductionInterval = big.NewInt(2100000)  // Reduce reward every 2,100,000 blocks
 	FirstReductionBlock     = big.NewInt(4200000)  // First reduction at block 4,200,000
 	MinimumBlockReward      = big.NewInt(1e+18)    // Minimum reward: 1 VBC
 	OneVBC                  = big.NewInt(1e+18)    // 1 VBC in wei
@@ -621,16 +622,16 @@ var (
 )
 
 // calcBlockReward calculates the block reward with gradual reduction schedule.
-// Reward decreases by 1 VBC every 4,200,000 blocks (~4 years at 12s/block).
+// First reduction at block 4,200,000, then every 2,100,000 blocks (~2 years at 12s/block).
 // Reward schedule:
 //   - Block 0 - 4,199,999: 8 VBC
-//   - Block 4,200,000 - 8,399,999: 7 VBC
-//   - Block 8,400,000 - 12,599,999: 6 VBC
-//   - Block 12,600,000 - 16,799,999: 5 VBC
-//   - Block 16,800,000 - 20,999,999: 4 VBC
-//   - Block 21,000,000 - 25,199,999: 3 VBC
-//   - Block 25,200,000 - 29,399,999: 2 VBC
-//   - Block 29,400,000+: 1 VBC (minimum)
+//   - Block 4,200,000 - 6,299,999: 7 VBC
+//   - Block 6,300,000 - 8,399,999: 6 VBC
+//   - Block 8,400,000 - 10,499,999: 5 VBC
+//   - Block 10,500,000 - 12,599,999: 4 VBC
+//   - Block 12,600,000 - 14,699,999: 3 VBC
+//   - Block 14,700,000 - 16,799,999: 2 VBC
+//   - Block 16,800,000+: 1 VBC (minimum)
 func calcBlockReward(blockNumber *big.Int) *big.Int {
 	// Before first reduction, return base reward (8 VBC)
 	if blockNumber.Cmp(FirstReductionBlock) < 0 {
