@@ -1,14 +1,42 @@
-## Go VirBiCoin
+<p align="center">
+  <img src="https://raw.githubusercontent.com/virbicoin/vbc-stats/main/public/VBC.svg" alt="VirBiCoin Logo" width="120" height="120">
+</p>
 
-Official Golang implementation of the VirBiCoin protocol.
+<h1 align="center">Go VirBiCoin</h1>
 
-[![API Reference](
-https://camo.githubusercontent.com/2063f3f9554951409bbfe24df02fdb42654b032b1f13062829c198b58f836335/68747470733a2f2f706b672e676f2e6465762f62616467652f6769746875622e636f6d2f657468657265756d2f676f2d657468657265756d
-)](https://pkg.go.dev/github.com/virbicoin/go-virbicoin?tab=doc)
-[![GitHub CI](https://github.com/virbicoin/go-virbicoin/actions/workflows/go.yml/badge.svg)](https://github.com/virbicoin/go-virbicoin/actions/workflows/go.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/virbicoin/go-virbicoin)](https://goreportcard.com/report/github.com/virbicoin/go-virbicoin)
+<p align="center">
+  <strong>Official Golang Implementation of the VirBiCoin Protocol</strong>
+</p>
 
-Automated builds are available for stable releases and the unstable master branch. Binary
+<p align="center">
+  <a href="https://www.virbicoin.com">
+    <img src="https://img.shields.io/badge/Website-virbicoin.com-cyan?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website">
+  </a>
+  <a href="https://github.com/virbicoin/go-virbicoin/releases">
+    <img src="https://img.shields.io/badge/Downloads-Releases-green?style=for-the-badge&logo=github&logoColor=white" alt="Releases">
+  </a>
+  <a href="https://discord.virbicoin.com">
+    <img src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/virbicoin/go-virbicoin/actions/workflows/go.yml">
+    <img src="https://img.shields.io/github/actions/workflow/status/virbicoin/go-virbicoin/go.yml?style=flat-square&label=CI" alt="CI">
+  </a>
+  <a href="https://goreportcard.com/report/github.com/virbicoin/go-virbicoin">
+    <img src="https://img.shields.io/badge/Go_Report-A+-brightgreen?style=flat-square&logo=go&logoColor=white" alt="Go Report">
+  </a>
+  <a href="https://pkg.go.dev/github.com/virbicoin/go-virbicoin">
+    <img src="https://img.shields.io/badge/Go_Reference-pkg.go.dev-007D9C?style=flat-square&logo=go&logoColor=white" alt="Go Reference">
+  </a>
+  <img src="https://img.shields.io/badge/Go-≥1.24-00ADD8?style=flat-square&logo=go&logoColor=white" alt="Go">
+  <img src="https://img.shields.io/badge/License-LGPL--3.0-blue?style=flat-square" alt="License: LGPL-3.0">
+</p>
+
+---
+
+Automated builds are available for stable releases and the unstable main branch. Binary
 archives are published at https://github.com/virbicoin/go-virbicoin/releases/.
 
 ## Building the source
@@ -35,18 +63,17 @@ directory.
 
 |    Command    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | :-----------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  **`gvbc`**   | Our main Ethereum CLI client. It is the entry point into the Ethereum network (main-, test- or private net), capable of running as a full node (default), archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the Ethereum network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. `gvbc --help` and the [CLI page](https://geth.ethereum.org/docs/interface/command-line-options) for command line options.          |
-|   `abigen`    | Source code generator to convert Ethereum contract definitions into easy to use, compile-time type-safe Go packages. It operates on plain [Ethereum contract ABIs](https://docs.soliditylang.org/en/develop/abi-spec.html) with expanded functionality if the contract bytecode is also available. However, it also accepts Solidity source files, making development much more streamlined. Please see our [Native DApps](https://geth.ethereum.org/docs/dapp/native-bindings) page for details. |
+|  **`gvbc`**   | Our main VirBiCoin CLI client. It is the entry point into the VirBiCoin network (main-, test- or private net), capable of running as a full node (default), archive node (retaining all historical state) or a light node (retrieving data live). It can be used by other processes as a gateway into the VirBiCoin network via JSON RPC endpoints exposed on top of HTTP, WebSocket and/or IPC transports. `gvbc --help` and the [CLI page](https://github.com/virbicoin/go-virbicoin/wiki/Command-Line-Options) for command line options.          |
+|   `abigen`    | Source code generator to convert Ethereum contract definitions into easy to use, compile-time type-safe Go packages. It operates on plain [Ethereum contract ABIs](https://docs.soliditylang.org/en/develop/abi-spec.html) with expanded functionality if the contract bytecode is also available. However, it also accepts Solidity source files, making development much more streamlined. Please see our [Native DApps](https://github.com/virbicoin/go-virbicoin/wiki/Native-Bindings) page for details. |
 |  `bootnode`   | Stripped down version of our Ethereum client implementation that only takes part in the network node discovery protocol, but does not run any of the higher level application protocols. It can be used as a lightweight bootstrap node to aid in finding peers in private networks.                                                                                                                                                                                                                                                                 |
 |     `evm`     | Developer utility version of the EVM (Ethereum Virtual Machine) that is capable of running bytecode snippets within a configurable environment and execution mode. Its purpose is to allow isolated, fine-grained debugging of EVM opcodes (e.g. `evm --code 60ff60ff --debug run`).                                                                                                                                                                                                                                                                     |
-| `gethrpctest` | Developer utility tool to support our [ethereum/rpc-test](https://github.com/ethereum/rpc-tests) test suite which validates baseline conformity to the [Ethereum JSON RPC](https://eth.wiki/json-rpc/API) specs. Please see the [test suite's readme](https://github.com/ethereum/rpc-tests/blob/master/README.md) for details.                                                                                                                                                                                                     |
-|   `rlpdump`   | Developer utility tool to convert binary RLP ([Recursive Length Prefix](https://eth.wiki/en/fundamentals/rlp)) dumps (data encoding used by the Ethereum protocol both network as well as consensus wise) to user-friendlier hierarchical representation (e.g. `rlpdump --hex CE0183FFFFFFC4C304050583616263`).                                                                                                                                                                                                                                 |
+|   `rlpdump`   | Developer utility tool to convert binary RLP ([Recursive Length Prefix](https://virbicoin.com/docs/rlp)) dumps (data encoding used by the Ethereum protocol both network as well as consensus wise) to user-friendlier hierarchical representation (e.g. `rlpdump --hex CE0183FFFFFFC4C304050583616263`).                                                                                                                                                                                                                                 |
 |   `puppeth`   | a CLI wizard that aids in creating a new Ethereum network.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 ## Running `gvbc`
 
 Going through all the possible command line flags is out of scope here (please consult our
-[CLI Wiki page](https://geth.ethereum.org/docs/interface/command-line-options)),
+[CLI Wiki page](https://github.com/virbicoin/go-virbicoin/wiki/Command-Line-Options)),
 but we've enumerated a few common parameter combos to get you up to speed quickly
 on how you can run your own `gvbc` instance.
 
@@ -65,9 +92,9 @@ This command will:
  * Start `gvbc` in fast sync mode (default, can be changed with the `--syncmode` flag),
    causing it to download more data in exchange for avoiding processing the entire history
    of the Ethereum network, which is very CPU intensive.
- * Start up `gvbc`'s built-in interactive [JavaScript console](https://geth.ethereum.org/docs/interface/javascript-console),
+ * Start up `gvbc`'s built-in interactive [JavaScript console](https://github.com/virbicoin/go-virbicoin/wiki/JavaScript-Console),
    (via the trailing `console` subcommand) through which you can invoke all official [`web3` methods](https://web3js.readthedocs.io/en/)
-   as well as `gvbc`'s own [management APIs](https://geth.ethereum.org/docs/rpc/server).
+   as well as `gvbc`'s own [management APIs](https://github.com/virbicoin/go-virbicoin/wiki/JSON-RPC-Server).
    This tool is optional and if you leave it out you can always attach to an already running
    `gvbc` instance with `gvbc attach`.
 
@@ -169,8 +196,8 @@ accessible from the outside.
 
 As a developer, sooner rather than later you'll want to start interacting with `gvbc` and the
 Ethereum network via your own programs and not manually through the console. To aid
-this, `gvbc` has built-in support for a JSON-RPC based APIs ([standard APIs](https://eth.wiki/json-rpc/API)
-and [`gvbc` specific APIs](https://geth.ethereum.org/docs/rpc/server)).
+this, `gvbc` has built-in support for a JSON-RPC based APIs ([standard APIs](https://virbicoin.com/docs/json-rpc)
+and [`gvbc` specific APIs](https://github.com/virbicoin/go-virbicoin/wiki/JSON-RPC-Server)).
 These can be exposed via HTTP, WebSockets and IPC (UNIX sockets on UNIX based
 platforms, and named pipes on Windows).
 
@@ -276,7 +303,7 @@ $ bootnode --genkey=boot.key
 $ bootnode --nodekey=boot.key
 ```
 
-With the bootnode online, it will display an [`enode` URL](https://eth.wiki/en/fundamentals/enode-url-format)
+With the bootnode online, it will display an [`enode` URL](https://virbicoin.com/docs/enode)
 that other nodes can use to connect to it and exchange peer information. Make sure to
 replace the displayed IP address information (most probably `[::]`) with your externally
 accessible IP to get the actual `enode` URL.
@@ -328,7 +355,7 @@ from anyone on the internet, and are grateful for even the smallest of fixes!
 
 If you'd like to contribute to go-virbicoin, please fork, fix, commit and send a pull request
 for the maintainers to review and merge into the main code base. If you wish to submit
-more complex changes though, please check up with the core devs first on [our gitter channel](https://gitter.im/virbicoin/go-virbicoin)
+more complex changes though, please check up with the core devs first on [our issue tracker](https://github.com/virbicoin/go-virbicoin/issues)
 to ensure those changes are in line with the general philosophy of the project and/or get
 some early feedback which can make both your efforts much lighter as well as our review
 and merge procedures quick and simple.
@@ -339,11 +366,11 @@ Please make sure your contributions adhere to our coding guidelines:
    guidelines (i.e. uses [gofmt](https://golang.org/cmd/gofmt/)).
  * Code must be documented adhering to the official Go [commentary](https://golang.org/doc/effective_go.html#commentary)
    guidelines.
- * Pull requests need to be based on and opened against the `master` branch.
+ * Pull requests need to be based on and opened against the `main` branch.
  * Commit messages should be prefixed with the package(s) they modify.
    * E.g. "eth, rpc: make trace configs optional"
 
-Please see the [Developers' Guide](https://geth.ethereum.org/docs/developers/devguide)
+Please see the [Developers' Guide](https://github.com/virbicoin/go-virbicoin/wiki/Developers-Guide)
 for more details on configuring your environment, managing project dependencies, and
 testing procedures.
 

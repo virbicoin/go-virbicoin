@@ -6,12 +6,12 @@ Please see [Releases](https://github.com/virbicoin/go-virbicoin/releases). We re
 
 ## Audit reports
 
-Audit reports are published in the `docs` folder: https://github.com/virbicoin/go-virbicoin/tree/master/docs/audits 
+Audit reports are published in the `docs` folder: https://github.com/virbicoin/go-virbicoin/tree/main/docs/audits 
 
 | Scope | Date | Report Link |
 | ------- | ------- | ----------- |
-| `geth` | 20170425 | [pdf](https://github.com/virbicoin/go-virbicoin/blob/master/docs/audits/2017-04-25_Geth-audit_Truesec.pdf) |
-| `clef` | 20180914 | [pdf](https://github.com/virbicoin/go-virbicoin/blob/master/docs/audits/2018-09-14_Clef-audit_NCC.pdf) |
+| `geth` | 20170425 | [pdf](https://github.com/virbicoin/go-virbicoin/blob/main/docs/audits/2017-04-25_Geth-audit_Truesec.pdf) |
+| `clef` | 20180914 | [pdf](https://github.com/virbicoin/go-virbicoin/blob/main/docs/audits/2018-09-14_Clef-audit_NCC.pdf) |
 
 ## Reporting a Vulnerability
 
@@ -19,7 +19,7 @@ Audit reports are published in the `docs` folder: https://github.com/virbicoin/g
 
 To find out how to disclose a vulnerability in Ethereum visit [https://bounty.ethereum.org](https://bounty.ethereum.org) or email bounty@ethereum.org. Please read the [disclosure page](https://github.com/virbicoin/go-virbicoin/security/advisories?state=published) for more information about publically disclosed security vulnerabilities.
 
-Use the built-in `geth version-check` feature to check whether the software is affected by any known vulnerability. This command will fetch the latest [`vulnerabilities.json`](https://geth.ethereum.org/docs/vulnerabilities/vulnerabilities.json) file which contains known security vulnerabilities concerning `geth`, and cross-check the data against its own version number.
+Use the built-in `gvbc version-check` feature to check whether the software is affected by any known vulnerability. This command will fetch the latest [`vulnerabilities.json`](https://geth.ethereum.org/docs/vulnerabilities/vulnerabilities.json) file which contains known security vulnerabilities concerning `gvbc`, and cross-check the data against its own version number.
 
 The following key may be used to communicate sensitive information to developers.
 

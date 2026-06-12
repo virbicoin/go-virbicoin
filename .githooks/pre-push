@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+# Pre-push hook: mirror CI (make gvbc) before pushing.
+# Enable with: git config core.hooksPath .githooks
+
+echo "> pre-push: building gvbc (same as CI)..."
+if ! make gvbc; then
+  echo ""
+  echo "x Build failed; push aborted."
+  exit 1
+fi
+echo "+ pre-push: build succeeded."
