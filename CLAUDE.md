@@ -144,6 +144,11 @@ main 取り込み → stable 化コミット → タグ push → 既存ドラフ
 → main を次パッチ unstable に更新、までを一括で行います。`GITHUB_TOKEN` は
 `~/.gvbc_token.env` から自動で読み込まれます。
 
+release/X.Y の stable 化コミットと main のパッチ番号更新は、どちらも `params/version.go` の
+同じ const ブロックを書き換えるため、main の取り込みはこのファイルで毎回競合します
+（v1.9.40 では手で解決しました）。スクリプトは競合がこの 1 ファイルだけなら main 側を採用して
+続行し（直後の手順で stable に固定）、ほかのファイルが競合したらマージを取り消して止まります。
+
 ## CI
 
 継続的インテグレーションは GitHub Actions（`.github/workflows/go.yml`）で実行され
