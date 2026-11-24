@@ -38,29 +38,22 @@ func TestCreation(t *testing.T) {
 		genesis common.Hash
 		cases   []testcase
 	}{
-		// Mainnet test cases
+		// VirBiCoin mainnet, including reward reductions.
 		{
 			params.MainnetChainConfig,
 			params.MainnetGenesisHash,
 			[]testcase{
-				{0, ID{Hash: checksumToBytes(0xfc64ec04), Next: 100}},           // Unsynced
-				{0, ID{Hash: checksumToBytes(0xfc64ec04), Next: 0}},             // Last Frontier block
-				{0, ID{Hash: checksumToBytes(0x97c2c34c), Next: 0}},             // First Homestead block
-				{0, ID{Hash: checksumToBytes(0x97c2c34c), Next: 0}},             // Last Homestead block
-				{0, ID{Hash: checksumToBytes(0x91d1f948), Next: 0}},             // First DAO block
-				{0, ID{Hash: checksumToBytes(0x91d1f948), Next: 0}},             // Last DAO block
-				{0, ID{Hash: checksumToBytes(0x7a64da13), Next: 0}},             // First Tangerine block
-				{99, ID{Hash: checksumToBytes(0x7a64da13), Next: 100}},          // Last Tangerine block
-				{100, ID{Hash: checksumToBytes(0x3edd5b10), Next: 4370000}},     // First Spurious block
-				{4369999, ID{Hash: checksumToBytes(0x3edd5b10), Next: 4370000}}, // Last Spurious block
-				{4370000, ID{Hash: checksumToBytes(0xa00bc324), Next: 7280000}}, // First Byzantium block
-				{7279999, ID{Hash: checksumToBytes(0xa00bc324), Next: 7280000}}, // Last Byzantium block
-				{7280000, ID{Hash: checksumToBytes(0x668db0af), Next: 9069000}}, // First and last Constantinople, first Petersburg block
-				{9068999, ID{Hash: checksumToBytes(0x668db0af), Next: 9069000}}, // Last Petersburg block
-				{9069000, ID{Hash: checksumToBytes(0x879d6e30), Next: 9200000}}, // First Istanbul and first Muir Glacier block
-				{9199999, ID{Hash: checksumToBytes(0x879d6e30), Next: 9200000}}, // Last Istanbul and first Muir Glacier block
-				{9200000, ID{Hash: checksumToBytes(0xe029e991), Next: 0}},       // First Muir Glacier block
-				{10000000, ID{Hash: checksumToBytes(0xe029e991), Next: 0}},      // Future Muir Glacier block
+				{0, ID{Hash: checksumToBytes(0xf5da9347), Next: 4200000}},
+				{4199999, ID{Hash: checksumToBytes(0xf5da9347), Next: 4200000}},
+				{4200000, ID{Hash: checksumToBytes(0xb1f5e1df), Next: 6300000}},
+				{6300000, ID{Hash: checksumToBytes(0xfeca00ef), Next: 8400000}},
+				{8400000, ID{Hash: checksumToBytes(0x4d19c844), Next: 10500000}},
+				{10500000, ID{Hash: checksumToBytes(0x2c145385), Next: 12600000}},
+				{12600000, ID{Hash: checksumToBytes(0x38365c02), Next: 14700000}},
+				{14700000, ID{Hash: checksumToBytes(0xcc3f4fb0), Next: 16800000}},
+				{16800000, ID{Hash: checksumToBytes(0x0b9b3d84), Next: 100000000}},
+				{100000000, ID{Hash: checksumToBytes(0xb822c4ee), Next: 500000000}},
+				{500000000, ID{Hash: checksumToBytes(0x8277a1f9), Next: 0}},
 			},
 		},
 		// Ropsten test cases
@@ -133,67 +126,30 @@ func TestValidation(t *testing.T) {
 		id   ID
 		err  error
 	}{
-		// Local is mainnet Petersburg, remote announces the same. No future fork is announced.
-		{7987396, ID{Hash: checksumToBytes(0x668db0af), Next: 0}, nil},
+		// Same fork, with and without a future fork announcement.
+		{8400001, ID{Hash: checksumToBytes(0x4d19c844), Next: 0}, nil},
+		{8400001, ID{Hash: checksumToBytes(0x4d19c844), Next: math.MaxUint64}, nil},
+		{8399999, ID{Hash: checksumToBytes(0xfeca00ef), Next: 8400000}, nil},
+		{8399999, ID{Hash: checksumToBytes(0xfeca00ef), Next: 0}, nil},
+		{8399999, ID{Hash: checksumToBytes(0xfeca00ef), Next: math.MaxUint64}, nil},
 
-		// Local is mainnet Petersburg, remote announces the same. Remote also announces a next fork
-		// at block 0xffffffff, but that is uncertain.
-		{7987396, ID{Hash: checksumToBytes(0x668db0af), Next: math.MaxUint64}, nil},
+		// Peers syncing across a known fork in either direction.
+		{8400001, ID{Hash: checksumToBytes(0xfeca00ef), Next: 8400000}, nil},
+		{8400001, ID{Hash: checksumToBytes(0xb1f5e1df), Next: 6300000}, nil},
+		{8399999, ID{Hash: checksumToBytes(0x4d19c844), Next: 0}, nil},
+		{6299999, ID{Hash: checksumToBytes(0xfeca00ef), Next: 0}, nil},
 
-		// Local is mainnet currently in Byzantium only (so it's aware of Petersburg), remote announces
-		// also Byzantium, but it's not yet aware of Petersburg (e.g. non updated node before the fork).
-		// In this case we don't know if Petersburg passed yet or not.
-		{7279999, ID{Hash: checksumToBytes(0xa00bc324), Next: 0}, nil},
+		// A peer on the previous fork must know the local activation block.
+		{8400000, ID{Hash: checksumToBytes(0xfeca00ef), Next: 8400000}, nil},
+		{8400000, ID{Hash: checksumToBytes(0xfeca00ef), Next: 0}, ErrRemoteStale},
+		{8400001, ID{Hash: checksumToBytes(0xfeca00ef), Next: 0}, ErrRemoteStale},
 
-		// Local is mainnet currently in Byzantium only (so it's aware of Petersburg), remote announces
-		// also Byzantium, and it's also aware of Petersburg (e.g. updated node before the fork). We
-		// don't know if Petersburg passed yet (will pass) or not.
-		{7279999, ID{Hash: checksumToBytes(0xa00bc324), Next: 7280000}, nil},
-
-		// Local is mainnet currently in Byzantium only (so it's aware of Petersburg), remote announces
-		// also Byzantium, and it's also aware of some random fork (e.g. misconfigured Petersburg). As
-		// neither forks passed at neither nodes, they may mismatch, but we still connect for now.
-		{7279999, ID{Hash: checksumToBytes(0xa00bc324), Next: math.MaxUint64}, nil},
-
-		// Local is mainnet Petersburg, remote announces Byzantium + knowledge about Petersburg. Remote
-		// is simply out of sync, accept.
-		{7987396, ID{Hash: checksumToBytes(0xa00bc324), Next: 7280000}, nil},
-
-		// Local is mainnet Petersburg, remote announces Spurious + knowledge about Byzantium. Remote
-		// is definitely out of sync. It may or may not need the Petersburg update, we don't know yet.
-		{7987396, ID{Hash: checksumToBytes(0x3edd5b10), Next: 4370000}, nil},
-
-		// Local is mainnet Byzantium, remote announces Petersburg. Local is out of sync, accept.
-		{7279999, ID{Hash: checksumToBytes(0x668db0af), Next: 0}, nil},
-
-		// Local is mainnet Spurious, remote announces Byzantium, but is not aware of Petersburg. Local
-		// out of sync. Local also knows about a future fork, but that is uncertain yet.
-		{4369999, ID{Hash: checksumToBytes(0xa00bc324), Next: 0}, nil},
-
-		// Local is mainnet Petersburg. remote announces Byzantium but is not aware of further forks.
-		// Remote needs software update.
-		{7987396, ID{Hash: checksumToBytes(0xa00bc324), Next: 0}, ErrRemoteStale},
-
-		// Local is mainnet Petersburg, and isn't aware of more forks. Remote announces Petersburg +
-		// 0xffffffff. Local needs software update, reject.
-		{7987396, ID{Hash: checksumToBytes(0x5cddc0e1), Next: 0}, ErrLocalIncompatibleOrStale},
-
-		// Local is mainnet Byzantium, and is aware of Petersburg. Remote announces Petersburg +
-		// 0xffffffff. Local needs software update, reject.
-		{7279999, ID{Hash: checksumToBytes(0x5cddc0e1), Next: 0}, ErrLocalIncompatibleOrStale},
-
-		// Local is mainnet Petersburg, remote is Rinkeby Petersburg.
-		{7987396, ID{Hash: checksumToBytes(0xafec6b27), Next: 0}, ErrLocalIncompatibleOrStale},
-
-		// Local is mainnet Muir Glacier, far in the future. Remote announces Gopherium (non existing fork)
-		// at some future block 88888888, for itself, but past block for local. Local is incompatible.
-		//
-		// This case detects non-upgraded nodes with majority hash power (typical Ropsten mess).
-		{88888888, ID{Hash: checksumToBytes(0xe029e991), Next: 88888888}, ErrLocalIncompatibleOrStale},
-
-		// Local is mainnet Byzantium. Remote is also in Byzantium, but announces Gopherium (non existing
-		// fork) at block 7279999, before Petersburg. Local is incompatible.
-		{7279999, ID{Hash: checksumToBytes(0xa00bc324), Next: 7279999}, ErrLocalIncompatibleOrStale},
+		// Unknown checksums and remote-only forks already reached locally.
+		{8400001, ID{Hash: checksumToBytes(0x5cddc0e1), Next: 0}, ErrLocalIncompatibleOrStale},
+		{8399999, ID{Hash: checksumToBytes(0x5cddc0e1), Next: 0}, ErrLocalIncompatibleOrStale},
+		{8400001, ID{Hash: checksumToBytes(0xafec6b27), Next: 0}, ErrLocalIncompatibleOrStale},
+		{588888888, ID{Hash: checksumToBytes(0x8277a1f9), Next: 588888888}, ErrLocalIncompatibleOrStale},
+		{8399999, ID{Hash: checksumToBytes(0xfeca00ef), Next: 8399999}, ErrLocalIncompatibleOrStale},
 	}
 	for i, tt := range tests {
 		filter := newFilter(params.MainnetChainConfig, params.MainnetGenesisHash, func() uint64 { return tt.head })
@@ -211,7 +167,7 @@ func TestEncoding(t *testing.T) {
 		want []byte
 	}{
 		{ID{Hash: checksumToBytes(0), Next: 0}, common.Hex2Bytes("c6840000000080")},
-		{ID{Hash: checksumToBytes(0xdeadbeef), Next: 0xBADDCAFE}, common.Hex2Bytes("ca84deadbeef84baddcafe,")},
+		{ID{Hash: checksumToBytes(0xdeadbeef), Next: 0xBADDCAFE}, common.Hex2Bytes("ca84deadbeef84baddcafe")},
 		{ID{Hash: checksumToBytes(math.MaxUint32), Next: math.MaxUint64}, common.Hex2Bytes("ce84ffffffff88ffffffffffffffff")},
 	}
 	for i, tt := range tests {

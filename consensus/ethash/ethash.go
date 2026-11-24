@@ -25,7 +25,6 @@ import (
 	"math/rand"
 	"os"
 	"path/filepath"
-	"reflect"
 	"runtime"
 	"strconv"
 	"sync"
@@ -34,11 +33,11 @@ import (
 	"unsafe"
 
 	"github.com/edsrzf/mmap-go"
+	"github.com/hashicorp/golang-lru/simplelru"
 	"github.com/virbicoin/go-virbicoin/consensus"
 	"github.com/virbicoin/go-virbicoin/log"
 	"github.com/virbicoin/go-virbicoin/metrics"
 	"github.com/virbicoin/go-virbicoin/rpc"
-	"github.com/hashicorp/golang-lru/simplelru"
 )
 
 var ErrInvalidDumpMagic = errors.New("invalid dump magic")
@@ -103,12 +102,12 @@ func memoryMapFile(file *os.File, write bool) (mmap.MMap, []uint32, error) {
 	if err != nil {
 		return nil, nil, err
 	}
-	// Yay, we managed to memory map the file, here be dragons
-	header := *(*reflect.SliceHeader)(unsafe.Pointer(&mem))
-	header.Len /= 4
-	header.Cap /= 4
-
-	return mem, *(*[]uint32)(unsafe.Pointer(&header)), nil
+	if len(mem) < len(dumpMagic)*4 || len(mem)%4 != 0 {
+		mem.Unmap()
+		return nil, nil, ErrInvalidDumpMagic
+	}
+	words := unsafe.Slice((*uint32)(unsafe.Pointer(unsafe.SliceData(mem))), len(mem)/4)
+	return mem, words, nil
 }
 
 // memoryMapAndGenerate tries to memory map a temporary file of uint32s for write

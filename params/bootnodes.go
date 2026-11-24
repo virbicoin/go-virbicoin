@@ -19,7 +19,7 @@ package params
 import "github.com/virbicoin/go-virbicoin/common"
 
 // MainnetBootnodes are the enode URLs of the P2P bootstrap nodes running on
-// the main Ethereum network.
+// the VirBiCoin mainnet.
 var MainnetBootnodes = []string{
 
 	// VirBiCoin Official Go Bootnodes
@@ -57,8 +57,6 @@ const dnsPrefix = "enrtree://AKA3AM6LPBYEUDMVNU3BSVQJ5AD45Y7YPOHJLEF6W26QOE4VTUD
 func KnownDNSNetwork(genesis common.Hash, protocol string) string {
 	var net string
 	switch genesis {
-	case MainnetGenesisHash:
-		net = "mainnet"
 	case RopstenGenesisHash:
 		net = "ropsten"
 	case RinkebyGenesisHash:
