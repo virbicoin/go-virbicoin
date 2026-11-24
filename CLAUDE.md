@@ -11,7 +11,7 @@ go-virbicoin は VirBiCoin プロトコルの公式 Go 実装です。go-ethereu
 
 - モジュールパス: `github.com/virbicoin/go-virbicoin`
 - メインエントリポイント: `./cmd/gvbc`
-- Go バージョン: `go 1.24.0` / `toolchain go1.24.5`（`go.mod` を参照）
+- Go バージョン: `go 1.24.0` / `toolchain go1.26.4`（`go.mod` を参照）
 
 ## ビルドと主要コマンド
 
