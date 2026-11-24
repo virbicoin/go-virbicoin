@@ -126,8 +126,7 @@ func newFilter(config *params.ChainConfig, genesis common.Hash, headfn func() ui
 		hash = checksumUpdate(hash, fork)
 		sums[i+1] = checksumToBytes(hash)
 	}
-	// Add two sentries to simplify the fork checks and don't require special
-	// casing the last one.
+	// The final entry represents the state after all configured forks.
 	forks = append(forks, math.MaxUint64) // Last fork will never be passed
 
 	// Create a validator that will filter out incompatible chains
@@ -153,9 +152,8 @@ func newFilter(config *params.ChainConfig, genesis common.Hash, headfn func() ui
 		//   4. Reject in all other cases.
 		head := headfn()
 		for i, fork := range forks {
-			// If our head is beyond this fork, continue to the next (we have a dummy
-			// fork of maxuint64 as the last item to always fail this check eventually).
-			if head > fork {
+			// A configured fork is active from its block onward, as in NewID.
+			if i < len(forks)-1 && head >= fork {
 				continue
 			}
 			// Found the first unpassed fork block, check if our current state matches
