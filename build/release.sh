@@ -77,6 +77,24 @@ NEXT_TAG="v${MAJOR}.${MINOR}.${NEXT_PATCH}"
 cleanup() { git checkout main >/dev/null 2>&1 || true; }
 trap cleanup EXIT
 
+# release/X.Y carries the stable flip and main carries the next patch bump. Both
+# edit the same const block of version.go, so the merge conflicts on that file
+# (v1.9.40 stopped here). Take main's copy, which step 2 then pins to stable;
+# any other conflict needs a person.
+merge_main() {
+  git merge --no-edit main && return 0
+  local conflicts
+  conflicts="$(git diff --name-only --diff-filter=U)"
+  if [[ "$conflicts" != "$VERSION_FILE" ]]; then
+    git merge --abort
+    err "Merging main into ${RELEASE_BRANCH} conflicts outside ${VERSION_FILE}: $(echo $conflicts). Merge by hand, push ${RELEASE_BRANCH}, then rerun."
+  fi
+  log "  ${VERSION_FILE} conflicts as expected; taking main's copy"
+  git checkout --theirs "$VERSION_FILE"
+  git add "$VERSION_FILE"
+  git commit --no-edit
+}
+
 # --- 0) Fetch latest ---
 log "[0/6] Fetch the latest from the remote"
 run "git fetch origin --prune"
@@ -85,7 +103,7 @@ run "git fetch origin --prune"
 log "[1/6] Merge main into ${RELEASE_BRANCH}"
 if git show-ref --verify --quiet "refs/remotes/origin/${RELEASE_BRANCH}"; then
   run "git checkout -B \"$RELEASE_BRANCH\" \"origin/${RELEASE_BRANCH}\""
-  run "git merge --no-edit main"
+  run "merge_main"
 else
   log "  ${RELEASE_BRANCH} does not exist; creating it from main"
   run "git checkout -B \"$RELEASE_BRANCH\" main"
