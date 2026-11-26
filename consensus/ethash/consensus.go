@@ -46,13 +46,13 @@ var (
 	allowedFutureBlockTimeSeconds = int64(15)         // Max seconds from current time allowed for blocks, before they're considered future blocks
 
 	// VirBiCoin reward reduction parameters
-	// Reward decreases by 1 VBC every 2,100,000 blocks (~2 years at 12s/block)
+	// Reward decreases by 1 VBC every 2,100,000 blocks (about 10 months at 12 s/block; mainnet has averaged about 13.4 s, so about 11 months)
 	// First reduction at block 4,200,000, then every 2,100,000 blocks
 	// Schedule: 8 -> 7 -> 6 -> 5 -> 4 -> 3 -> 2 -> 1 VBC (minimum 1 VBC)
-	RewardReductionInterval = big.NewInt(2100000)  // Reduce reward every 2,100,000 blocks
-	FirstReductionBlock     = big.NewInt(4200000)  // First reduction at block 4,200,000
-	MinimumBlockReward      = big.NewInt(1e+18)    // Minimum reward: 1 VBC
-	OneVBC                  = big.NewInt(1e+18)    // 1 VBC in wei
+	RewardReductionInterval = big.NewInt(2100000) // Reduce reward every 2,100,000 blocks
+	FirstReductionBlock     = big.NewInt(4200000) // First reduction at block 4,200,000
+	MinimumBlockReward      = big.NewInt(1e+18)   // Minimum reward: 1 VBC
+	OneVBC                  = big.NewInt(1e+18)   // 1 VBC in wei
 
 	// calcDifficultyEip2384 is the difficulty adjustment algorithm as specified by EIP 2384.
 	// It offsets the bomb 4M blocks from Constantinople, so in total 9M blocks.
@@ -622,7 +622,7 @@ var (
 )
 
 // calcBlockReward calculates the block reward with gradual reduction schedule.
-// First reduction at block 4,200,000, then every 2,100,000 blocks (~2 years at 12s/block).
+// First reduction at block 4,200,000, then every 2,100,000 blocks (about 10 months at 12 s/block; mainnet has averaged about 13.4 s, so about 11 months).
 // Reward schedule:
 //   - Block 0 - 4,199,999: 8 VBC
 //   - Block 4,200,000 - 6,299,999: 7 VBC
